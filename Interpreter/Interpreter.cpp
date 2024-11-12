@@ -74,6 +74,7 @@ vector<string> Interpreter::parseInput(const string& input)
     else
     {
         tokens.push_back(input);
+        tokens.push_back("");
     }
 
 

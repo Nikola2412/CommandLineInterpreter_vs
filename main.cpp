@@ -3,11 +3,12 @@
 int main()
 {
     //Interpreter interpreter;
+    ios_base::sync_with_stdio(false);
 
-    std::string str;
+    string str;
 
     while (1) {
-        std::cout << Interpreter::Instance().getSymbol() << " ";
+        cout << Interpreter::Instance().getSymbol() << " ";
         if (!getline(std::cin, str) || str == "exit") break;
         Interpreter::Instance().interpret(str);
     }

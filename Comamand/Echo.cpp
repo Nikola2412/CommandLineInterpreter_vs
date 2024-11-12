@@ -14,9 +14,16 @@
 
 
 void Echo::execute(const std::string& args, std::string& input){
-    std::cout << args << "\n";
+    //std::cout << args << "\n";
 
     if (args.empty()) {
+        string value = "";
+        char c;
+        while (std::cin.get(c)) {
+            if (c == '\x1a') break;
+            value += c;
+        }
+        cout << value << endl;
         return;
     }
 

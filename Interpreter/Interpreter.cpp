@@ -28,15 +28,12 @@ void Interpreter::interpret(const string& input){
     auto args = parseInput(input);
     if (args.empty()) return;
 
-    string commandName = args[0];
-
-    if (commandName != "prompt") {
-
-        if (hasInvalidCharacters(input, errorPositions)) {
-            printError(input, errorPositions);
-            return;
-        }
+    if (hasInvalidCharacters(input, errorPositions)) {
+        printError(input, errorPositions);
+        return;
     }
+
+    string commandName = args[0];
 
     if (commands.find(commandName) != commands.end()) {
         commands[commandName]->execute({ args[1] },pipe_input);
@@ -84,9 +81,12 @@ vector<string> Interpreter::parseInput(const string& input)
 bool Interpreter::hasInvalidCharacters(const string& input, vector<int> &errorPositions) {
     bool err = false;
 
+    bool count = true;
+
     for (int i = 0; i < input.size(); ++i) {
         char c = input[i];
-        if (valid_chars.find(c) == string::npos && !isspace(c)) {
+        if (c == '"') count = !count;
+        if (count && valid_chars.find(c) == string::npos && !isspace(c)) {
             errorPositions.push_back(i);
             err = true;
         }

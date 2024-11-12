@@ -7,9 +7,9 @@
 
 class WCCommand : public Command {
 public:
-    virtual void execute(const std::string& args, std::string& input);
+    virtual void execute(const string& args, string& input);
 private:
-    void WorldCount(const std::vector<std::string>&);
-    void CharacterCount(const std::vector<std::string>&);
+    size_t WorldCount(const string&);
+    size_t CharacterCount(const string&);
 };
 #endif

@@ -17,7 +17,6 @@ public:
 
     std::string getSymbol();
 
-
 private:
     Interpreter();
 

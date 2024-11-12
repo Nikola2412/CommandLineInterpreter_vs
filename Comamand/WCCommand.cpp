@@ -1,10 +1,3 @@
-#include <iostream>
-#include <fstream>
-#include <sstream>
-#include <vector>
-#include <string>
-#include <memory>
-
 #include "WCCommand.h"
 
 
@@ -17,6 +10,10 @@ void WCCommand::execute(const string& args, string& input) {
 		return;
 	}
 	string opt = args.substr(0, 2);
+	if (args.size() < 3) {
+		MultipleLines(opt);
+		return;
+	}
 	size_t pos1 = args.find('"');
 	size_t x = 0;
 	if (pos1 != string::npos){
@@ -30,6 +27,15 @@ void WCCommand::execute(const string& args, string& input) {
 		cout << "Fajl" << endl;
 	}
 	cout << x << endl;
+}
+
+
+void WCCommand::MultipleLines(const string& opt){
+	string str;
+	while ((str = getCommandLine()).size() != 0) {
+		if (opt == "-w") cout << WorldCount(str) << endl;
+		else if (opt == "-c") cout << CharacterCount(str) << endl;
+	}
 }
 
 size_t WCCommand::WorldCount(const string& input){

@@ -1,8 +1,4 @@
 #include "Echo.h"
-#include <iostream>
-#include <vector>
-#include <string>
-#include <fstream>
 
 
 //void Echo::execute(const std::vector<std::string>& args, std::string* input) {

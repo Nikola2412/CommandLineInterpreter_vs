@@ -1,8 +1,5 @@
 #include "Touch.h"
 
-#include <iostream>
-#include <fstream>
-
 void Touch::execute(const std::string& args, std::string& input){
 
     std::ifstream file(args);

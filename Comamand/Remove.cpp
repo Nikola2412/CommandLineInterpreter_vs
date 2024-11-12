@@ -1,5 +1,4 @@
 #include "Remove.h"
-#include <cstdio>
 
 void Remove::execute(const std::string& args, std::string& input){
     int status = remove(args.c_str());

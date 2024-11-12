@@ -1,7 +1,3 @@
-#include <fstream>
-#include <iostream>
-
-
 #include "Truncate.h"
 
 void Truncate::execute(const std::string& args, std::string& input){

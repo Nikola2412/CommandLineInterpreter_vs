@@ -1,0 +1,4 @@
+date
+dsa
+time
+touch test.txt

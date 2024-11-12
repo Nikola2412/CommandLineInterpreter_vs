@@ -8,7 +8,6 @@
 #include <sstream>
 #include <memory>
 
-
 using namespace std;
 
 class Command {
@@ -17,5 +16,6 @@ public:
     virtual void execute(const std::string& args, std::string& input) = 0;
 protected:
     string getCommandLine();
+    string CommandInput();
 };
 #endif // !Command_h

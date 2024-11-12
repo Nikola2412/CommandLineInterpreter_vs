@@ -1,7 +1,5 @@
 #include "Interpreter.h"
 
-using namespace std;
-
 Interpreter& Interpreter::Instance()
 {
     static Interpreter interpreter;

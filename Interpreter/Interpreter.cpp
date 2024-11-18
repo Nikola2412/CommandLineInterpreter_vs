@@ -21,6 +21,7 @@ Interpreter::Interpreter() : symbol("$") {
 
 
 void Interpreter::interpret(const string& input){
+    if (input == "") return;
     vector<int> errorPositions;
     string pipe_input = "";
     auto args = parseInput(input);

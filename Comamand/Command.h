@@ -8,14 +8,16 @@
 #include <sstream>
 #include <memory>
 
+#include "../Reader/Reader.h"
+
 using namespace std;
 
 class Command {
 public:
-    //virtual void execute(const std::vector<std::string>& args, std::string* input) = 0;
     virtual void execute(const std::string& args, std::string& input) = 0;
 protected:
     string getCommandLine();
     string CommandInput();
+    Reader* reader;
 };
 #endif // !Command_h

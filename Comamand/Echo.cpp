@@ -8,12 +8,17 @@
 //}
 
 
-
 void Echo::execute(const std::string& args, std::string& input){
     //std::cout << args << "\n";
 
     if (args.empty()) {
-        cout << CommandInput() << endl;
+        //cout << CommandInput() << endl;
+        reader = new CommandReader();
+        vector<string> v;
+        while(!reader->endOfRead())
+            v.push_back(reader->getNextLine());
+        for (auto x : v)
+            cout << x << endl;
         return;
     }
 
@@ -22,7 +27,7 @@ void Echo::execute(const std::string& args, std::string& input){
         std::cout << args.substr(1, n - 2) << std::endl;
     else
     {
-        std::ifstream file(args);
+        /*std::ifstream file(args);
         std::string line;
 
         if (file.is_open()) {
@@ -30,6 +35,10 @@ void Echo::execute(const std::string& args, std::string& input){
                 std::cout << line << std::endl;
             }
             file.close();
-        }
+        }*/
+        reader = new FileReader(args);
+        while (!reader->endOfRead())
+            cout << reader->getNextLine() << endl;
+
     }
 }

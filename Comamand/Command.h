@@ -15,9 +15,10 @@ using namespace std;
 class Command {
 public:
     virtual void execute(const std::string& args, std::string& input) = 0;
+    virtual ~Command();
 protected:
     string getCommandLine();
     string CommandInput();
-    Reader* reader;
+    Reader* reader = nullptr;
 };
-#endif // !Command_h
+#endif

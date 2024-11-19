@@ -7,6 +7,7 @@
 
 class WCCommand : public Command {
 public:
+    ~WCCommand();
     virtual void execute(const string& args, string& input);
 private:
     void MultipleLines(const string&);

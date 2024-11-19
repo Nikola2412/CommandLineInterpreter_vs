@@ -7,6 +7,7 @@
 //    }
 //}
 
+Echo::~Echo() {}
 
 void Echo::execute(const std::string& args, std::string& input){
     //std::cout << args << "\n";
@@ -15,10 +16,17 @@ void Echo::execute(const std::string& args, std::string& input){
         //cout << CommandInput() << endl;
         reader = new CommandReader();
         vector<string> v;
-        while(!reader->endOfRead())
-            v.push_back(reader->getNextLine());
+        string s;
+        while(!reader->endOfRead() && (s = reader->getNextLine()).size() != 0)
+            v.push_back(s);
+        //do {
+        //    v.push_back(reader->getNextLine());
+        //} while (!reader->endOfRead());
+
         for (auto x : v)
             cout << x << endl;
+        //string s = CommandInput();
+        //cout << s << endl;
         return;
     }
 

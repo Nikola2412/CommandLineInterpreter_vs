@@ -1,6 +1,6 @@
 echo "Hello World"
-echo Hello World
 touch dsada.txt
 time
 date
 rm dsada.txt
+echo input.txt

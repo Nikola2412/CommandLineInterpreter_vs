@@ -1,10 +1,11 @@
 #include "Batch.h"
-#include <fstream>
 
 #include "../Interpreter/Interpreter.h"
 
+Batch::~Batch(){}
+
 void Batch::execute(const std::string& args, std::string& input){
-    std::ifstream file(args);
+    /*std::ifstream file(args);
     std::string line;
 
     if (file.is_open()) {
@@ -12,5 +13,8 @@ void Batch::execute(const std::string& args, std::string& input){
             Interpreter::Instance().interpret(line);
         }
         file.close();
-    }
+    }*/
+    reader = new FileReader(args);
+    while (!reader->endOfRead())
+        Interpreter::Instance().interpret(reader->getNextLine());
 }

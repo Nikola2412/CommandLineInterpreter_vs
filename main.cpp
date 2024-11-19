@@ -3,14 +3,15 @@
 int main()
 {
     //Interpreter interpreter;
-    ios_base::sync_with_stdio(false);
+    //ios_base::sync_with_stdio(false);
 
     string str;
 
     while (1) {
         cout << Interpreter::Instance().getSymbol() << " ";
-        if (!getline(std::cin, str) || str == "exit") break;
+        if (!getline(std::cin, str)) break;
         Interpreter::Instance().interpret(str);
+        cin.clear();
     }
 
     /*char str[512];

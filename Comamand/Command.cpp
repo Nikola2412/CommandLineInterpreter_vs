@@ -1,5 +1,10 @@
 #include "Command.h"
 
+
+Command::~Command(){
+    if (reader) delete reader;
+}
+
 string Command::getCommandLine(){
     string str;
     getline(cin, str);

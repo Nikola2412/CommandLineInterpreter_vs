@@ -3,8 +3,9 @@
 
 #include "Command.h"
 class Batch : public Command {
+public:
+	~Batch();
 	virtual void execute(const std::string& args, std::string& input);
-
 };
 
 #endif

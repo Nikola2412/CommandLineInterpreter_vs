@@ -1,6 +1,8 @@
 #include "WCCommand.h"
 
 
+WCCommand::~WCCommand(){}
+
 void WCCommand::execute(const string& args, string& input) {
 	bool world = false;
 	bool character = false;
@@ -31,10 +33,16 @@ void WCCommand::execute(const string& args, string& input) {
 
 
 void WCCommand::MultipleLines(const string& opt){
-	string str;
-	while ((str = getCommandLine()).size() != 0) {
-		if (opt == "-w") cout << WorldCount(str) << endl;
-		else if (opt == "-c") cout << CharacterCount(str) << endl;
+	//string str;
+	//while ((str = getCommandLine()).size() != 0) {
+	//	if (opt == "-w") cout << WorldCount(str) << endl;
+	//	else if (opt == "-c") cout << CharacterCount(str) << endl;
+	//}
+	reader = new CommandReader();
+	string s;
+	while (!reader->endOfRead() && (s = reader->getNextLine()).size() != 0) {
+		if (opt == "-w") cout << WorldCount(s) << endl;
+		else if (opt == "-c") cout << CharacterCount(s) << endl;
 	}
 }
 

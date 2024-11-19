@@ -2,7 +2,10 @@
 #define READER_H
 
 #include <fstream>
+#include <sstream>
 #include <string>
+
+
 using namespace std;
 
 class Reader {

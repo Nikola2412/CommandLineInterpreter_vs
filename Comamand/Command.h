@@ -1,5 +1,5 @@
-#ifndef Command_h
-#define Command_h
+#ifndef Command_H
+#define Command_H
 
 #include <string>
 #include <vector>
@@ -14,7 +14,7 @@ using namespace std;
 
 class Command {
 public:
-    virtual void execute(const std::string& args, std::string& input) = 0;
+    virtual void execute(const string& args, string& input) = 0;
     virtual ~Command();
 protected:
     //string getCommandLine();

@@ -54,7 +54,10 @@
     <ClCompile Include="Comamand\Head.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Tr.cpp">
+    <ClCompile Include="Comamand\Tr.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Comamand\Counter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -98,7 +101,10 @@
     <ClInclude Include="Comamand\Head.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Tr.h">
+    <ClInclude Include="Comamand\Tr.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Comamand\Counter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

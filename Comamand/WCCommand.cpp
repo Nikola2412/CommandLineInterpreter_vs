@@ -1,13 +1,21 @@
 #include "WCCommand.h"
 
 
+WCCommand::WCCommand() {
+	counters["-w"] = make_unique<WordCounter>();
+	counters["-c"] = make_unique<CharCounter>();
+	counters["-l"] = make_unique<LineCounter>();
+}
+
 WCCommand::~WCCommand(){}
 
 void WCCommand::execute(const string& args, string& input) {
 	//this->test() = "dasdasd";
 	bool world = false;
 	bool character = false;
-	
+	//string c = "-c";
+	//cout << counters[c]->count("das as da sd") << endl;
+	//return;
 	if (args.size() < 1) {
 		cerr << "u stupid" << "\n";
 		return;
@@ -61,100 +69,3 @@ size_t WCCommand::CharacterCount(const string& input){
 	return input.size();
 }
 
-//#include <fstream>
-//void WCCommand::WorldCount(const std::vector<std::string>& args) {
-//	std::string input, output;
-//
-//	size_t cnt = 0;
-//	bool to_count = false;
-//	char c = args[0][0];
-//
-//	if (c != '"') {
-//		if (c == '<') {
-//			input = args[1];
-//		}
-//		else {
-//			input = args[0];
-//		}
-//		std::ifstream inFile(input);
-//		if (!inFile) {
-//			std::cerr << "Error - file not found " << input << std::endl;
-//			return;
-//		}
-//		std::string word;
-//		while (inFile >> word) {
-//			++cnt;
-//		}
-//		inFile.clear();
-//		inFile.seekg(0);
-//
-//	}else{
-//		for (auto x : args) {
-//			++cnt;
-//			if (x[x.size() - 1] == '"') break;
-//		}
-//		if (args[0][args[0].size() - 1] == '"' && args[0].size() - 1 == 1) cnt--;
-//	}
-//
-//	if (args[args.size() - 2] == ">") {
-//		output = args[args.size() - 1];
-//		std::ofstream outFile(output);
-//		if (!outFile) {
-//			std::cerr << "Error - file not found " << output << std::endl;
-//			return;
-//		}
-//		outFile << cnt<<"\n";
-//	}
-//	else
-//	{
-//		std::cout << cnt<<"\n";
-//	}
-//}
-//
-//void WCCommand::CharacterCount(const std::vector<std::string>& args) {
-//	std::string input, output;
-//
-//	size_t cnt = -2;
-//	bool to_count = false;
-//	char c = args[0][0];
-//
-//	if (c != '"') {
-//		if (c == '<') {
-//			input = args[1];
-//		}
-//		else {
-//			input = args[0];
-//		}
-//		std::ifstream inFile(input);
-//		if (!inFile) {
-//			std::cerr << "Error: Could not open input file " << input << std::endl;
-//			return;
-//		}
-//		std::string word;
-//		while (inFile >> word) {
-//			cnt += word.size();
-//		}
-//		inFile.clear();
-//		inFile.seekg(0);
-//	}
-//	else {
-//		for (auto x : args) {
-//			cnt += x.size();
-//			if (x[x.size() - 1] == '"') break;
-//		}
-//	}
-//
-//	if (args[args.size() - 2] == ">") {
-//		output = args[args.size() - 1];
-//		std::ofstream outFile(output);
-//		if (!outFile) {
-//			std::cerr << "Error: Could not open output file " << output << std::endl;
-//			return;
-//		}
-//		outFile << cnt << "\n";
-//	}
-//	else
-//	{
-//		std::cout << cnt << "\n";
-//	}
-//}

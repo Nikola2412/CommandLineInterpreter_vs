@@ -8,3 +8,5 @@
 #include "Truncate.h"
 #include "Remove.h"
 #include "Batch.h"
+#include "Head.h"
+#include "Tr.h"

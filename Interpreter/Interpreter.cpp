@@ -16,7 +16,8 @@ Interpreter::Interpreter() : symbol("$") {
     commands["truncate"] = make_unique<Truncate>();
     commands["rm"] = make_unique<Remove>();
     commands["batch"] = make_unique<Batch>();
-    //commands["head"] = make_unique<Head>();
+    commands["head"] = make_unique<Head>();
+    commands["tr"] = make_unique<Tr>();
 }
 
 

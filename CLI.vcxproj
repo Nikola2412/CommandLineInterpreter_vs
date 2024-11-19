@@ -130,6 +130,7 @@
     <ClCompile Include="Comamand\Batch.cpp" />
     <ClCompile Include="Comamand\Command.cpp" />
     <ClCompile Include="Comamand\Echo.cpp" />
+    <ClCompile Include="Comamand\Head.cpp" />
     <ClCompile Include="Interpreter\Interpreter.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Comamand\WCCommand.cpp" />
@@ -139,12 +140,14 @@
     <ClCompile Include="Comamand\Truncate.cpp" />
     <ClCompile Include="Comamand\Remove.cpp" />
     <ClCompile Include="Reader\Reader.cpp" />
+    <ClCompile Include="Tr.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Comamand\Batch.h" />
     <ClInclude Include="Comamand\Command.h" />
     <ClInclude Include="Comamand\Commands.h" />
     <ClInclude Include="Comamand\Echo.h" />
+    <ClInclude Include="Comamand\Head.h" />
     <ClInclude Include="Interpreter\Interpreter.h" />
     <ClInclude Include="Comamand\WCCommand.h" />
     <ClInclude Include="Comamand\Prompt.h" />
@@ -153,6 +156,7 @@
     <ClInclude Include="Comamand\Truncate.h" />
     <ClInclude Include="Comamand\Remove.h" />
     <ClInclude Include="Reader\Reader.h" />
+    <ClInclude Include="Tr.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="input.txt" />

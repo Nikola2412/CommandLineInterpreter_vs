@@ -17,8 +17,10 @@ public:
     virtual void execute(const std::string& args, std::string& input) = 0;
     virtual ~Command();
 protected:
-    string getCommandLine();
-    string CommandInput();
+    //string getCommandLine();
+    //string CommandInput();
     Reader* reader = nullptr;
+    static string& test();
+
 };
 #endif

@@ -10,7 +10,7 @@
 Echo::~Echo() {}
 
 void Echo::execute(const std::string& args, std::string& input){
-    //std::cout << args << "\n";
+    //std::cout << this->test() << "\n";
 
     if (args.empty()) {
         //cout << CommandInput() << endl;

@@ -4,6 +4,7 @@
 WCCommand::~WCCommand(){}
 
 void WCCommand::execute(const string& args, string& input) {
+	//this->test() = "dasdasd";
 	bool world = false;
 	bool character = false;
 	

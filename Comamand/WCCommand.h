@@ -4,7 +4,7 @@
 
 
 #include "Command.h"
-#include "Counter.h"
+#include "../Comamand/Options/Counter.h"
 
 #include <unordered_map>
 
@@ -15,10 +15,15 @@ public:
     ~WCCommand();
     virtual void execute(const string& args, string& input);
 private:
-    void MultipleLines(const string&);
-    size_t WorldCount(const string&);
-    size_t CharacterCount(const string&);
-    std::unordered_map<std::string, std::unique_ptr<Counter>> counters;
+    void MultipleLines(const string& input);
+
+    void FileInput(const string& input);
+
+    //size_t WorldCount(const string&);
+    //size_t CharacterCount(const string&);
+    unordered_map<string,unique_ptr<Counter>> counters;
+    
+    unique_ptr<Counter> options;
 };
 
 #endif

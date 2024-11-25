@@ -15,15 +15,15 @@ public:
     ~WCCommand();
     virtual void execute(const string& args, string& input);
 private:
-    void MultipleLines(const string& input);
+    void MultipleLines();
 
-    void FileInput(const string& input);
+    void FileInput();
 
     //size_t WorldCount(const string&);
     //size_t CharacterCount(const string&);
-    unordered_map<string,unique_ptr<Counter>> counters;
+    unordered_map<string,shared_ptr<Counter>> counters;
     
-    unique_ptr<Counter> options;
+    shared_ptr<Counter> options;
 };
 
 #endif

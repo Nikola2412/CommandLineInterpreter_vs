@@ -5,15 +5,15 @@ using namespace std;
 Reader::Reader() {}
 Reader::~Reader() {}
 
-CommandReader::CommandReader() {};
-CommandReader::~CommandReader() {};
+ConsoleReader::ConsoleReader() {};
+ConsoleReader::~ConsoleReader() {};
 
-string CommandReader::getNextLine(){
+string ConsoleReader::getNextLine(){
 	string str;
 	getline(cin, str);
 	return str;
 }
-bool CommandReader::endOfRead(){
+bool ConsoleReader::endOfRead(){
 	return cin.eof();
 }
 
@@ -21,14 +21,13 @@ FileReader::FileReader(string filepath) : m_input(nullptr) {
 	std::ifstream file(filepath);
 	if (!file) {
 		file.close();
-		cerr << "File not found" << endl;
+		cerr << "File not found\n" << endl;
 		return;
 	}
 	m_input = new ifstream(filepath);
 }
 
 FileReader::~FileReader() {
-	if (!m_input) return;
 	m_input->close();
 	delete m_input;
 }

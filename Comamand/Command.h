@@ -9,18 +9,22 @@
 #include <memory>
 
 #include "../IO/Reader/Reader.h"
+#include "../IO/Writer/Writer.h"
 
 using namespace std;
 
 class Command {
 public:
+    Command();
+    void reset();
     virtual void execute(const string& args, string& input) = 0;
     virtual ~Command();
 protected:
-    //string getCommandLine();
-    //string CommandInput();
     Reader* reader = nullptr;
-    static string& test();
-
+    Writer* writer = nullptr;
+    static string& Argument();
+    void set(const string arg);
+    void find_input_file(const string arg);
+    void find_output_file(const string arg);
 };
 #endif

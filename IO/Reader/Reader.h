@@ -13,10 +13,10 @@ public:
 	virtual bool endOfRead() = 0;
 };
 
-class CommandReader : public Reader {
+class ConsoleReader : public Reader {
 public:
-	CommandReader();
-	~CommandReader();
+	ConsoleReader();
+	~ConsoleReader();
 
 	virtual string getNextLine();
 	virtual bool endOfRead();

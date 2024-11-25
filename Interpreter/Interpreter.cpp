@@ -37,6 +37,7 @@ void Interpreter::interpret(const string& input){
 
     if (commands.find(commandName) != commands.end()) {
         commands[commandName]->execute({ args[1] },pipe_input);
+        commands[commandName]->reset();
         if (commandName == "prompt") {
             this->symbol = pipe_input;
             return;

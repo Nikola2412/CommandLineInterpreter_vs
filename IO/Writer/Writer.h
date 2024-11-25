@@ -25,6 +25,7 @@ public:
 	virtual void writeLine(const string s);
 private:
 	ofstream* m_output;
+	string path;
 	bool exist();
 };
 

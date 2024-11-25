@@ -1,1 +1,7 @@
-echo "dasdasd"
+dasdasd
+dsf
+sadf
+asdf
+adsf
+s
+df

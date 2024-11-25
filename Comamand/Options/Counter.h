@@ -1,7 +1,9 @@
 #ifndef COUNTER_H
 #define COUNTER_H
 
-#include "../../Reader/Reader.h"
+#include <fstream>
+#include <sstream>
+#include <string>
 
 using namespace std;
 

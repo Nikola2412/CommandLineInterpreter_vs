@@ -48,7 +48,7 @@
     <ClCompile Include="Comamand\Batch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Reader\Reader.cpp">
+    <ClCompile Include="IO\Reader\Reader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Comamand\Head.cpp">
@@ -58,6 +58,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Comamand\Options\Counter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="IO\Writer\Writer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -95,7 +98,7 @@
     <ClInclude Include="Comamand\Batch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Reader\Reader.h">
+    <ClInclude Include="IO\Reader\Reader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Comamand\Head.h">
@@ -105,6 +108,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Comamand\Options\Counter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IO\Writer\Writer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IO\IO.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

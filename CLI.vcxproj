@@ -140,8 +140,9 @@
     <ClCompile Include="Comamand\Touch.cpp" />
     <ClCompile Include="Comamand\Truncate.cpp" />
     <ClCompile Include="Comamand\Remove.cpp" />
-    <ClCompile Include="Reader\Reader.cpp" />
+    <ClCompile Include="IO\Reader\Reader.cpp" />
     <ClCompile Include="Comamand\Tr.cpp" />
+    <ClCompile Include="IO\Writer\Writer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Comamand\Batch.h" />
@@ -157,8 +158,10 @@
     <ClInclude Include="Comamand\Touch.h" />
     <ClInclude Include="Comamand\Truncate.h" />
     <ClInclude Include="Comamand\Remove.h" />
-    <ClInclude Include="Reader\Reader.h" />
+    <ClInclude Include="IO\IO.h" />
+    <ClInclude Include="IO\Reader\Reader.h" />
     <ClInclude Include="Comamand\Tr.h" />
+    <ClInclude Include="IO\Writer\Writer.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="input.txt" />

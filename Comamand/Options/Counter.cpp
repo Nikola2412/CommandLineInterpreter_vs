@@ -1,5 +1,9 @@
 #include "Counter.h"
 
+#include <fstream>
+#include <sstream>
+#include <string>
+
 
 int WordCounter::count(const string& input) {
 	int x = 0;

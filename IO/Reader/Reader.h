@@ -1,21 +1,15 @@
 #ifndef READER_H
 #define READER_H
 
-#include <fstream>
-#include <sstream>
-#include <string>
+#include "../IO.h"
 
-
-using namespace std;
 
 class Reader {
-public:
-
+protected: 
 	Reader();
+public:
 	virtual ~Reader();
-
 	virtual string getNextLine() = 0;
-
 	virtual bool endOfRead() = 0;
 };
 
@@ -26,8 +20,6 @@ public:
 
 	virtual string getNextLine();
 	virtual bool endOfRead();
-private:
-
 };
 
 
@@ -42,6 +34,7 @@ public:
 
 private:
 	ifstream* m_input;
+	bool exist();
 };
 
 #endif

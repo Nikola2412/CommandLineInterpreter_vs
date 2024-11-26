@@ -5,18 +5,18 @@
 
 class  Time_Date: public Command{
 public:
-	virtual void execute(const std::string& args, std::string& input) = 0;
+	virtual void execute(const string& args) = 0;
 protected:
-	virtual tm getTime();
+	tm getTime();
 };
 
 
 class Time : public Time_Date {
-	virtual void execute(const std::string& args, std::string& input);
+	virtual void execute(const string& args);
 };
 
 class Date : public Time_Date {
-	virtual void execute(const std::string& args, std::string& input);
+	virtual void execute(const string& args);
 };
 
 #endif

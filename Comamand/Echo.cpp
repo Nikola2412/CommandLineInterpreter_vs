@@ -3,7 +3,7 @@
 
 Echo::~Echo() {}
 
-void Echo::execute(const std::string& args, std::string& input){
+void Echo::execute(const std::string& args){
     //std::cout << this->test() << "\n";
     this->set(args);
     if (dynamic_cast<ConsoleReader*>(reader)) {

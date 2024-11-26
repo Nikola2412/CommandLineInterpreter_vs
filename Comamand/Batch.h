@@ -5,7 +5,7 @@
 class Batch : public Command {
 public:
 	~Batch();
-	virtual void execute(const std::string& args, std::string& input);
+	virtual void execute(const string& args);
 };
 
 #endif

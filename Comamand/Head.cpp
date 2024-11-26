@@ -4,7 +4,7 @@
 
 Head::~Head(){}
 
-void Head::execute(const string& args, string& input){
+void Head::execute(const string& args){
     regex rgx("-n(\\d{1,5})\\s(.*)");
 
     smatch matches;

@@ -13,13 +13,18 @@ string& Command::Argument() {
     return arg;
 }
 
+bool& Command::PipeLine(){
+    static bool pipe = false;
+    return pipe;
+}
+
 void Command::set(const string arg) {
     if (arg.size() == 0) {
         reader = new ConsoleReader();
         return;
     }
     if (arg[0] == '\"') {
-        size_t end = arg.find_last_of('\"');
+        size_t end = arg.find('\"',1);
         string s = arg.substr(1, end - 1);
         //cout << s << endl;
         this->Argument() = s;

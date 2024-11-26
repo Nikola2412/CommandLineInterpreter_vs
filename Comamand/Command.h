@@ -17,8 +17,9 @@ class Command {
 public:
     Command();
     void reset();
-    virtual void execute(const string& args, string& input) = 0;
+    virtual void execute(const string& args) = 0;
     virtual ~Command();
+    static bool& PipeLine();
 protected:
     Reader* reader = nullptr;
     Writer* writer = nullptr;

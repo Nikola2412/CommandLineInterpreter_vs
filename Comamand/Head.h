@@ -6,7 +6,7 @@
 class Head : public Command {
 public:
 	~Head();
-	void execute(const string& args, string& input);
+	void execute(const string& args);
 };
 
 #endif

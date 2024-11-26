@@ -1,6 +1,6 @@
 #include "Truncate.h"
 
-void Truncate::execute(const std::string& args, std::string& input){
+void Truncate::execute(const string& args){
     std::ofstream outfile(args, std::ios::trunc);
 
     if (outfile.is_open()) {

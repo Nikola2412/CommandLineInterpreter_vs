@@ -6,7 +6,7 @@
 class Echo : public Command{
 public:
     ~Echo();
-    virtual void execute(const std::string& args, std::string& input);
+    virtual void execute(const string& args);
 };
 
 #endif

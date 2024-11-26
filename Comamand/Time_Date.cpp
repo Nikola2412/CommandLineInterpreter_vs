@@ -4,6 +4,7 @@
 #include "Time_Date.h"
 
 tm Time_Date::getTime() {
+    writer = new ConsoleWriter();
     time_t now = time(0);
 
     tm local_time;
@@ -13,7 +14,7 @@ tm Time_Date::getTime() {
 }
 
 
-void Time::execute(const std::string& args, std::string& input){
+void Time::execute(const string& args){
 
     tm local_time = getTime();
     
@@ -21,16 +22,18 @@ void Time::execute(const std::string& args, std::string& input){
 
     strftime(buffer, sizeof(buffer), "%H:%M:%S", &local_time);
 
-    input = buffer;
+    writer->writeLine(buffer);
+    //input = buffer;
 }
 
-void Date::execute(const std::string& args, std::string& input){
+void Date::execute(const string& args){
     tm local_time = getTime();
 
     char buffer[256];
 
     strftime(buffer, sizeof(buffer), "%d.%m.%Y", &local_time);
 
-    input = buffer;
+    writer->writeLine(buffer);
+    //input = buffer;
 }
 

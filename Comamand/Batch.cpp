@@ -4,7 +4,7 @@
 
 Batch::~Batch(){}
 
-void Batch::execute(const std::string& args, std::string& input){
+void Batch::execute(const std::string& args){
     /*std::ifstream file(args);
     std::string line;
 

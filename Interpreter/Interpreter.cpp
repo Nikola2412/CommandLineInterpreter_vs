@@ -24,7 +24,6 @@ Interpreter::Interpreter() : symbol("$") {
 void Interpreter::interpret(const string& input){
     if (input == "") return;
     vector<int> errorPositions;
-    string pipe_input = "";
     auto args = parseInput(input);
     if (args.empty()) return;
 
@@ -36,19 +35,13 @@ void Interpreter::interpret(const string& input){
     string commandName = args[0];
 
     if (commands.find(commandName) != commands.end()) {
-        commands[commandName]->execute({ args[1] },pipe_input);
+        commands[commandName]->execute({ args[1] });
         commands[commandName]->reset();
-        if (commandName == "prompt") {
-            this->symbol = pipe_input;
-            return;
-        }
     }
     else {
         cerr << "Unknown command: " << commandName << endl;
         return;
     }
-    if (pipe_input == "") return;
-    cout << pipe_input << endl;
 }
 
 vector<string> Interpreter::parseInput(const string& input)
@@ -110,6 +103,18 @@ void Interpreter::printError(const string& input, const vector<int>& errorPositi
     cerr << endl;
 }
 
-string Interpreter::getSymbol(){
+string& Interpreter::getSymbol(){
     return this->symbol;
+}
+
+
+vector<string> Interpreter::splitPipeline(const std::string& input) {
+    std::vector<std::string> commands;
+    std::istringstream stream(input);
+    std::string token;
+
+    while (std::getline(stream, token, '|')) {
+        commands.push_back(token);
+    }
+    return commands;
 }

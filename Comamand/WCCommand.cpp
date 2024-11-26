@@ -8,7 +8,7 @@ WCCommand::WCCommand() {
 
 WCCommand::~WCCommand() {}
 
-void WCCommand::execute(const string& args, string& input) {
+void WCCommand::execute(const string& args) {
 	if (args.size() < 1) {
 		cerr << "Missing options" << endl;
 		return;

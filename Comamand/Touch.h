@@ -4,7 +4,7 @@
 #include "Command.h"
 
 class Touch : public Command{
-	virtual void execute(const std::string& args, std::string& input);
+	virtual void execute(const std::string& args);
 };
 
 #endif

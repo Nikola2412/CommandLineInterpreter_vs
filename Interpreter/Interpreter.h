@@ -9,7 +9,8 @@ public:
 
     void interpret(const std::string& args);
 
-    std::string getSymbol();
+    std::string& getSymbol();
+
 
 private:
     Interpreter();
@@ -25,5 +26,7 @@ private:
     bool hasInvalidCharacters(const std::string& input, std::vector<int>& errorPositions);
 
     void printError(const std::string& input, const std::vector<int>& errorPositions);
+
+    vector<string> splitPipeline(const std::string& input);
 
 };

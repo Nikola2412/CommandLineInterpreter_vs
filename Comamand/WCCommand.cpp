@@ -20,8 +20,10 @@ void WCCommand::execute(const string& args) {
 	}
 	
 	//if (this->Argument().size() == 0) {
-		string s = args.substr(3);
-		this->set(s);
+	string s = "";
+	if (args.size() > 2)
+		s = args.substr(3);
+	this->set(s);
 	//}
 
 	if (dynamic_cast<ConsoleReader*>(reader)) {

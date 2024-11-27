@@ -7,7 +7,7 @@ class  Time_Date: public Command{
 public:
 	virtual void execute(const string& args) = 0;
 protected:
-	tm getTime();
+	tm getTime(const string& arg);
 };
 
 

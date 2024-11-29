@@ -55,7 +55,6 @@ void WCCommand::FileInput() {
 	while (!reader->endOfRead() && (s = reader->getNextLine()).size() != 0) {
 		x += options->count(s);
 	}
-	cout << "dsdas23134" << endl;
 	writer->writeLine(to_string(x));
 }
 

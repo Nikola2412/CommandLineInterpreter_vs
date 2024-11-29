@@ -21,6 +21,7 @@ bool& Command::PipeLine(){
 void Command::set(const string arg) {
     if (arg.size() == 0) {
         reader = new ConsoleReader();
+        writer = new ConsoleWriter();
         return;
     }
     if (arg[0] == '\"') {
@@ -65,8 +66,6 @@ void Command::find_output_file(const string arg) {
     size_t k = 1;
     if (isspace(arg[end + k])) k++;
     string s = arg.substr(end + k);
-    //cout << s << endl;
-
     writer = new FileWriter(s);
 }
 

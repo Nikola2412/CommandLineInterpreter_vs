@@ -42,9 +42,11 @@ void WCCommand::execute(const string& args) {
 
 void WCCommand::MultipleLines() {
 	string s;
+	int x = 0;
 	while (!reader->endOfRead() && (s = reader->getNextLine()).size() != 0) {
-		cout << options->count(s) << endl;
+		x += options->count(s);
 	}
+	writer->writeLine(to_string(x));
 }
 
 void WCCommand::FileInput() {
@@ -53,6 +55,7 @@ void WCCommand::FileInput() {
 	while (!reader->endOfRead() && (s = reader->getNextLine()).size() != 0) {
 		x += options->count(s);
 	}
+	cout << "dsdas23134" << endl;
 	writer->writeLine(to_string(x));
 }
 

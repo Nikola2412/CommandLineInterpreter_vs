@@ -28,9 +28,7 @@ FileReader::FileReader(string filepath) : m_input(nullptr) {
 }
 
 FileReader::~FileReader() {
-	if (m_input) {
-		delete m_input;
-	}
+	delete m_input;
 }
 
 string FileReader::getNextLine() {

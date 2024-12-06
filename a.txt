@@ -1,3 +1,5 @@
-dasdasd
-dsf
-a
+date
+time
+prompt "*"
+echo "Hello dasdasd"
+batch a.txt

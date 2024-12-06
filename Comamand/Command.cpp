@@ -1,11 +1,11 @@
 #include "Command.h"
 
 
-Command::Command() : reader(new ConsoleReader()), writer (new ConsoleWriter()){}
+Command::Command() : reader(nullptr), writer (nullptr){}
 
 Command::~Command() {
     if (reader) delete reader;
-    if (writer) delete reader;
+    if (writer) delete writer;
 }
 
 string& Command::Argument() {
@@ -21,6 +21,7 @@ bool& Command::PipeLine(){
 void Command::set(const string arg) {
     //cout << arg << endl;
     if (arg.size() == 0) {
+        reader = new ConsoleReader();
         return;
     }
     if (arg[0] == '\"') {
@@ -59,6 +60,7 @@ void Command::find_input_file(const string arg) {
 void Command::find_output_file(const string arg) {
     size_t end = arg.find('>');
     if (end == string::npos) {
+        //cout << "123" << endl;
         writer = new ConsoleWriter();
         return;
     }
@@ -70,7 +72,7 @@ void Command::find_output_file(const string arg) {
 }
 
 void Command::reset(){
-    reader = new ConsoleReader();
-    writer = new ConsoleWriter();
+    reader = nullptr;
+    writer = nullptr;
     this->Argument().clear();
 }

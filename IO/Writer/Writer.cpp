@@ -3,13 +3,9 @@
 Writer::Writer(){}
 Writer::~Writer() {}
 
-ConsoleWriter::ConsoleWriter() {
+ConsoleWriter::ConsoleWriter() {}
 
-}
-
-ConsoleWriter::~ConsoleWriter() {
-
-}
+ConsoleWriter::~ConsoleWriter() {}
 
 void ConsoleWriter::writeLine(const string s) {
 	cout << s << endl;

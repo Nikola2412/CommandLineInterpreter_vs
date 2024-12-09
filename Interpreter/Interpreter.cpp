@@ -24,24 +24,26 @@ Interpreter::Interpreter() : symbol("$") {
 void Interpreter::interpret(const string& input){
     if (input == "") return;
     vector<int> errorPositions;
-    auto args = parseInput(input);
-    if (args.empty()) return;
-
     if (hasInvalidCharacters(input, errorPositions)) {
         printError(input, errorPositions);
         return;
     }
+    auto command = splitPipeline(input);
+    int n = command.size();
+    for (int i = 0; i < n; i++) {
+        vector<string> args = parseInput(command[i]);
+        string commandName = args[0];
 
-    string commandName = args[0];
-
-    if (commands.find(commandName) != commands.end()) {
-        commands[commandName]->execute({ args[1] });
-        commands[commandName]->reset();
+        if (commands.find(commandName) != commands.end()) {
+            commands[commandName]->execute(args[1]);//,i == n-1);
+            commands[commandName]->reset();
+        }
+        else {
+            cerr << "Unknown command: " << commandName << endl;
+            return;
+        }
     }
-    else {
-        cerr << "Unknown command: " << commandName << endl;
-        return;
-    }
+    return;
 }
 
 vector<string> Interpreter::parseInput(const string& input)
@@ -103,18 +105,21 @@ void Interpreter::printError(const string& input, const vector<int>& errorPositi
     cerr << endl;
 }
 
+vector<string> Interpreter::splitPipeline(const std::string& input)
+{
+    vector<string> commands;
+    stringstream ss(input);
+    string segment;
+    while (getline(ss, segment, '|')) {
+        int k = 0;
+        if (isspace(segment[0]))
+            k++;
+        commands.push_back(segment.substr(k));
+    }
+    return commands;
+}
+
 string& Interpreter::getSymbol(){
     return this->symbol;
 }
 
-
-vector<string> Interpreter::splitPipeline(const std::string& input) {
-    std::vector<std::string> commands;
-    std::istringstream stream(input);
-    std::string token;
-
-    while (std::getline(stream, token, '|')) {
-        commands.push_back(token);
-    }
-    return commands;
-}

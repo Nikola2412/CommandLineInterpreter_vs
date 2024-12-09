@@ -8,8 +8,9 @@ WCCommand::WCCommand() {
 
 WCCommand::~WCCommand() {}
 
-void WCCommand::execute(const string& args) {
-	if (args.size() < 1) {
+void WCCommand::execute(const string& args, bool last) {
+	//cout << last << endl;
+	if (args.size() < 2) {
 		cerr << "Missing options" << endl;
 		return;
 	}
@@ -19,12 +20,15 @@ void WCCommand::execute(const string& args) {
 		options = counters[opt];
 	}
 	
-	//if (this->Argument().size() == 0) {
-	string s = "";
-	if (args.size() > 2)
-		s = args.substr(3);
-	this->set(s);
-	//}
+	if (this->Argument().size() != 0) {
+		find_output_file(args);
+	}
+	else {
+		string s = "";
+		if (args.size() > 2)
+			s = args.substr(3);
+		this->set(s);
+	}
 
 	if (dynamic_cast<ConsoleReader*>(reader)) {
 		MultipleLines();
@@ -35,8 +39,13 @@ void WCCommand::execute(const string& args) {
 		return;
 	}
 	int x = counters[opt]->count(this->Argument());
-	writer->writeLine(to_string(x));
-	
+	if (last) {
+		writer->writeLine(to_string(x));
+		this->reset();
+	}
+	else {
+		this->Argument() = to_string(x);
+	}
 }
 
 

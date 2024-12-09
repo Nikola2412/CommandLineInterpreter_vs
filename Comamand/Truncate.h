@@ -3,6 +3,6 @@
 
 #include "Command.h"
 class Truncate : public Command{
-	virtual void execute(const string& args);
+	virtual void execute(const string& args, bool last);
 };
 #endif

@@ -15,24 +15,34 @@ tm Time_Date::getTime(const string& arg) {
 }
 
 
-void Time::execute(const string& args){
+void Time::execute(const string& args, bool last){
     tm local_time = getTime(args);
     
     char buffer[256];
 
     strftime(buffer, sizeof(buffer), "%H:%M:%S", &local_time);
 
-    writer->writeLine(buffer);
+    if (last) {
+        writer->writeLine(buffer);
+        this->reset();
+    }
+    else
+        this->Argument() = buffer;
     //input = buffer;
 }
 
-void Date::execute(const string& args){
+void Date::execute(const string& args, bool last){
     tm local_time = getTime(args);
 
     char buffer[256];
 
     strftime(buffer, sizeof(buffer), "%d.%m.%Y", &local_time);
 
-    writer->writeLine(buffer);
+    if (last) {
+        writer->writeLine(buffer);
+        this->reset();
+    }
+    else
+        this->Argument() = buffer;
 }
 

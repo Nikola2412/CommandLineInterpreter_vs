@@ -1,6 +1,6 @@
 #include "Remove.h"
 
-void Remove::execute(const std::string& args){
+void Remove::execute(const std::string& args, bool last){
     int status = remove(args.c_str());
 
     if (status != 0) {

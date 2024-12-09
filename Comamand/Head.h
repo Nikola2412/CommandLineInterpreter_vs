@@ -6,7 +6,7 @@
 class Head : public Command {
 public:
 	~Head();
-	void execute(const string& args);
+	void execute(const string& args, bool last);
 };
 
 #endif

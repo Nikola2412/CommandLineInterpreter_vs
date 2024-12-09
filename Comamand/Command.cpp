@@ -13,10 +13,6 @@ string& Command::Argument() {
     return arg;
 }
 
-bool& Command::PipeLine(){
-    static bool pipe = false;
-    return pipe;
-}
 
 void Command::set(const string arg) {
     //cout << arg << endl;
@@ -37,13 +33,14 @@ void Command::set(const string arg) {
 
 void Command::find_input_file(const string arg) {
     if (arg[0] == '>') return;
-    size_t end = arg.find('>');
+    size_t end = arg.find(".txt");
     if (arg[0]=='<') {
         size_t k = 1;
         if (isspace(arg[k])) k++;
         string s = "";
         if (end != string::npos) {
-            s = arg.substr(k, end - 1 - k);
+            s = arg.substr(k, end + 4 - k);
+            //cout << s << endl;
         }
         else {
             s = arg.substr(k);
@@ -51,7 +48,7 @@ void Command::find_input_file(const string arg) {
         reader = new FileReader(s);
     }
     else if (arg[0] != '\"') {
-        string s = arg.substr(0, end - 1);
+        string s = arg.substr(0, end + 4);
         //cout << s << endl;
         reader = new FileReader(s);
     }

@@ -13,7 +13,7 @@ class WCCommand : public Command {
 public:
     WCCommand();
     ~WCCommand();
-    virtual void execute(const string& args);
+    virtual void execute(const string& args, bool last);
 private:
     void MultipleLines();
 

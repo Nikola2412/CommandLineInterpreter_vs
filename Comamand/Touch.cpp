@@ -1,6 +1,6 @@
 #include "Touch.h"
 
-void Touch::execute(const std::string& args){
+void Touch::execute(const std::string& args, bool last){
 
     std::ifstream file(args);
 

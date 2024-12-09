@@ -4,7 +4,7 @@
 #include "../Comamand/Command.h"
 
 class Prompt : public Command {
-    virtual void execute(const string& args);
+    virtual void execute(const string& args, bool last);
 
 };
 

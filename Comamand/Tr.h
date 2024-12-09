@@ -7,7 +7,7 @@
 class Tr : public Command {
 public:
 	~Tr();
-	virtual void execute(const string& args);
+	virtual void execute(const string& args, bool last);
 };
 
 

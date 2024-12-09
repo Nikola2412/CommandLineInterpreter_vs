@@ -30,20 +30,19 @@ void Interpreter::interpret(const string& input){
     }
     auto command = splitPipeline(input);
     int n = command.size();
+    //cout << n << endl;
     for (int i = 0; i < n; i++) {
         vector<string> args = parseInput(command[i]);
         string commandName = args[0];
 
         if (commands.find(commandName) != commands.end()) {
-            commands[commandName]->execute(args[1]);//,i == n-1);
-            commands[commandName]->reset();
+            commands[commandName]->execute(args[1],i == n - 1);
         }
         else {
             cerr << "Unknown command: " << commandName << endl;
-            return;
         }
     }
-    return;
+    //commands["command"].reset();
 }
 
 vector<string> Interpreter::parseInput(const string& input)

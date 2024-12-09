@@ -3,9 +3,15 @@
 
 Echo::~Echo() {}
 
-void Echo::execute(const std::string& args){
+void Echo::execute(const std::string& args, bool last){
     //std::cout << this->test() << "\n";
-    this->set(args);
+    //cout << this->Argument() << endl;
+    if (this->Argument().size() != 0) {
+        find_output_file(args);
+    }
+    else {
+        this->set(args);
+    }
 
 
     if (dynamic_cast<ConsoleReader*>(reader)) {
@@ -29,7 +35,10 @@ void Echo::execute(const std::string& args){
         return;
     }
 
-    writer->writeLine(this->Argument());
+    if (last) {
+        writer->writeLine(this->Argument());
+        this->reset();
+    }
 
     /*size_t n = args.size();
     if (args[0] == '"' && args[n - 1] == '"')

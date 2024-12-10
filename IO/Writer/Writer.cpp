@@ -13,7 +13,7 @@ void ConsoleWriter::writeLine(const string s) {
 
 FileWriter::FileWriter(const string filepath) : m_output(nullptr), path(filepath) {
 	std::ifstream file(filepath);
-	if (!file) {
+	if (!file.good()) {
 		file.close();
 		cerr << "File not found" << endl;
 		return;
@@ -29,6 +29,7 @@ FileWriter::~FileWriter() {
 }
 
 void FileWriter::writeLine(const string s) {
+	if (!exist()) return;
 	m_output = new ofstream();
 	m_output->open(path, ios::app);
 	(*m_output) << s << endl;
@@ -36,5 +37,6 @@ void FileWriter::writeLine(const string s) {
 }
 
 bool FileWriter::exist(){
-	return m_output != nullptr;
+	std::ifstream file(path);
+	return file.good();
 }

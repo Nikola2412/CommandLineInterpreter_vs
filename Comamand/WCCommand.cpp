@@ -30,14 +30,11 @@ void WCCommand::execute(const string& args, bool last) {
 		this->set(s);
 	}
 
-	if (dynamic_cast<ConsoleReader*>(reader)) {
-		MultipleLines();
+	if (reader) {
+		Input();
 		return;
 	}
-	if (dynamic_cast<FileReader*>(reader)) {
-		FileInput();
-		return;
-	}
+
 	int x = counters[opt]->count(this->Argument());
 	if (last) {
 		writer->writeLine(to_string(x));
@@ -48,8 +45,7 @@ void WCCommand::execute(const string& args, bool last) {
 	}
 }
 
-
-void WCCommand::MultipleLines() {
+void WCCommand::Input() {
 	string s;
 	int x = 0;
 	while (!reader->endOfRead() && (s = reader->getNextLine()).size() != 0) {
@@ -57,13 +53,3 @@ void WCCommand::MultipleLines() {
 	}
 	writer->writeLine(to_string(x));
 }
-
-void WCCommand::FileInput() {
-	string s;
-	int x = 0;
-	while (!reader->endOfRead() && (s = reader->getNextLine()).size() != 0) {
-		x += options->count(s);
-	}
-	writer->writeLine(to_string(x));
-}
-

@@ -15,9 +15,7 @@ public:
     ~WCCommand();
     virtual void execute(const string& args, bool last);
 private:
-    void MultipleLines();
-
-    void FileInput();
+    void Input();
 
     //size_t WorldCount(const string&);
     //size_t CharacterCount(const string&);

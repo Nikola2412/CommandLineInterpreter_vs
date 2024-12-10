@@ -78,7 +78,7 @@ bool Interpreter::hasInvalidCharacters(const string& input, vector<int> &errorPo
 
     bool count = true;
 
-    for (int i = 0; i < input.size(); ++i) {
+    for (int i = 0; i < input.size(); i++) {
         char c = input[i];
         if (c == '"') count = !count;
         if (count && valid_chars.find(c) == string::npos && !isspace(c)) {

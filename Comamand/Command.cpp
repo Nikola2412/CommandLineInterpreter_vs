@@ -18,6 +18,7 @@ void Command::set(const string arg) {
     //cout << arg << endl;
     if (arg.size() == 0) {
         reader = new ConsoleReader();
+        writer = new ConsoleWriter();
         return;
     }
     if (arg[0] == '\"') {

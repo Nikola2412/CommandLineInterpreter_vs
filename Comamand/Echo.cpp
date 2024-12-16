@@ -6,13 +6,7 @@ Echo::~Echo() {}
 void Echo::execute(const std::string& args, bool last){
     //std::cout << this->test() << "\n";
     //cout << this->Argument() << endl;
-    if (this->Argument().size() != 0) {
-        find_output_file(args);
-    }
-    else {
-        this->set(args);
-    }
-
+    this->set(args);
 
     if (dynamic_cast<ConsoleReader*>(reader)) {
         vector<string> v;
@@ -35,10 +29,7 @@ void Echo::execute(const std::string& args, bool last){
         return;
     }
 
-    if (last) {
-        writer->writeLine(this->Argument());
-        this->reset();
-    }
+    end(last);
 
     /*size_t n = args.size();
     if (args[0] == '"' && args[n - 1] == '"')

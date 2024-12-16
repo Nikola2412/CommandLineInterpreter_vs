@@ -18,6 +18,7 @@ FileWriter::FileWriter(const string filepath) : m_output(nullptr), path(filepath
 		cerr << "File not found" << endl;
 		return;
 	}
+	//to reset file content
 	m_output = new ofstream(filepath);
 	m_output->close();
 	delete m_output;
@@ -31,7 +32,7 @@ FileWriter::~FileWriter() {
 void FileWriter::writeLine(const string s) {
 	if (!exist()) return;
 	m_output = new ofstream();
-	m_output->open(path, ios::app);
+	m_output->open(path, ios::app);//append
 	(*m_output) << s << endl;
 	(*m_output).close();
 }

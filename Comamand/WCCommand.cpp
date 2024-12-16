@@ -19,16 +19,12 @@ void WCCommand::execute(const string& args, bool last) {
 	if (counters.find(opt) != counters.end()) {
 		options = counters[opt];
 	}
+
+	string s = "";
+	if (args.size() > 2)
+		s = args.substr(3);
+	this->set(s);
 	
-	if (this->Argument().size() != 0) {
-		find_output_file(args);
-	}
-	else {
-		string s = "";
-		if (args.size() > 2)
-			s = args.substr(3);
-		this->set(s);
-	}
 
 	if (reader) {
 		Input();
@@ -36,13 +32,8 @@ void WCCommand::execute(const string& args, bool last) {
 	}
 
 	int x = counters[opt]->count(this->Argument());
-	if (last) {
-		writer->writeLine(to_string(x));
-		this->reset();
-	}
-	else {
-		this->Argument() = to_string(x);
-	}
+	this->Argument() = to_string(x);
+	end(last);
 }
 
 void WCCommand::Input() {

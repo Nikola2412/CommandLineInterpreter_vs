@@ -22,13 +22,8 @@ void Time::execute(const string& args, bool last){
 
     strftime(buffer, sizeof(buffer), "%H:%M:%S", &local_time);
 
-    if (last) {
-        writer->writeLine(buffer);
-        this->reset();
-    }
-    else
-        this->Argument() = buffer;
-    //input = buffer;
+    this->Argument() = buffer;
+    end(last);
 }
 
 void Date::execute(const string& args, bool last){
@@ -38,11 +33,7 @@ void Date::execute(const string& args, bool last){
 
     strftime(buffer, sizeof(buffer), "%d.%m.%Y", &local_time);
 
-    if (last) {
-        writer->writeLine(buffer);
-        this->reset();
-    }
-    else
-        this->Argument() = buffer;
+    this->Argument() = buffer;
+    end(last);
 }
 

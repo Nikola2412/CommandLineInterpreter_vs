@@ -15,6 +15,10 @@ string& Command::Argument() {
 
 
 void Command::set(const string arg) {
+    if (this->Argument().size() != 0) {
+        find_output_file(arg);
+        return;
+    }
     //cout << arg << endl;
     if (arg.size() == 0) {
         reader = new ConsoleReader();
@@ -67,6 +71,13 @@ void Command::find_output_file(const string arg) {
     string s = arg.substr(end + k);
     //cout << s << endl;
     writer = new FileWriter(s);
+}
+
+void Command::end(bool last){
+    if (last) {
+        writer->writeLine(this->Argument());
+        this->reset();
+    }
 }
 
 void Command::reset(){

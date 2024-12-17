@@ -1,5 +1,1 @@
-date
-time
-prompt "*"
-echo "Hello dasdasd"
-batch a.txt
+echo input.txt | wc -w > output.txt"

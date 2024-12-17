@@ -15,8 +15,7 @@ public:
     ~WCCommand();
     virtual void execute(const string& args, bool last);
 private:
-    void Input();
-
+    //void Input(int &x);
     //size_t WorldCount(const string&);
     //size_t CharacterCount(const string&);
     unordered_map<string,shared_ptr<Counter>> counters;

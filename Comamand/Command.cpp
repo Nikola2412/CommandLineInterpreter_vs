@@ -60,7 +60,7 @@ void Command::find_input_file(const string arg) {
 }
 
 void Command::find_output_file(const string arg) {
-    size_t end = arg.find('>');
+    size_t end = arg.find_last_of('>');
     if (end == string::npos) {
         //cout << "123" << endl;
         writer = new ConsoleWriter();

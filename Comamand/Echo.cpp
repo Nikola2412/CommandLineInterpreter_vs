@@ -8,25 +8,11 @@ void Echo::execute(const std::string& args, bool last){
     //cout << this->Argument() << endl;
     this->set(args);
 
-    if (dynamic_cast<ConsoleReader*>(reader)) {
-        vector<string> v;
+    if (reader) {
         string s;
-
-        while (!reader->endOfRead() && (s = reader->getNextLine()).size() != 0)
-            v.push_back(s);
-
-        for (auto& x : v)
-            writer->writeLine(x);
-
-        return;
-    }
-    
-
-    if (dynamic_cast<FileReader*>(reader)){
-        if (reader == nullptr) return;
-        while (!reader->endOfRead())
-            writer->writeLine(reader->getNextLine());
-        return;
+        while (!reader->endOfRead() && (s = reader->getNextLine()).size() != 0) {
+            this->Argument() += s;
+        }
     }
 
     end(last);

@@ -9,7 +9,6 @@ WCCommand::WCCommand() {
 WCCommand::~WCCommand() {}
 
 void WCCommand::execute(const string& args, bool last) {
-	//cout << last << endl;
 	if (args.size() < 2) {
 		cerr << "Missing options" << endl;
 		return;
@@ -19,28 +18,27 @@ void WCCommand::execute(const string& args, bool last) {
 	if (counters.find(opt) != counters.end()) {
 		options = counters[opt];
 	}
+	else{
+		cerr << "Not supported option" << endl;
+		return;
+	}
 
 	string s = "";
 	if (args.size() > 2)
 		s = args.substr(3);
 	this->set(s);
 	
-
-	if (reader) {
-		Input();
-		return;
-	}
-
-	int x = counters[opt]->count(this->Argument());
-	this->Argument() = to_string(x);
-	end(last);
-}
-
-void WCCommand::Input() {
-	string s;
 	int x = 0;
-	while (!reader->endOfRead() && (s = reader->getNextLine()).size() != 0) {
-		x += options->count(s);
+	if (reader) {
+		string s;
+		while (!reader->endOfRead() && (s = reader->getNextLine()).size() != 0) {
+			x += options->count(s);
+		}
 	}
-	writer->writeLine(to_string(x));
+	else{
+		x = counters[opt]->count(this->Argument());
+	}
+	this->Argument() = to_string(x);
+
+	end(last);
 }

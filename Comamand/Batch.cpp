@@ -17,4 +17,5 @@ void Batch::execute(const std::string& args, bool last){
     reader = new FileReader(args);
     while (!reader->endOfRead())
         Interpreter::Instance().interpret(reader->getNextLine());
+    reader = nullptr;
 }

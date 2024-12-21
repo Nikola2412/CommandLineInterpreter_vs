@@ -5,7 +5,7 @@ void Touch::execute(const std::string& args, bool last){
     std::ifstream file(args);
 
     if (file.is_open()) {
-        std::cerr << "Error - file \"" << args << "\" exist" << "\n";
+        std::cerr << "Error - file \"" << args << "\" exist" << endl;
         file.close(); // Close the file
     }
     else {

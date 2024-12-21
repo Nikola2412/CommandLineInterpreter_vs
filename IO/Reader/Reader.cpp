@@ -21,7 +21,7 @@ FileReader::FileReader(string filepath) : m_input(nullptr) {
 	std::ifstream file(filepath);
 	if (!file) {
 		file.close();
-		cerr << "File not found\n" << endl;
+		cerr << "File not found" << endl;
 		return;
 	}
 	m_input = new ifstream(filepath);

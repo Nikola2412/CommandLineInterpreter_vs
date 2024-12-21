@@ -90,7 +90,7 @@ bool Interpreter::hasInvalidCharacters(const string& input, vector<int> &errorPo
 }
 
 void Interpreter::printError(const string& input, const vector<int>& errorPositions) {
-    cerr << "Error - unexpected characters:\n";
+    cerr << "Error - unexpected characters:" << endl;
     cerr << input << endl;
 
     for (int i = 0; i < input.size(); i++) {

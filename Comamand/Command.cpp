@@ -67,7 +67,7 @@ void Command::find_output_file(const string arg) {
         return;
     }
     bool append = false;
-    if (end > 1 && arg[end - 1] == '>') append = true;
+    if (end > 0 && arg[end - 1] == '>') append = true;
     size_t k = 1;
     if (isspace(arg[end + k])) k++;
     string s = arg.substr(end + k);

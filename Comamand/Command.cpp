@@ -66,11 +66,13 @@ void Command::find_output_file(const string arg) {
         writer = new ConsoleWriter();
         return;
     }
+    bool append = false;
+    if (end > 1 && arg[end - 1] == '>') append = true;
     size_t k = 1;
     if (isspace(arg[end + k])) k++;
     string s = arg.substr(end + k);
     //cout << s << endl;
-    writer = new FileWriter(s);
+    writer = new FileWriter(s,append);
 }
 
 void Command::end(bool last){

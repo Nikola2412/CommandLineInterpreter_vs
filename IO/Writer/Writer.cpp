@@ -11,13 +11,14 @@ void ConsoleWriter::writeLine(const string s) {
 	cout << s << endl;
 }
 
-FileWriter::FileWriter(const string filepath) : m_output(nullptr), path(filepath) {
+FileWriter::FileWriter(const string filepath,bool append) : m_output(nullptr), path(filepath) {
 	std::ifstream file(filepath);
 	if (!file.good()) {
 		file.close();
 		cerr << "File not found" << endl;
 		return;
 	}
+	if (append) return;
 	//to reset file content
 	m_output = new ofstream(filepath);
 	m_output->close();

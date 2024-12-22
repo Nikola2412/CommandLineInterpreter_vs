@@ -20,7 +20,7 @@ public:
 
 class FileWriter : public Writer {
 public:
-	FileWriter(const string filepath);
+	FileWriter(const string filepath,bool append = false);
 	~FileWriter();
 	virtual void writeLine(const string s);
 private:

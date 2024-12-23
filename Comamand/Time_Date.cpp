@@ -6,7 +6,6 @@
 tm Time_Date::getTime(const string& arg) {
     this->find_output_file(arg);
 
-
     time_t now = time(0);
     tm local_time;
     localtime_s(&local_time, &now);
@@ -17,23 +16,19 @@ tm Time_Date::getTime(const string& arg) {
 
 void Time::execute(const string& args, bool last){
     tm local_time = getTime(args);
-    
-    char buffer[256];
 
     strftime(buffer, sizeof(buffer), "%H:%M:%S", &local_time);
 
-    this->Argument() = buffer;
+    this->append(buffer);
     end(last);
 }
 
 void Date::execute(const string& args, bool last){
     tm local_time = getTime(args);
 
-    char buffer[256];
-
     strftime(buffer, sizeof(buffer), "%d.%m.%Y", &local_time);
 
-    this->Argument() = buffer;
+    this->append(buffer);
     end(last);
 }
 

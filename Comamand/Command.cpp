@@ -13,6 +13,12 @@ string& Command::Argument() {
     return arg;
 }
 
+void Command::append(const string s) {
+    if (this->Argument().size() != 0)
+        this->Argument() += '\n';
+    this->Argument() += s;
+}
+
 
 void Command::set(const string arg) {
     if (this->Argument().size() != 0) {

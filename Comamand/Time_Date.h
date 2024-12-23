@@ -8,6 +8,7 @@ public:
 	virtual void execute(const string& args, bool last) = 0;
 protected:
 	tm getTime(const string& arg);
+	char buffer[256];
 };
 
 

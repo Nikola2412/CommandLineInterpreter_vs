@@ -23,6 +23,7 @@ protected:
     Reader* reader = nullptr;
     Writer* writer = nullptr;
     static string& Argument();
+    void append(const string s);
     void set(const string arg);
     void find_input_file(const string arg);
     void find_output_file(const string arg);

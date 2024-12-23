@@ -10,7 +10,7 @@ void Echo::execute(const std::string& args, bool last){
         if (reader->endOfRead()) return;//if file does not exist
         string s;
         while (!reader->endOfRead() && (s = reader->getNextLine()).size() != 0) {
-            this->Argument() += s;
+            this->append(s);
         }
     }
 

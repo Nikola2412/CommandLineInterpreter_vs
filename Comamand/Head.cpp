@@ -11,7 +11,7 @@ void Head::execute(const string& args, bool last){
     if (regex_search(args, matches, rgx)) {
         int n = stoi(matches[1]);  // Captured number (1 to 5 digits)
         this->set(matches[2]);
-        if (reader->endOfRead()) return;
+        if (test_input()) return; // check if file exists
 
         string s;
         while (!reader->endOfRead() && (s = reader->getNextLine()).size() != 0) {

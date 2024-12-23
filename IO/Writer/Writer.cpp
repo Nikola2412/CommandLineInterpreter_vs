@@ -15,7 +15,7 @@ FileWriter::FileWriter(const string filepath,bool append) : m_output(nullptr), p
 	std::ifstream file(filepath);
 	if (!file.good()) {
 		file.close();
-		cerr << "File not found" << endl;
+		cerr << "Output file does not exist" << endl;
 		return;
 	}
 	if (append) return;

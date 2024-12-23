@@ -30,7 +30,7 @@ void WCCommand::execute(const string& args, bool last) {
 	
 	int x = 0;
 	if (reader) {
-		if (reader->endOfRead()) return;
+		if (test_input()) return;
 		string s;
 		while (!reader->endOfRead() && (s = reader->getNextLine()).size() != 0) {
 			x += options->count(s);

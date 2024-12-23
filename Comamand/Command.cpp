@@ -81,9 +81,14 @@ void Command::find_output_file(const string arg) {
     writer = new FileWriter(s,append);
 }
 
+bool Command::test_input() {
+    if (reader->endOfRead()) cerr << "Input file does not exist" << endl;
+    return reader->endOfRead();
+}
+
 void Command::end(bool last){
     if (last) {
-        writer->writeLine(this->Argument());
+        if(writer) writer->writeLine(this->Argument());
         this->reset();
     }
 }

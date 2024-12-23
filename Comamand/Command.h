@@ -27,6 +27,7 @@ protected:
     void set(const string arg);
     void find_input_file(const string arg);
     void find_output_file(const string arg);
+    bool test_input();
     void end(bool last);
 };
 #endif

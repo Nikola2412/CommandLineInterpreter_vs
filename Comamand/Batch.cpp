@@ -12,7 +12,6 @@ void Batch::execute(const string& args, bool last){
         Reader* reader2 = new ConsoleReader();
         if (reader2->endOfRead()) return;//if file does not exist
         string s;
-        bool ehuj = false;
         while (!reader2->endOfRead() && (s = reader2->getNextLine()).size() != 0) {
             Do(s);
         }

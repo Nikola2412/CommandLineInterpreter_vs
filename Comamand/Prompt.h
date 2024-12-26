@@ -4,8 +4,8 @@
 #include "../Comamand/Command.h"
 
 class Prompt : public Command {
-    virtual void execute(const string& args, bool last);
-
+public:
+    void execute(const string& args, bool last);
 };
 
 #endif

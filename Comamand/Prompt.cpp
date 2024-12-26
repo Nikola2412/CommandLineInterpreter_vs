@@ -1,6 +1,7 @@
 #include "Prompt.h"
 #include "../Interpreter/Interpreter.h"
 
+
 void Prompt::execute(const string& args, bool last){
 	if (args.size() != 3)
 		return;

@@ -12,7 +12,6 @@
 class WCCommand : public Command {
 public:
     WCCommand();
-    ~WCCommand();
     virtual void execute(const string& args, bool last);
 private:
     //void Input(int &x);

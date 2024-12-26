@@ -1,2 +1,5 @@
-A C++ program is a sequence of text files (typically header and source files)
-that contain declarations. They undergo translation to become an executable program,
+12
+3213
+132
+3123
+

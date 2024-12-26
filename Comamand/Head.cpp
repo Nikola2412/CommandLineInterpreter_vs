@@ -2,7 +2,6 @@
 
 #include <regex>
 
-Head::~Head(){}
 
 void Head::execute(const string& args, bool last){
     regex rgx("-n(\\d{1,5})\\s?(.*)");

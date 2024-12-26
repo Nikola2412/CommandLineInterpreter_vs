@@ -5,7 +5,6 @@
 
 class Echo : public Command{
 public:
-    ~Echo();
     virtual void execute(const string& args, bool last);
 };
 

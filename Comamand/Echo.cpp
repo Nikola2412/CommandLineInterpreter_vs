@@ -1,7 +1,6 @@
 #include "Echo.h"
 
 
-Echo::~Echo() {}
 
 void Echo::execute(const string& args, bool last){
     this->set(args);

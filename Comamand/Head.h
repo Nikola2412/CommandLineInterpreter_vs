@@ -5,8 +5,7 @@
 
 class Head : public Command {
 public:
-	~Head();
-	void execute(const string& args, bool last);
+	virtual void execute(const string& args, bool last);
 };
 
 #endif

@@ -8,6 +8,7 @@ public:
     static Interpreter& Instance();
 
     void interpret(const string& args);
+    void ehuj();
 
     string& getSymbol();
 

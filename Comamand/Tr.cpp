@@ -1,8 +1,6 @@
 #include "Tr.h"
 #include <algorithm>
 
-Tr::~Tr(){}
-
 void Tr::execute(const string& args, bool last){
 	this->set(args);
 	int n = args.size();

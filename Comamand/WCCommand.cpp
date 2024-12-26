@@ -6,7 +6,6 @@ WCCommand::WCCommand() {
 	counters["-c"] = make_unique<CharCounter>();
 }
 
-WCCommand::~WCCommand() {}
 
 void WCCommand::execute(const string& args, bool last) {
 	if (args.size() < 2) {

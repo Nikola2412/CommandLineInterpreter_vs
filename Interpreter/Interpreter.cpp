@@ -43,6 +43,7 @@ void Interpreter::interpret(const string& input){
         }
     }
     //commands["command"].reset();
+    cin.clear();
 }
 
 vector<string> Interpreter::parseInput(const string& input)

@@ -10,12 +10,13 @@ void Batch::execute(const std::string& args, bool last){
         Interpreter::Instance().interpret(reader->getNextLine());
     reader = nullptr;*/
     if (args == "") {
-        reader = new ConsoleReader();
-        if (reader->endOfRead()) return;//if file does not exist
+        Reader* reader2 = new ConsoleReader();
+        if (reader2->endOfRead()) return;//if file does not exist
         std::string s;
-        while (!reader->endOfRead() && (s = reader->getNextLine()).size() != 0) {
+        while (!reader2->endOfRead() && (s = reader2->getNextLine()).size() != 0) {
             Do(s);
         }
+        delete reader2;
     }
     else Do(args);
     end(last);

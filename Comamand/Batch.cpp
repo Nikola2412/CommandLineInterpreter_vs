@@ -16,9 +16,8 @@ void Batch::execute(const std::string& args, bool last){
         while (!reader->endOfRead() && (s = reader->getNextLine()).size() != 0) {
             Do(s);
         }
-        return;
     }
-    Do(args);
+    else Do(args);
     end(last);
 }
 

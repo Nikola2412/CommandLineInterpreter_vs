@@ -4,7 +4,7 @@
 
 Batch::~Batch(){}
 
-void Batch::execute(const std::string& args, bool last){
+void Batch::execute(const string& args, bool last){
     /*reader = new FileReader(args);
     while (!reader->endOfRead())
         Interpreter::Instance().interpret(reader->getNextLine());
@@ -12,7 +12,7 @@ void Batch::execute(const std::string& args, bool last){
     if (args == "") {
         Reader* reader2 = new ConsoleReader();
         if (reader2->endOfRead()) return;//if file does not exist
-        std::string s;
+        string s;
         while (!reader2->endOfRead() && (s = reader2->getNextLine()).size() != 0) {
             Do(s);
         }

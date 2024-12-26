@@ -3,7 +3,7 @@
 
 Echo::~Echo() {}
 
-void Echo::execute(const std::string& args, bool last){
+void Echo::execute(const string& args, bool last){
     this->set(args);
 
     if (reader) {

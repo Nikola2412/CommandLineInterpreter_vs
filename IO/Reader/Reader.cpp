@@ -18,7 +18,7 @@ bool ConsoleReader::endOfRead(){
 }
 
 FileReader::FileReader(string filepath) : m_input(nullptr) {
-	std::ifstream file(filepath);
+	ifstream file(filepath);
 	if (!file) {
 		file.close();
 		//cerr << "Input file does not exist" << endl;

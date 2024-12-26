@@ -9,7 +9,7 @@ int main()
 
     while (1) {
         cout << Interpreter::Instance().getSymbol() << " ";
-        if (!getline(std::cin, str)) break;
+        if (!getline(cin, str)) break;
         Interpreter::Instance().interpret(str);
         cin.clear();
     }
@@ -17,8 +17,8 @@ int main()
     /*char str[512];
 
     while (1) {
-        std::cout << interpreter.getSymbol() << " ";
-        std::cin >> str;
+        cout << interpreter.getSymbol() << " ";
+        cin >> str;
         if (str == "exit") break;
         interpreter.interpret(str);
     }*/

@@ -105,7 +105,7 @@ void Interpreter::printError(const string& input, const vector<int>& errorPositi
     cerr << endl;
 }
 
-vector<string> Interpreter::splitPipeline(const std::string& input)
+vector<string> Interpreter::splitPipeline(const string& input)
 {
     vector<string> commands;
     stringstream ss(input);

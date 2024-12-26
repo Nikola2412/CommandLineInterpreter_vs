@@ -4,7 +4,7 @@
 #include "Command.h"
 
 class Remove : public Command{
-	virtual void execute(const std::string& args, bool last);
+	virtual void execute(const string& args, bool last);
 };
 
 #endif

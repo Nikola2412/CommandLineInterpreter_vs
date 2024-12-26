@@ -8,6 +8,6 @@ void Tr::execute(const string& args, bool last){
 	int n = args.size();
 	char c1 = args[n - 6];
 	char c2 = args[n - 2];
-	std::replace(this->Argument().begin(), this->Argument().end(), c1, c2);
+	replace(this->Argument().begin(), this->Argument().end(), c1, c2);
 	end(last);
 }

@@ -12,7 +12,7 @@ void ConsoleWriter::writeLine(const string s) {
 }
 
 FileWriter::FileWriter(const string filepath,bool append) : m_output(nullptr), path(filepath) {
-	std::ifstream file(filepath);
+	ifstream file(filepath);
 	if (!file.good()) {
 		file.close();
 		cerr << "Output file does not exist" << endl;
@@ -39,6 +39,6 @@ void FileWriter::writeLine(const string s) {
 }
 
 bool FileWriter::exist(){
-	std::ifstream file(path);
+	ifstream file(path);
 	return file.good();
 }

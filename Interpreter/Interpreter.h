@@ -7,26 +7,26 @@ public:
 
     static Interpreter& Instance();
 
-    void interpret(const std::string& args);
+    void interpret(const string& args);
 
-    std::string& getSymbol();
+    string& getSymbol();
 
 
 private:
     Interpreter();
 
-    std::string symbol;
+    string symbol;
 
-    std::unordered_map<std::string, std::unique_ptr<Command>> commands;
+    unordered_map<string, unique_ptr<Command>> commands;
 
-    std::vector<std::string> parseInput(const std::string& args);
+    vector<string> parseInput(const string& args);
 
-    const std::string valid_chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789<>\"""-.:|";
+    const string valid_chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789<>\"""-.:|";
 
-    bool hasInvalidCharacters(const std::string& input, std::vector<int>& errorPositions);
+    bool hasInvalidCharacters(const string& input, vector<int>& errorPositions);
 
-    void printError(const std::string& input, const std::vector<int>& errorPositions);
+    void printError(const string& input, const vector<int>& errorPositions);
 
-    vector<string> splitPipeline(const std::string& input);
+    vector<string> splitPipeline(const string& input);
 
 };

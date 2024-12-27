@@ -8,7 +8,8 @@ void Echo::execute(const string& args, bool last){
     if (reader) {
         if (test_input()) return;//if file does not exist
         string s;
-        while (!reader->endOfRead() && (s = reader->getNextLine()).size() != 0) {
+        while (!reader->endOfRead()) {
+            s = reader->getNextLine();
             this->append(s);
         }
     }

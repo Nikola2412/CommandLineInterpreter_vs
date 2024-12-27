@@ -1,5 +1,5 @@
-echo > output.txt
+echo
 12
-3213
-132
-3123
+EOF
+time
+date

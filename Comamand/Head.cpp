@@ -13,7 +13,8 @@ void Head::execute(const string& args, bool last){
         if (test_input()) return; // check if file exists
 
         string s;
-        while (!reader->endOfRead() && (s = reader->getNextLine()).size() != 0) {
+        while (!reader->endOfRead()) {
+            s = reader->getNextLine();
             if (n > 0)
                 this->append(s);
             n--;

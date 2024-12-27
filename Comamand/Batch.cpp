@@ -12,7 +12,8 @@ void Batch::execute(const string& args, bool last){
         Reader* reader2 = new ConsoleReader();
         if (reader2->endOfRead()) return;//if file does not exist
         string s;
-        while (!reader2->endOfRead() && (s = reader2->getNextLine()).size() != 0) {
+        while (!reader2->endOfRead()) {
+            s = reader2->getNextLine();
             Do(s);
         }
         delete reader2;
@@ -27,14 +28,19 @@ void Batch::Do(const string arg) {
         Interpreter::Instance().interpret(arg);
     }
     else {
-        bool ehuj = false;
+        bool ehuj = 0;
         string s;
-        while (!reader2->endOfRead() && (s = reader2->getNextLine()).size() != 0) {
-            if (s.substr(0,4) == "echo") find_output_file(s);
-            if (s.substr(0,4) == "echo" || ehuj) {
-                if (ehuj)
-                    writer->writeLine(s);
+        while (!reader2->endOfRead()) {
+            s = reader2->getNextLine();
+            if ("EOF" == s) {
+                ehuj = 0;
+            }
+            else if ("echo" == s.substr(0, 4) && !ehuj) {
+                find_output_file(s);
                 ehuj = 1;
+            }
+            else if (ehuj) {
+                writer->writeLine(s);
             }
             else
                 Interpreter::Instance().interpret(s);

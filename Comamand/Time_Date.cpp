@@ -23,6 +23,10 @@ void Time::execute(const string& args, bool last){
     end(last);
 }
 
+void Time::executeBatch(Reader* r, Writer* w)
+{
+}
+
 void Date::execute(const string& args, bool last){
     tm local_time = getTime(args);
 
@@ -30,5 +34,9 @@ void Date::execute(const string& args, bool last){
 
     this->append(buffer);
     end(last);
+}
+
+void Date::executeBatch(Reader* r, Writer* w)
+{
 }
 

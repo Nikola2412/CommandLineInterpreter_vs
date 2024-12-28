@@ -9,3 +9,7 @@ void Tr::execute(const string& args, bool last){
 	replace(this->Argument().begin(), this->Argument().end(), c1, c2);
 	end(last);
 }
+
+void Tr::executeBatch(Reader* r, Writer* w)
+{
+}

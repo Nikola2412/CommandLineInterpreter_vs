@@ -18,6 +18,7 @@ public:
     Command();
     void reset();
     virtual void execute(const string& args, bool last) = 0;
+    virtual void executeBatch(Reader *r = nullptr,Writer *w = nullptr) = 0;
     ~Command();
 protected:
     Reader* reader = nullptr;

@@ -10,3 +10,7 @@ void Truncate::execute(const string& args, bool last){
         cerr << "Error clearing file." << endl;
     }
 }
+
+void Truncate::executeBatch(Reader* r, Writer* w)
+{
+}

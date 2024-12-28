@@ -25,3 +25,7 @@ void Head::execute(const string& args, bool last){
     }
     end(last);
 }
+
+void Head::executeBatch(Reader* r, Writer* w)
+{
+}

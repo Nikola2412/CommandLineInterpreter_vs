@@ -22,30 +22,28 @@ void Batch::execute(const string& args, bool last){
     end(last);
 }
 
+void Batch::executeBatch(Reader* r, Writer* w)
+{
+}
+
 void Batch::Do(const string arg) {
+    Command* cmd = new Echo();
     Reader *reader2 = new FileReader(arg);
     if (reader2->endOfRead()) {
         Interpreter::Instance().interpret(arg);
     }
     else {
-        bool ehuj = 0;
         string s;
         while (!reader2->endOfRead()) {
             s = reader2->getNextLine();
-            if ("EOF" == s) {
-                ehuj = 0;
+            if ("echo" == s.substr(0, 4)) {
+                cmd->executeBatch(reader2, new ConsoleWriter());
+                continue;
             }
-            else if ("echo" == s.substr(0, 4) && !ehuj) {
-                find_output_file(s);
-                ehuj = 1;
-            }
-            else if (ehuj) {
-                writer->writeLine(s);
-            }
-            else
-                Interpreter::Instance().interpret(s);
+            Interpreter::Instance().interpret(s);
         }
         writer = nullptr;
     }
+    delete cmd;
     delete reader2;
 }

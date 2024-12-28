@@ -7,3 +7,7 @@ void Remove::execute(const string& args, bool last){
         cerr << "Error deleting file" << endl;
     }
 }
+
+void Remove::executeBatch(Reader* r, Writer* w)
+{
+}

@@ -11,3 +11,7 @@ void Touch::execute(const string& args, bool last){
         ofstream outfile(args);
     }
 }
+
+void Touch::executeBatch(Reader* r, Writer* w)
+{
+}

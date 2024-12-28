@@ -44,3 +44,6 @@ void WCCommand::execute(const string& args, bool last) {
 
 	end(last);
 }
+
+void WCCommand::executeBatch(Reader* r, Writer* w){
+}

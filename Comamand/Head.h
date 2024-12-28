@@ -5,7 +5,8 @@
 
 class Head : public Command {
 public:
-	virtual void execute(const string& args, bool last);
+	void execute(const string& args, bool last);
+	void executeBatch(Reader* r = nullptr, Writer* w = nullptr);
 };
 
 #endif

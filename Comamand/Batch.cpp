@@ -22,12 +22,13 @@ void Batch::execute(const string& args, bool last){
     end(last);
 }
 
-void Batch::executeBatch(Reader* r, Writer* w)
+void Batch::executeBatch(const string& args, bool last, Reader* r)
 {
+    this->execute(args, last);
 }
 
 void Batch::Do(const string arg) {
-    Command* cmd = new Echo();
+    //Command* cmd = new Echo();
     Reader *reader2 = new FileReader(arg);
     if (reader2->endOfRead()) {
         Interpreter::Instance().interpret(arg);
@@ -36,14 +37,16 @@ void Batch::Do(const string arg) {
         string s;
         while (!reader2->endOfRead()) {
             s = reader2->getNextLine();
-            if ("echo" == s.substr(0, 4)) {
-                cmd->executeBatch(reader2, new ConsoleWriter());
-                continue;
-            }
-            Interpreter::Instance().interpret(s);
+            //cout << s << endl;
+            //if ("echo" == s.substr(0, 4)) {
+            //    cmd->executeBatch(reader2, new ConsoleWriter());
+            //    continue;
+            //}
+            Interpreter::Instance().interpretBatch(reader2,s);
+            //continue;
+            //Interpreter::Instance().interpret(s);
         }
-        writer = nullptr;
     }
-    delete cmd;
+    //delete cmd;
     delete reader2;
 }

@@ -23,8 +23,8 @@ void Time::execute(const string& args, bool last){
     end(last);
 }
 
-void Time::executeBatch(Reader* r, Writer* w)
-{
+void Time::executeBatch(const string& args, bool last, Reader* r) {
+    this->execute(args, last);
 }
 
 void Date::execute(const string& args, bool last){
@@ -36,7 +36,7 @@ void Date::execute(const string& args, bool last){
     end(last);
 }
 
-void Date::executeBatch(Reader* r, Writer* w)
-{
+void Date::executeBatch(const string& args, bool last, Reader* r) {
+    this->execute(args, last);
 }
 

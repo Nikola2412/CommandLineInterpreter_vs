@@ -8,6 +8,8 @@ void Remove::execute(const string& args, bool last){
     }
 }
 
-void Remove::executeBatch(Reader* r, Writer* w)
+void Remove::executeBatch(const string& args, bool last, Reader* r)
 {
+    this->execute(args, last);
 }
+

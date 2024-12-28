@@ -56,12 +56,12 @@ void Command::find_input_file(const string arg) {
         else {
             s = arg.substr(k);
         }
-        reader = new FileReader(s);
+        if(!reader) reader = new FileReader(s);
     }
     else if (arg[0] != '\"') {
         string s = arg.substr(0, end + 4);
         //cout << s << endl;
-        reader = new FileReader(s);
+        if (!reader) reader = new FileReader(s);
     }
 }
 

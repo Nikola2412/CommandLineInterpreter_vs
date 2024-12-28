@@ -9,6 +9,7 @@ void Prompt::execute(const string& args, bool last){
 		Interpreter::Instance().getSymbol() = args[1];
 }
 
-void Prompt::executeBatch(Reader* r, Writer* w)
+void Prompt::executeBatch(const string& args, bool last, Reader* r)
 {
+	this->execute(args, last);
 }

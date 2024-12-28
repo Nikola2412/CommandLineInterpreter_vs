@@ -15,13 +15,16 @@ void Echo::execute(const string& args, bool last){
     end(last);
 }
 
-void Echo::executeBatch(Reader* r, Writer* w) {
+void Echo::executeBatch(const string& args, bool last, Reader* r){
+    this->reader = r;
+    this->set(args);
+
     string s;
     while (!r->endOfRead()) {
         s = r->getNextLine();
-        if (s == "EOF") break;
-        w->writeLine(s);
+        if ("EOF" == s) break;
+        this->append(s);
     }
-    if(w) delete w;
+    end(last);
 }
 

@@ -12,6 +12,7 @@ void Touch::execute(const string& args, bool last){
     }
 }
 
-void Touch::executeBatch(Reader* r, Writer* w)
+void Touch::executeBatch(const string& args, bool last, Reader* r)
 {
+    this->execute(args, last);
 }

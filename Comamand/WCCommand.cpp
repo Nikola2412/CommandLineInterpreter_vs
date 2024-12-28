@@ -8,20 +8,8 @@ WCCommand::WCCommand() {
 
 
 void WCCommand::execute(const string& args, bool last) {
-	if (args.size() < 2) {
-		cerr << "Missing options" << endl;
-		return;
-	}
-
-	string opt = args.substr(0, 2);
-	if (counters.find(opt) != counters.end()) {
-		options = counters[opt];
-	}
-	else{
-		cerr << "Not supported option" << endl;
-		return;
-	}
-
+	string opt;
+	if (!check(args,opt)) return;
 	string s = "";
 	if (args.size() > 2)
 		s = args.substr(3);
@@ -45,5 +33,47 @@ void WCCommand::execute(const string& args, bool last) {
 	end(last);
 }
 
-void WCCommand::executeBatch(Reader* r, Writer* w){
+void WCCommand::executeBatch(const string& args, bool last, Reader* r)
+{
+	string opt;
+	if (!check(args,opt)) return;
+
+	string s = "";
+	if (args.size() > 2)
+		s = args.substr(3);
+	this->set(s);
+	this->reader = r;
+
+	int x = 0;
+	if (reader) {
+		string s;
+		while (!reader->endOfRead()) {
+			s = reader->getNextLine();
+			if ("EOF" == s) break;
+			x += options->count(s);
+		}
+	}
+	else {
+		x = counters[opt]->count(this->Argument());
+	}
+
+	this->Argument() = to_string(x);
+
+	end(last);
+}
+
+bool WCCommand::check(const string& args,string &opt){
+	if (args.size() < 2) {
+		cerr << "Missing options" << endl;
+		return 0;
+	}
+
+	opt = args.substr(0, 2);
+	if (counters.find(opt) != counters.end()) {
+		options = counters[opt];
+	}
+	else {
+		cerr << "Not supported option" << endl;
+		return 0;
+	}
 }

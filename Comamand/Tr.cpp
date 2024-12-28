@@ -10,6 +10,6 @@ void Tr::execute(const string& args, bool last){
 	end(last);
 }
 
-void Tr::executeBatch(Reader* r, Writer* w)
+void Tr::executeBatch(const string& args, bool last, Reader* r)
 {
 }

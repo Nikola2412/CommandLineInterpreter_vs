@@ -1,5 +1,7 @@
-echo
+echo > output.txt
 12
 EOF
+wc -c >> output.txt
 time
 date
+EOF

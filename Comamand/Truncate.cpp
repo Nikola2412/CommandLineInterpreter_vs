@@ -11,6 +11,7 @@ void Truncate::execute(const string& args, bool last){
     }
 }
 
-void Truncate::executeBatch(Reader* r, Writer* w)
+void Truncate::executeBatch(const string& args, bool last, Reader* r)
 {
+    this->execute(args, last);
 }

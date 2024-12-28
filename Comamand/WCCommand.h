@@ -13,8 +13,9 @@ class WCCommand : public Command {
 public:
     WCCommand();
     void execute(const string& args, bool last);
-    void executeBatch(Reader* r = nullptr, Writer* w = nullptr);
+    void executeBatch(const string& args, bool last, Reader* r = nullptr);
 private:
+    bool check(const string& args, string& opt);
     //void Input(int &x);
     //size_t WorldCount(const string&);
     //size_t CharacterCount(const string&);

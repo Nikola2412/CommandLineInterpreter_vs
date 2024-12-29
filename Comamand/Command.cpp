@@ -27,7 +27,7 @@ void Command::set(const string arg) {
     }
     //cout << arg << endl;
     if (arg.size() == 0) {
-        reader = new ConsoleReader();
+        if(!reader) reader = new ConsoleReader();
         writer = new ConsoleWriter();
         return;
     }
@@ -56,12 +56,12 @@ void Command::find_input_file(const string arg) {
         else {
             s = arg.substr(k);
         }
-        if(!reader) reader = new FileReader(s);
+        reader = new FileReader(s);
     }
     else if (arg[0] != '\"') {
         string s = arg.substr(0, end + 4);
         //cout << s << endl;
-        if (!reader) reader = new FileReader(s);
+        reader = new FileReader(s);
     }
 }
 

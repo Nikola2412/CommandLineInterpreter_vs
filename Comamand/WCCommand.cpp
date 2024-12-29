@@ -35,6 +35,7 @@ void WCCommand::execute(const string& args, bool last) {
 
 void WCCommand::executeBatch(const string& args, bool last, Reader* r)
 {
+	this->reader = r;
 	string opt;
 	if (!check(args,opt)) return;
 
@@ -42,7 +43,6 @@ void WCCommand::executeBatch(const string& args, bool last, Reader* r)
 	if (args.size() > 2)
 		s = args.substr(3);
 	this->set(s);
-	this->reader = r;
 
 	int x = 0;
 	if (reader) {

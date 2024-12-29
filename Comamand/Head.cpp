@@ -39,7 +39,8 @@ void Head::executeBatch(const string& args, bool last, Reader* r)
         string s;
         while (!reader->endOfRead()) {
             s = reader->getNextLine();
-            if (n > 0 && "EOF" == s)
+            if ("EOF" == s) break;
+            if (n > 0)
                 this->append(s);
             n--;
         }

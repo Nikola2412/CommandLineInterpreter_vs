@@ -5,3 +5,15 @@ wc -c >> output.txt
 time
 date
 EOF
+wc -c
+abc
+ds
+EOF
+head -n2
+1
+2
+3
+4
+5
+6
+EOF

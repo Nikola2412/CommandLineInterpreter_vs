@@ -5,10 +5,7 @@ wc -c >> output.txt
 time
 date
 EOF
-wc -c
-abc
-ds
-EOF
+wc -c input.txt
 head -n2
 1
 2

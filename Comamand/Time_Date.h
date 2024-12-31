@@ -6,7 +6,7 @@
 class  Time_Date : public Command {
 public:
 	virtual void execute(const string& parms, bool last) = 0;
-	void executeBatch(const string& parms, bool last, Reader* r = nullptr) = 0;
+	//virtual void executeBatch(const string& parms, bool last, Reader* r = nullptr) = 0;
 protected:
 	tm getTime(const string& arg);
 	char buffer[256] = {0};
@@ -15,12 +15,12 @@ protected:
 
 class Time : public Time_Date {
 	void execute(const string& parms, bool last);
-	void executeBatch(const string& parms, bool last, Reader* r = nullptr);
+	//void executeBatch(const string& parms, bool last, Reader* r = nullptr);
 };
 
 class Date : public Time_Date {
 	void execute(const string& parms, bool last);
-	void executeBatch(const string& parms, bool last, Reader* r = nullptr);
+	//void executeBatch(const string& parms, bool last, Reader* r = nullptr);
 };
 
 #endif

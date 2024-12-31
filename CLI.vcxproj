@@ -164,6 +164,7 @@
     <ClInclude Include="IO\Writer\Writer.h" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="b.txt" />
     <Text Include="input.txt" />
     <Text Include="output.txt" />
   </ItemGroup>

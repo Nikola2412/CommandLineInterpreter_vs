@@ -120,5 +120,6 @@
   <ItemGroup>
     <Text Include="input.txt" />
     <Text Include="output.txt" />
+    <Text Include="b.txt" />
   </ItemGroup>
 </Project>

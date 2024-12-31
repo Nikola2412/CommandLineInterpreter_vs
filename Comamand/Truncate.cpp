@@ -9,9 +9,6 @@ void Truncate::execute(const string& parms, bool last){
     else {
         cerr << "Error clearing file." << endl;
     }
-}
 
-void Truncate::executeBatch(const string& parms, bool last, Reader* r)
-{
-    this->execute(parms, last);
+    end(last);
 }

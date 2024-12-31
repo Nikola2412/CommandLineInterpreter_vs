@@ -10,9 +10,6 @@ void Touch::execute(const string& parms, bool last){
     else {
         ofstream outfile(parms);
     }
-}
 
-void Touch::executeBatch(const string& parms, bool last, Reader* r)
-{
-    this->execute(parms, last);
+    end(last);
 }

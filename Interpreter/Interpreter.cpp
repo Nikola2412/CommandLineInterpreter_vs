@@ -21,7 +21,7 @@ Interpreter::Interpreter() : symbol("$") {
 }
 
 
-void Interpreter::interpret(const string& input){
+void Interpreter::interpret(const string& input,Reader *r){
     if (input.empty()) return;
     vector<size_t> errorPositions;
     if (hasInvalidCharacters(input, errorPositions)) {
@@ -36,7 +36,7 @@ void Interpreter::interpret(const string& input){
         string commandName = args[0];
 
         if (commands.find(commandName) != commands.end()) {
-            commands[commandName]->execute(args[1],i == n - 1);
+            commands[commandName]->MainExecute(args[1],i == n - 1,r);
         }
         else {
             cerr << "Unknown command: " << commandName << endl;
@@ -46,19 +46,30 @@ void Interpreter::interpret(const string& input){
     cin.clear();
 }
 
-void Interpreter::interpretBatch(Reader* r,const string& input) {
-    if (input.empty()) return;
-    //cout << input << endl;
-    vector<string> args = parseInput(input);
-    string commandName = args[0];
-
-    if (commands.find(commandName) != commands.end()) {
-        commands[commandName]->executeBatch(args[1], true, r);
-    }
-    else {
-        cerr << "Unknown command: " << commandName << endl;
-    }
-}
+//void Interpreter::interpretBatch(Reader* r,const string& input) {
+//    if (input.empty()) return;
+//    vector<size_t> errorPositions;
+//    if (hasInvalidCharacters(input, errorPositions)) {
+//        printError(input, errorPositions);
+//        return;
+//    }
+//    auto command = splitPipeline(input);
+//    size_t n = command.size();
+//    //cout << n << endl;
+//    for (int i = 0; i < n; i++) {
+//        vector<string> args = parseInput(command[i]);
+//        string commandName = args[0];
+//
+//        if (commands.find(commandName) != commands.end()) {
+//            commands[commandName]->executeBatch(args[1], i == n - 1,r);
+//        }
+//        else {
+//            cerr << "Unknown command: " << commandName << endl;
+//        }
+//    }
+//    //commands["command"].reset();
+//    cin.clear();
+//}
 
 vector<string> Interpreter::parseInput(const string& input)
 {

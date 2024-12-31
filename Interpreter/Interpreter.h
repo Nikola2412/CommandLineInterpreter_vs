@@ -7,8 +7,8 @@ public:
 
     static Interpreter& Instance();
 
-    void interpret(const string&);
-    void interpretBatch(Reader *r,const string&);
+    void interpret(const string&,Reader *r = nullptr);
+    //void interpretBatch(Reader *r,const string&);
 
     string& getSymbol();
 

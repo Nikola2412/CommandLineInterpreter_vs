@@ -1,5 +1,13 @@
-echo > output.txt
+echo
 12
+a
+v
+c
+
+fdsf
+sfd
+sfd
+
 EOF
 wc -c >> output.txt
 time
@@ -14,3 +22,5 @@ head -n2
 5
 6
 EOF
+time | tr ":" "." | wc -c
+echo input.txt | head -n2

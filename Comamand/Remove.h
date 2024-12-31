@@ -5,7 +5,6 @@
 
 class Remove : public Command{
 	void execute(const string& parms, bool last);
-	void executeBatch(const string& parms, bool last, Reader* r = nullptr);
 };
 
 #endif

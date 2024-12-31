@@ -7,9 +7,6 @@ void Prompt::execute(const string& parms, bool last){
 		return;
 	if (parms[0] == '"' && parms[2] == '"')
 		Interpreter::Instance().getSymbol() = parms[1];
-}
 
-void Prompt::executeBatch(const string& parms, bool last, Reader* r)
-{
-	this->execute(parms, last);
+	end(last);
 }

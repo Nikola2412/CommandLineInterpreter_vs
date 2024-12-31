@@ -3,6 +3,18 @@
 
 Command::Command() : reader(nullptr), writer (nullptr){}
 
+//void Command::executeBatch(const string& parms, bool last, Reader* r){
+//    this->reader = r;
+//    _EOF = 1;
+//    this->execute(parms, last);
+//}
+
+void Command::MainExecute(const string& parms, bool last, Reader* r) {
+    this->reader = r;
+    if(reader) _EOF = 1;
+    this->execute(parms, last);
+}
+
 Command::~Command() {
     if (reader) delete reader;
     if (writer) delete writer;
@@ -13,7 +25,7 @@ string& Command::Argument() {
     return arg;
 }
 
-void Command::append(const string s) {
+void Command::Append(const string s) {
     if (this->Argument().size() != 0)
         this->Argument() += '\n';
     this->Argument() += s;
@@ -82,15 +94,19 @@ void Command::find_output_file(const string arg) {
 }
 
 bool Command::test_input() {
+    if (!reader) return 0;
     if (reader->endOfRead()) cerr << "Input file does not exist" << endl;
     return reader->endOfRead();
 }
 
 void Command::end(bool last){
+    _EOF = 0;
     if (last) {
         if(writer) writer->writeLine(this->Argument());
         this->reset();
     }
+    reader = nullptr;
+    writer = nullptr;
 }
 
 void Command::reset(){

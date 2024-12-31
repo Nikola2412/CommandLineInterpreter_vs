@@ -13,7 +13,7 @@ class WCCommand : public Command {
 public:
     WCCommand();
     void execute(const string& parms, bool last);
-    void executeBatch(const string& parms, bool last, Reader* r = nullptr);
+
 private:
     bool check(const string& parms, string& opt);
 

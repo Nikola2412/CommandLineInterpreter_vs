@@ -1,18 +1,18 @@
 #include "Touch.h"
 
-void Touch::execute(const string& args, bool last){
-    ifstream file(args);
+void Touch::execute(const string& parms, bool last){
+    ifstream file(parms);
 
     if (file.is_open()) {
-        cerr << "Error - file \"" << args << "\" exist" << endl;
+        cerr << "Error - file \"" << parms << "\" exist" << endl;
         file.close(); // Close the file
     }
     else {
-        ofstream outfile(args);
+        ofstream outfile(parms);
     }
 }
 
-void Touch::executeBatch(const string& args, bool last, Reader* r)
+void Touch::executeBatch(const string& parms, bool last, Reader* r)
 {
-    this->execute(args, last);
+    this->execute(parms, last);
 }

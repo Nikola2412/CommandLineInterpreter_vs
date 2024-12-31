@@ -17,19 +17,19 @@ Interpreter::Interpreter() : symbol("$") {
     commands["rm"] = make_unique<Remove>();
     commands["batch"] = make_unique<Batch>();
     commands["head"] = make_unique<Head>();
-    commands["tr"] = make_unique<Tr>();
+    commands["tr"] = make_unique<Translate>();
 }
 
 
 void Interpreter::interpret(const string& input){
     if (input.empty()) return;
-    vector<int> errorPositions;
+    vector<size_t> errorPositions;
     if (hasInvalidCharacters(input, errorPositions)) {
         printError(input, errorPositions);
         return;
     }
     auto command = splitPipeline(input);
-    int n = command.size();
+    size_t n = command.size();
     //cout << n << endl;
     for (int i = 0; i < n; i++) {
         vector<string> args = parseInput(command[i]);
@@ -88,12 +88,12 @@ vector<string> Interpreter::parseInput(const string& input)
     return tokens;
 }
 
-bool Interpreter::hasInvalidCharacters(const string& input, vector<int> &errorPositions) {
+bool Interpreter::hasInvalidCharacters(const string& input, vector<size_t> &errorPositions) {
     bool err = false;
 
     bool count = true;
 
-    for (int i = 0; i < input.size(); i++) {
+    for (size_t i = 0; i < input.size(); i++) {
         char c = input[i];
         if (c == '"') count = !count;
         if (count && valid_chars.find(c) == string::npos && !isspace(c)) {
@@ -104,11 +104,11 @@ bool Interpreter::hasInvalidCharacters(const string& input, vector<int> &errorPo
     return err;
 }
 
-void Interpreter::printError(const string& input, const vector<int>& errorPositions) {
+void Interpreter::printError(const string& input, const vector<size_t>& errorPositions) {
     cerr << "Error - unexpected characters:" << endl;
     cerr << input << endl;
 
-    for (int i = 0; i < input.size(); i++) {
+    for (size_t i = 0; i < input.size(); i++) {
         if (find(errorPositions.begin(), errorPositions.end(), i) != errorPositions.end()) {
             cerr << "^";
         }

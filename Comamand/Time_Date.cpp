@@ -3,6 +3,8 @@
 
 #include "Time_Date.h"
 
+//Time_Date::Time_Date() :buffer({0}) {}
+
 tm Time_Date::getTime(const string& arg) {
     this->find_output_file(arg);
 
@@ -14,8 +16,8 @@ tm Time_Date::getTime(const string& arg) {
 }
 
 
-void Time::execute(const string& args, bool last){
-    tm local_time = getTime(args);
+void Time::execute(const string& parms, bool last){
+    tm local_time = getTime(parms);
 
     strftime(buffer, sizeof(buffer), "%H:%M:%S", &local_time);
 
@@ -23,12 +25,12 @@ void Time::execute(const string& args, bool last){
     end(last);
 }
 
-void Time::executeBatch(const string& args, bool last, Reader* r) {
-    this->execute(args, last);
+void Time::executeBatch(const string& parms, bool last, Reader* r) {
+    this->execute(parms, last);
 }
 
-void Date::execute(const string& args, bool last){
-    tm local_time = getTime(args);
+void Date::execute(const string& parms, bool last){
+    tm local_time = getTime(parms);
 
     strftime(buffer, sizeof(buffer), "%d.%m.%Y", &local_time);
 
@@ -36,7 +38,7 @@ void Date::execute(const string& args, bool last){
     end(last);
 }
 
-void Date::executeBatch(const string& args, bool last, Reader* r) {
-    this->execute(args, last);
+void Date::executeBatch(const string& parms, bool last, Reader* r) {
+    this->execute(parms, last);
 }
 

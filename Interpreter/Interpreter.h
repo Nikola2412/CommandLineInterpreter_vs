@@ -20,13 +20,13 @@ private:
 
     unordered_map<string, unique_ptr<Command>> commands;
 
-    vector<string> parseInput(const string& args);
+    vector<string> parseInput(const string& input);
 
     const string valid_chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789<>\"""-.:|";
 
-    bool hasInvalidCharacters(const string& input, vector<int>& errorPositions);
+    bool hasInvalidCharacters(const string& input, vector<size_t>& errorPositions);
 
-    void printError(const string& input, const vector<int>& errorPositions);
+    void printError(const string& input, const vector<size_t>& errorPositions);
 
     vector<string> splitPipeline(const string& input);
 

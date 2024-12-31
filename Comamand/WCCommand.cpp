@@ -7,12 +7,12 @@ WCCommand::WCCommand() {
 }
 
 
-void WCCommand::execute(const string& args, bool last) {
+void WCCommand::execute(const string& parms, bool last) {
 	string opt;
-	if (!check(args,opt)) return;
+	if (!check(parms,opt)) return;
 	string s = "";
-	if (args.size() > 2)
-		s = args.substr(3);
+	if (parms.size() > 2)
+		s = parms.substr(3);
 	this->set(s);
 	
 	int x = 0;
@@ -33,15 +33,15 @@ void WCCommand::execute(const string& args, bool last) {
 	end(last);
 }
 
-void WCCommand::executeBatch(const string& args, bool last, Reader* r)
+void WCCommand::executeBatch(const string& parms, bool last, Reader* r)
 {
 	this->reader = r;
 	string opt;
-	if (!check(args,opt)) return;
+	if (!check(parms,opt)) return;
 
 	string s = "";
-	if (args.size() > 2)
-		s = args.substr(3);
+	if (parms.size() > 2)
+		s = parms.substr(3);
 	this->set(s);
 
 	int x = 0;
@@ -62,13 +62,13 @@ void WCCommand::executeBatch(const string& args, bool last, Reader* r)
 	end(last);
 }
 
-bool WCCommand::check(const string& args,string &opt){
-	if (args.size() < 2) {
+bool WCCommand::check(const string& parms,string &opt){
+	if (parms.size() < 2) {
 		cerr << "Missing options" << endl;
 		return 0;
 	}
 
-	opt = args.substr(0, 2);
+	opt = parms.substr(0, 2);
 	if (counters.find(opt) != counters.end()) {
 		options = counters[opt];
 	}

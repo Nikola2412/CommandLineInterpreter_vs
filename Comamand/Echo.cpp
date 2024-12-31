@@ -1,7 +1,7 @@
 #include "Echo.h"
 
-void Echo::execute(const string& args, bool last){
-    this->set(args);
+void Echo::execute(const string& parms, bool last){
+    this->set(parms);
 
     if (reader) {
         if (test_input()) return;//if file does not exist
@@ -15,9 +15,9 @@ void Echo::execute(const string& args, bool last){
     end(last);
 }
 
-void Echo::executeBatch(const string& args, bool last, Reader* r){
+void Echo::executeBatch(const string& parms, bool last, Reader* r){
     this->reader = r;
-    this->set(args);
+    this->set(parms);
 
     string s;
     while (!r->endOfRead()) {

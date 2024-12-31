@@ -12,15 +12,13 @@
 class WCCommand : public Command {
 public:
     WCCommand();
-    void execute(const string& args, bool last);
-    void executeBatch(const string& args, bool last, Reader* r = nullptr);
+    void execute(const string& parms, bool last);
+    void executeBatch(const string& parms, bool last, Reader* r = nullptr);
 private:
-    bool check(const string& args, string& opt);
-    //void Input(int &x);
-    //size_t WorldCount(const string&);
-    //size_t CharacterCount(const string&);
+    bool check(const string& parms, string& opt);
+
     unordered_map<string,shared_ptr<Counter>> counters;
-    
+
     shared_ptr<Counter> options;
 };
 

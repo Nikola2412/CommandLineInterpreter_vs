@@ -3,12 +3,12 @@
 #include "../Interpreter/Interpreter.h"
 
 
-void Batch::execute(const string& args, bool last){
-    /*reader = new FileReader(args);
+void Batch::execute(const string& parms, bool last){
+    /*reader = new FileReader(parms);
     while (!reader->endOfRead())
         Interpreter::Instance().interpret(reader->getNextLine());
     reader = nullptr;*/
-    if (args == "") {
+    if (parms == "") {
         Reader* reader2 = new ConsoleReader();
         if (reader2->endOfRead()) return;//if file does not exist
         string s;
@@ -18,13 +18,13 @@ void Batch::execute(const string& args, bool last){
         }
         delete reader2;
     }
-    else Do(args);
+    else Do(parms);
     end(last);
 }
 
-void Batch::executeBatch(const string& args, bool last, Reader* r)
+void Batch::executeBatch(const string& parms, bool last, Reader* r)
 {
-    this->execute(args, last);
+    this->execute(parms, last);
 }
 
 void Batch::Do(const string arg) {

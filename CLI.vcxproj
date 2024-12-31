@@ -141,7 +141,7 @@
     <ClCompile Include="Comamand\Truncate.cpp" />
     <ClCompile Include="Comamand\Remove.cpp" />
     <ClCompile Include="IO\Reader\Reader.cpp" />
-    <ClCompile Include="Comamand\Tr.cpp" />
+    <ClCompile Include="Comamand\Translate.cpp" />
     <ClCompile Include="IO\Writer\Writer.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -160,7 +160,7 @@
     <ClInclude Include="Comamand\Remove.h" />
     <ClInclude Include="IO\IO.h" />
     <ClInclude Include="IO\Reader\Reader.h" />
-    <ClInclude Include="Comamand\Tr.h" />
+    <ClInclude Include="Comamand\Translate.h" />
     <ClInclude Include="IO\Writer\Writer.h" />
   </ItemGroup>
   <ItemGroup>

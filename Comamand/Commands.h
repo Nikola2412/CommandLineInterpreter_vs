@@ -9,4 +9,4 @@
 #include "Remove.h"
 #include "Batch.h"
 #include "Head.h"
-#include "Tr.h"
+#include "Translate.h"

@@ -1,13 +1,17 @@
-#ifndef Batch_h 
-#define Batch_h
+#ifndef TR_H
+#define TR_H
+
 
 #include "Command.h"
-class Batch : public Command {
+
+class Translate : public Command {
 public:
 	void execute(const string& parms, bool last);
 	void executeBatch(const string& parms, bool last, Reader* r = nullptr);
-private:
-	void Do(const string arg);
 };
 
+
 #endif
+
+
+

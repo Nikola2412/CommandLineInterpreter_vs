@@ -1,7 +1,7 @@
 #include "Truncate.h"
 
-void Truncate::execute(const string& args, bool last){
-    ofstream outfile(args, ios::trunc);
+void Truncate::execute(const string& parms, bool last){
+    ofstream outfile(parms, ios::trunc);
 
     if (outfile.is_open()) {
         outfile.close();
@@ -11,7 +11,7 @@ void Truncate::execute(const string& args, bool last){
     }
 }
 
-void Truncate::executeBatch(const string& args, bool last, Reader* r)
+void Truncate::executeBatch(const string& parms, bool last, Reader* r)
 {
-    this->execute(args, last);
+    this->execute(parms, last);
 }

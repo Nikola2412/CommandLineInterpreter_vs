@@ -54,7 +54,7 @@
     <ClCompile Include="Comamand\Head.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Comamand\Tr.cpp">
+    <ClCompile Include="Comamand\Translate.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Comamand\Options\Counter.cpp">
@@ -104,7 +104,7 @@
     <ClInclude Include="Comamand\Head.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Comamand\Tr.h">
+    <ClInclude Include="Comamand\Translate.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Comamand\Options\Counter.h">

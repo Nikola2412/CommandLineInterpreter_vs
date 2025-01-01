@@ -12,10 +12,10 @@
 class WCCommand : public Command {
 public:
     WCCommand();
-    void execute(const string& parms, bool last);
+    void execute(const string& params, bool last);
 
 private:
-    bool check(const string& parms, string& opt);
+    bool check(const string& params, string& opt);
 
     unordered_map<string,shared_ptr<Counter>> counters;
 

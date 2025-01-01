@@ -1,8 +1,8 @@
 #include "Echo.h"
 
-void Echo::execute(const string& parms, bool last){
-    //cout << parms << endl;
-    this->set(parms);
+void Echo::execute(const string& params, bool last){
+    //cout << params << endl;
+    this->set(params);
 
     if (reader && this->Argument().empty()) {
         if (test_input()) return;//if file does not exist

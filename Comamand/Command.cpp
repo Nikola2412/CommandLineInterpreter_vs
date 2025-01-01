@@ -3,16 +3,16 @@
 
 Command::Command() : reader(nullptr), writer (nullptr){}
 
-//void Command::executeBatch(const string& parms, bool last, Reader* r){
+//void Command::executeBatch(const string& params, bool last, Reader* r){
 //    this->reader = r;
 //    _EOF = 1;
-//    this->execute(parms, last);
+//    this->execute(params, last);
 //}
 
-void Command::MainExecute(const string& parms, bool last, Reader* r) {
+void Command::MainExecute(const string& params, bool last, Reader* r) {
     this->reader = r;
     if(reader) _EOF = 1;
-    this->execute(parms, last);
+    this->execute(params, last);
 }
 
 Command::~Command() {

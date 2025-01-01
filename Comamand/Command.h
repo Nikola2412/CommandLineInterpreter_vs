@@ -17,9 +17,9 @@ class Command {
 public:
     Command();
     void reset();
-    virtual void execute(const string& parms, bool last) = 0;
-    //void executeBatch(const string& parms, bool last,Reader *r = nullptr);
-    void MainExecute(const string& parms, bool last,Reader *r = nullptr);
+    virtual void execute(const string& params, bool last) = 0;
+    //void executeBatch(const string& params, bool last,Reader *r = nullptr);
+    void MainExecute(const string& params, bool last,Reader *r = nullptr);
     ~Command();
 protected:
     Reader* reader = nullptr;

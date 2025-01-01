@@ -4,7 +4,7 @@
 #include "Command.h"
 class Batch : public Command {
 public:
-	void execute(const string& parms, bool last);
+	void execute(const string& params, bool last);
 private:
 	void Do(const string arg);
 };

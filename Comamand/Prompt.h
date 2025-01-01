@@ -5,7 +5,7 @@
 
 class Prompt : public Command {
 public:
-    void execute(const string& parms, bool last);
+    void execute(const string& params, bool last);
 };
 
 #endif

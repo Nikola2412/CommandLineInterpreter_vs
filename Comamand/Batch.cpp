@@ -3,8 +3,8 @@
 #include "../Interpreter/Interpreter.h"
 
 
-void Batch::execute(const string& parms, bool last){
-    if (parms == "") {
+void Batch::execute(const string& params, bool last){
+    if (params == "") {
         Reader* reader2 = new ConsoleReader();
         if (reader2->endOfRead()) return;//if file does not exist
         string s;
@@ -14,7 +14,7 @@ void Batch::execute(const string& parms, bool last){
         }
         delete reader2;
     }
-    else Do(parms);
+    else Do(params);
     end(last);
 }
 

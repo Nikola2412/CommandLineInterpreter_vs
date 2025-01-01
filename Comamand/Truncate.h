@@ -4,6 +4,6 @@
 #include "Command.h"
 
 class Truncate : public Command{
-	void execute(const string& parms, bool last);
+	void execute(const string& params, bool last);
 };
 #endif

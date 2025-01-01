@@ -7,12 +7,12 @@ WCCommand::WCCommand() {
 }
 
 
-void WCCommand::execute(const string& parms, bool last) {
+void WCCommand::execute(const string& params, bool last) {
 	string opt;
-	if (!check(parms,opt)) return;
+	if (!check(params,opt)) return;
 	string s = "";
-	if (parms.size() > 2)
-		s = parms.substr(3);
+	if (params.size() > 2)
+		s = params.substr(3);
 	this->set(s);
 
 	int x = 0;
@@ -34,13 +34,13 @@ void WCCommand::execute(const string& parms, bool last) {
 	end(last);
 }
 
-bool WCCommand::check(const string& parms,string &opt){
-	if (parms.size() < 2) {
+bool WCCommand::check(const string& params,string &opt){
+	if (params.size() < 2) {
 		cerr << "Missing options" << endl;
 		return 0;
 	}
 
-	opt = parms.substr(0, 2);
+	opt = params.substr(0, 2);
 	if (counters.find(opt) != counters.end()) {
 		options = counters[opt];
 		return 1;

@@ -132,6 +132,7 @@
     <ClCompile Include="Comamand\Echo.cpp" />
     <ClCompile Include="Comamand\Head.cpp" />
     <ClCompile Include="Comamand\Options\Counter.cpp" />
+    <ClCompile Include="Comamand\Help.cpp" />
     <ClCompile Include="Interpreter\Interpreter.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Comamand\WCCommand.cpp" />
@@ -151,6 +152,7 @@
     <ClInclude Include="Comamand\Echo.h" />
     <ClInclude Include="Comamand\Head.h" />
     <ClInclude Include="Comamand\Options\Counter.h" />
+    <ClInclude Include="Comamand\Help.h" />
     <ClInclude Include="Interpreter\Interpreter.h" />
     <ClInclude Include="Comamand\WCCommand.h" />
     <ClInclude Include="Comamand\Prompt.h" />

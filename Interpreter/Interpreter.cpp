@@ -18,6 +18,7 @@ Interpreter::Interpreter() : symbol("$") {
     commands["batch"] = make_unique<Batch>();
     commands["head"] = make_unique<Head>();
     commands["tr"] = make_unique<Translate>();
+    commands["help"] = make_unique<Help>();
 }
 
 

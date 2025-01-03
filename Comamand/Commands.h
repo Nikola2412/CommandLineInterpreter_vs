@@ -10,3 +10,4 @@
 #include "Batch.h"
 #include "Head.h"
 #include "Translate.h"
+#include "Help.h"

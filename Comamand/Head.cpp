@@ -8,7 +8,7 @@ void Head::execute(const string& params, bool last){
 
     smatch matches;
     if (regex_search(params, matches, rgx)) {
-        int n = stoi(matches[1]);  // Captured number (1 to 5 digits)
+        unsigned int n = stoi(matches[1]);  // Captured number (1 to 5 digits)
         this->set(matches[2]);
         if (reader && this->Argument().empty()) {
             if (test_input()) return; // check if file exists

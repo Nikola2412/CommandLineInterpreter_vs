@@ -8,7 +8,9 @@ ConsoleWriter::ConsoleWriter() {}
 ConsoleWriter::~ConsoleWriter() {}
 
 void ConsoleWriter::writeLine(const string s) {
-	cout << s << endl;
+	//removes last new line character created by ctrl + z;
+	if ('\n' == s.back()) cout << (s.substr(0,s.size() - 1)) << endl;
+	else cout << s << endl;
 }
 
 FileWriter::FileWriter(const string filepath,bool append) : m_output(nullptr), path(filepath) {

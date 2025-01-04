@@ -28,6 +28,6 @@ private:
 
     void printError(const string& input, const vector<size_t>& errorPositions);
 
-    vector<string> splitPipeline(const string& input);
+    void splitPipeline(vector<string>& commands,const string& input);
 
 };

@@ -8,11 +8,15 @@ Reader::~Reader() {}
 ConsoleReader::ConsoleReader() {};
 ConsoleReader::~ConsoleReader() {};
 
-string ConsoleReader::getNextLine(){
+string ConsoleReader::getNextLine() {
 	string str;
-	getline(cin, str);
-	return str;
+	if (getline(cin, str)) {
+		return str;
+	}
+	return "";
 }
+
+
 bool ConsoleReader::endOfRead(){
 	return cin.eof();
 }

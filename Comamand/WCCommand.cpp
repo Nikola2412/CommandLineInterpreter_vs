@@ -15,19 +15,9 @@ void WCCommand::execute(const string& params, bool last) {
 		s = params.substr(3);
 	this->set(s);
 
-	int x = 0;
-	if (reader && this->Argument().empty()) {
-		if (test_input()) return;
-		string s;
-		while (!reader->endOfRead()) {
-			s = reader->getNextLine();
-			if (_EOF && "EOF" == s) break;
-			x += options->count(s);
-		}
-	}
-	else{
-		x = counters[opt]->count(this->Argument());
-	}
+	CollectString();
+
+	int x = counters[opt]->count(this->Argument());
 
 	this->Argument() = to_string(x);
 

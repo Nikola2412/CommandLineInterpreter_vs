@@ -16,7 +16,13 @@ int WordCounter::count(const string& input) {
 }
 
 int CharCounter::count(const string& input) {
-	return input.size();
+	size_t x = 0;
+	for (char c : input) {
+		if (c != '\n') {
+			++x;
+		}
+	}
+	return x;
 }
 
 int LineCounter::count(const string& input) {

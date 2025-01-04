@@ -29,7 +29,8 @@ void Interpreter::interpret(const string& input,Reader *r){
         printError(input, errorPositions);
         return;
     }
-    auto command = splitPipeline(input);
+    vector<string> command;
+    splitPipeline(command,input);
     size_t n = command.size();
     //cout << n << endl;
     for (int i = 0; i < n; i++) {
@@ -47,41 +48,8 @@ void Interpreter::interpret(const string& input,Reader *r){
     cin.clear();
 }
 
-//void Interpreter::interpretBatch(Reader* r,const string& input) {
-//    if (input.empty()) return;
-//    vector<size_t> errorPositions;
-//    if (hasInvalidCharacters(input, errorPositions)) {
-//        printError(input, errorPositions);
-//        return;
-//    }
-//    auto command = splitPipeline(input);
-//    size_t n = command.size();
-//    //cout << n << endl;
-//    for (int i = 0; i < n; i++) {
-//        vector<string> args = parseInput(command[i]);
-//        string commandName = args[0];
-//
-//        if (commands.find(commandName) != commands.end()) {
-//            commands[commandName]->executeBatch(args[1], i == n - 1,r);
-//        }
-//        else {
-//            cerr << "Unknown command: " << commandName << endl;
-//        }
-//    }
-//    //commands["command"].reset();
-//    cin.clear();
-//}
-
 vector<string> Interpreter::parseInput(const string& input)
 {
-    /*istringstream stream(input);
-    vector<string> tokens;
-    string token;
-    while (stream >> token) {
-        tokens.push_back(token);
-    }
-    return tokens;*/
-
     size_t spacePos = input.find(' ');
 
     vector<string> tokens;
@@ -131,9 +99,12 @@ void Interpreter::printError(const string& input, const vector<size_t>& errorPos
     cerr << endl;
 }
 
-vector<string> Interpreter::splitPipeline(const string& input)
-{
-    vector<string> commands;
+void Interpreter::splitPipeline(vector<string>& commands,const string& input) {
+    size_t b = input.find("batch");
+    if (b == string::npos) {
+        commands.push_back(input);
+        return;
+    }
     stringstream ss(input);
     string segment;
     while (getline(ss, segment, '|')) {
@@ -142,7 +113,6 @@ vector<string> Interpreter::splitPipeline(const string& input)
             k++;
         commands.push_back(segment.substr(k));
     }
-    return commands;
 }
 
 string& Interpreter::getSymbol(){

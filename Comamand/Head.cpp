@@ -3,7 +3,7 @@
 #include <regex>
 
 
-void Head::execute(const string& params, bool last){
+void Head::execute(const string& params, bool last) {
     regex rgx("-n(\\d{1,5})\\s?(.*)");
 
     smatch matches;
@@ -22,8 +22,7 @@ void Head::execute(const string& params, bool last){
                 n--;
             }
         }
-        else
-        {
+        else {
             string s = this->Argument();
             istringstream stream(s);
             string line;

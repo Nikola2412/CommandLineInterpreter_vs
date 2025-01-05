@@ -1,4 +1,6 @@
-#pragma once
+#ifndef Commands_H
+#define Commands_H
+
 #include "Command.h"
 #include "WCCommand.h"
 #include "Echo.h"
@@ -10,4 +12,6 @@
 #include "Batch.h"
 #include "Head.h"
 #include "Translate.h"
-#include "Help.h"
+#include "Help.h"7
+
+#endif

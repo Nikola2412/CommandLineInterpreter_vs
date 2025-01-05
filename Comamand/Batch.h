@@ -1,5 +1,5 @@
-#ifndef Batch_h 
-#define Batch_h
+#ifndef BATCH_H
+#define BATCH_H
 
 #include "Command.h"
 class Batch : public Command {

@@ -10,12 +10,12 @@ tm Time_Date::getTime(const string& arg) {
     time_t now = time(0);
     tm local_time;
     localtime_s(&local_time, &now);
-    
+
     return local_time;
 }
 
 
-void Time::execute(const string& params, bool last){
+void Time::execute(const string& params, bool last) {
     tm local_time = getTime(params);
 
     strftime(buffer, sizeof(buffer), "%H:%M:%S", &local_time);
@@ -25,7 +25,7 @@ void Time::execute(const string& params, bool last){
     end(last);
 }
 
-void Date::execute(const string& params, bool last){
+void Date::execute(const string& params, bool last) {
     tm local_time = getTime(params);
 
     strftime(buffer, sizeof(buffer), "%d.%m.%Y", &local_time);

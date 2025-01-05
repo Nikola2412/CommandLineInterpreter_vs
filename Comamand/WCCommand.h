@@ -1,6 +1,5 @@
-// WCCommand.h
-#ifndef WCCommand_h
-#define WCCommand_h
+#ifndef WC_COMMAND_H
+#define WC_COMMAND_H
 
 
 #include "Command.h"
@@ -17,7 +16,7 @@ public:
 private:
     bool check(const string& params, string& opt);
 
-    unordered_map<string,shared_ptr<Counter>> counters;
+    unordered_map<string, shared_ptr<Counter>> counters;
 
     shared_ptr<Counter> options;
 };

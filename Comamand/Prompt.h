@@ -1,5 +1,5 @@
-#ifndef Prompt_h
-#define Prompt_h
+#ifndef PROMPT_H
+#define PROMPT_H
 
 #include "../Comamand/Command.h"
 

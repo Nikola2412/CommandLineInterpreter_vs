@@ -3,7 +3,7 @@
 #include "../Interpreter/Interpreter.h"
 
 
-void Batch::execute(const string& params, bool last){
+void Batch::execute(const string& params, bool last) {
     if (params == "") {
         Reader* reader2 = new ConsoleReader();
         if (reader2->endOfRead()) return;//if file does not exist
@@ -19,7 +19,7 @@ void Batch::execute(const string& params, bool last){
 }
 
 void Batch::Do(const string arg) {
-    Reader *reader2 = new FileReader(arg);
+    Reader* reader2 = new FileReader(arg);
     if (reader2->endOfRead()) {
         Interpreter::Instance().interpret(arg);
     }
@@ -27,7 +27,7 @@ void Batch::Do(const string arg) {
         string s;
         while (!reader2->endOfRead()) {
             s = reader2->getNextLine();
-            Interpreter::Instance().interpret(s,reader2);
+            Interpreter::Instance().interpret(s, reader2);
         }
     }
 }

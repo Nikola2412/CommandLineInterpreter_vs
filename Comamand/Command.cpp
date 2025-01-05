@@ -6,7 +6,7 @@ Command::Command() : reader(nullptr), writer (nullptr){}
 
 void Command::MainExecute(const string& params, bool last, Reader* r) {
     this->reader = r;
-    if(reader) _EOF = 1;
+    if (reader) _EOF = 1;
     this->execute(params, last);
 }
 
@@ -20,7 +20,7 @@ string& Command::Argument() {
     return arg;
 }
 
-void Command::CollectString(){
+void Command::CollectString() {
     if (reader && this->Argument().empty()) {
         if (test_input()) return;
         string s;
@@ -47,12 +47,12 @@ void Command::set(const string arg) {
         return;
     }
     if (arg.size() == 0) {
-        if(!reader) reader = new ConsoleReader();
+        if (!reader) reader = new ConsoleReader();
         writer = new ConsoleWriter();
         return;
     }
     if (arg[0] == '\"') {
-        size_t end = arg.find('\"',1);
+        size_t end = arg.find('\"', 1);
         string s = arg.substr(1, end - 1);
         this->Argument() = s;
     }
@@ -67,7 +67,7 @@ void Command::find_input_file(const string arg) {
         return;
     }
     size_t end = arg.find(".txt");
-    if (arg[0]=='<') {
+    if (arg[0] == '<') {
         size_t k = 1;
         if (isspace(arg[k])) k++;
         string s = "";
@@ -96,7 +96,7 @@ void Command::find_output_file(const string arg) {
     size_t k = 1;
     if (isspace(arg[end + k])) k++;
     string s = arg.substr(end + k);
-    writer = new FileWriter(s,append);
+    writer = new FileWriter(s, append);
 }
 
 bool Command::test_input() {
@@ -105,17 +105,17 @@ bool Command::test_input() {
     return reader->endOfRead();
 }
 
-void Command::end(bool last){
+void Command::end(bool last) {
     _EOF = 0;
     if (last) {
-        if(writer) writer->writeLine(this->Argument());
+        if (writer) writer->writeLine(this->Argument());
         this->reset();
     }
     reader = nullptr;
     writer = nullptr;
 }
 
-void Command::reset(){
+void Command::reset() {
     reader = nullptr;
     writer = nullptr;
     this->Argument().clear();

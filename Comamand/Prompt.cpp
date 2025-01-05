@@ -2,7 +2,7 @@
 #include "../Interpreter/Interpreter.h"
 
 
-void Prompt::execute(const string& params, bool last){
+void Prompt::execute(const string& params, bool last) {
 	if (params.size() != 3)
 		return;
 	if (params[0] == '"' && params[2] == '"')

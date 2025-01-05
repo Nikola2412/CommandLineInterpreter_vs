@@ -1,9 +1,9 @@
-#ifndef Echo_h
-#define Echo_h
+#ifndef ECHO_H
+#define ECHO_H
 
 #include "Command.h"
 
-class Echo : public Command{
+class Echo : public Command {
 public:
     void execute(const string& params, bool last);
 };

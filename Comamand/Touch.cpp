@@ -1,6 +1,6 @@
 #include "Touch.h"
 
-void Touch::execute(const string& params, bool last){
+void Touch::execute(const string& params, bool last) {
     ifstream file(params);
 
     if (file.is_open()) {

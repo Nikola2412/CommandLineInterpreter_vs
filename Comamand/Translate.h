@@ -1,6 +1,5 @@
-#ifndef TR_H
-#define TR_H
-
+#ifndef TRANSLATE_H
+#define TRANSLATE_H
 
 #include "Command.h"
 

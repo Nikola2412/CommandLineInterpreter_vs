@@ -1,9 +1,9 @@
-#ifndef Truncate_h
-#define Truncate_h
+#ifndef TRUNCATE_H
+#define TRUNCATE_H
 
 #include "Command.h"
 
-class Truncate : public Command{
+class Truncate : public Command {
 	void execute(const string& params, bool last);
 };
 #endif

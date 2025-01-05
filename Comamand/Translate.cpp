@@ -1,7 +1,7 @@
 #include "Translate.h"
 #include <algorithm>
 
-void Translate::execute(const string& params, bool last){
+void Translate::execute(const string& params, bool last) {
 	this->set(params);
 	int n = params.size();
 	char c1 = params[n - 6];

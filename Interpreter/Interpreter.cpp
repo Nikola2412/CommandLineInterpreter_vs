@@ -1,7 +1,6 @@
 #include "Interpreter.h"
 
-Interpreter& Interpreter::Instance()
-{
+Interpreter& Interpreter::Instance() {
     static Interpreter interpreter;
     return interpreter;
 }
@@ -22,7 +21,7 @@ Interpreter::Interpreter() : symbol("$") {
 }
 
 
-void Interpreter::interpret(const string& input,Reader *r){
+void Interpreter::interpret(const string& input, Reader* r) {
     if (input.empty()) return;
     vector<size_t> errorPositions;
     if (hasInvalidCharacters(input, errorPositions)) {
@@ -30,26 +29,23 @@ void Interpreter::interpret(const string& input,Reader *r){
         return;
     }
     vector<string> command;
-    splitPipeline(command,input);
+    splitPipeline(command, input);
     size_t n = command.size();
-    //cout << n << endl;
     for (int i = 0; i < n; i++) {
         vector<string> args = parseInput(command[i]);
         string commandName = args[0];
 
         if (commands.find(commandName) != commands.end()) {
-            commands[commandName]->MainExecute(args[1],i == n - 1,r);
+            commands[commandName]->MainExecute(args[1], i == n - 1, r);
         }
         else {
             cerr << "Unknown command: " << commandName << endl;
         }
     }
-    //commands["command"].reset();
     cin.clear();
 }
 
-vector<string> Interpreter::parseInput(const string& input)
-{
+vector<string> Interpreter::parseInput(const string& input) {
     size_t spacePos = input.find(' ');
 
     vector<string> tokens;
@@ -58,17 +54,15 @@ vector<string> Interpreter::parseInput(const string& input)
         tokens.push_back(input.substr(0, spacePos)); // command
         tokens.push_back(input.substr(spacePos + 1)); // rest
     }
-    else
-    {
+    else {
         tokens.push_back(input);
         tokens.push_back("");
     }
 
-
     return tokens;
 }
 
-bool Interpreter::hasInvalidCharacters(const string& input, vector<size_t> &errorPositions) {
+bool Interpreter::hasInvalidCharacters(const string& input, vector<size_t>& errorPositions) {
     bool err = false;
 
     bool count = true;
@@ -99,12 +93,7 @@ void Interpreter::printError(const string& input, const vector<size_t>& errorPos
     cerr << endl;
 }
 
-void Interpreter::splitPipeline(vector<string>& commands,const string& input) {
-    size_t b = input.find("batch");
-    if (b == string::npos) {
-        commands.push_back(input);
-        return;
-    }
+void Interpreter::splitPipeline(vector<string>& commands, const string& input) {
     stringstream ss(input);
     string segment;
     while (getline(ss, segment, '|')) {
@@ -115,7 +104,7 @@ void Interpreter::splitPipeline(vector<string>& commands,const string& input) {
     }
 }
 
-string& Interpreter::getSymbol(){
+string& Interpreter::getSymbol() {
     return this->symbol;
 }
 

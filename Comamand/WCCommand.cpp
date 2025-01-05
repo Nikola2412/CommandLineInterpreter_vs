@@ -9,7 +9,7 @@ WCCommand::WCCommand() {
 
 void WCCommand::execute(const string& params, bool last) {
 	string opt;
-	if (!check(params,opt)) return;
+	if (!check(params, opt)) return;
 	string s = "";
 	if (params.size() > 2)
 		s = params.substr(3);
@@ -24,7 +24,7 @@ void WCCommand::execute(const string& params, bool last) {
 	end(last);
 }
 
-bool WCCommand::check(const string& params,string &opt){
+bool WCCommand::check(const string& params, string& opt) {
 	if (params.size() < 2) {
 		cerr << "Missing options" << endl;
 		return 0;

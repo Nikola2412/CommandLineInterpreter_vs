@@ -1,5 +1,5 @@
-#ifndef Interpreter_H
-#define Interpreter_H
+#ifndef INTERPRETER_H
+#define INTERPRETER_H
 
 #include <unordered_map>
 
@@ -10,8 +10,7 @@ public:
 
     static Interpreter& Instance();
 
-    void interpret(const string&, Reader* r = nullptr);
-    //void interpretBatch(Reader *r,const string&);
+    void interpret(const string& input, Reader* r = nullptr);
 
     string& getSymbol();
 
@@ -31,9 +30,9 @@ private:
 
     void printError(const string& input, const vector<size_t>& errorPositions);
 
-    void splitPipeline(vector<string>& commands, const string& input);
+    void splitPipeline(const string& input, vector<string>& pipeCommand);
 
 };
 
 
-#endif // !Interpreter_H
+#endif // !INTERPRETER_H

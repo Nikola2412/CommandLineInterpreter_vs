@@ -28,11 +28,11 @@ void Interpreter::interpret(const string& input, Reader* r) {
         printError(input, errorPositions);
         return;
     }
-    vector<string> command;
-    splitPipeline(command, input);
-    size_t n = command.size();
+    vector<string> pipeCommand;
+    splitPipeline(input, pipeCommand);
+    size_t n = pipeCommand.size();
     for (int i = 0; i < n; i++) {
-        vector<string> args = parseInput(command[i]);
+        vector<string> args = parseInput(pipeCommand[i]);
         string commandName = args[0];
 
         if (commands.find(commandName) != commands.end()) {
@@ -93,14 +93,14 @@ void Interpreter::printError(const string& input, const vector<size_t>& errorPos
     cerr << endl;
 }
 
-void Interpreter::splitPipeline(vector<string>& commands, const string& input) {
+void Interpreter::splitPipeline(const string& input,vector<string>& pipeCommand) {
     stringstream ss(input);
     string segment;
     while (getline(ss, segment, '|')) {
         int k = 0;
         if (isspace(segment[0]))
             k++;
-        commands.push_back(segment.substr(k));
+        pipeCommand.push_back(segment.substr(k));
     }
 }
 

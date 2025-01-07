@@ -1,5 +1,5 @@
-#ifndef Commands_H
-#define Commands_H
+#ifndef COMMANDS_H
+#define COMMANDS_H
 
 #include "Command.h"
 #include "WCCommand.h"
@@ -12,6 +12,6 @@
 #include "Batch.h"
 #include "Head.h"
 #include "Translate.h"
-#include "Help.h"7
+#include "Help.h"
 
 #endif

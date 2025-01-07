@@ -5,7 +5,7 @@
 
 class Head : public Command {
 public:
-	void execute(const string& params, bool last);
+	void Execute(const string& params, bool last);
 };
 
 #endif

@@ -4,7 +4,7 @@
 #include "Command.h"
 
 class Remove : public Command {
-	void execute(const string& params, bool last);
+	void Execute(const string& params, bool last);
 };
 
 #endif

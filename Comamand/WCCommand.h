@@ -11,7 +11,7 @@
 class WCCommand : public Command {
 public:
     WCCommand();
-    void execute(const string& params, bool last);
+    void Execute(const string& params, bool last);
 
 private:
     bool check(const string& params, string& opt);

@@ -1,8 +1,11 @@
 #ifndef READER_H
 #define READER_H
 
-#include "../IO.h"
+#include <fstream>
+#include <string>
+#include <iostream>
 
+using namespace std;
 
 class Reader {
 protected: 

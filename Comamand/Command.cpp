@@ -7,7 +7,7 @@ Command::Command() : reader(nullptr), writer (nullptr){}
 void Command::MainExecute(const string& params, bool last, Reader* r) {
     this->reader = r;
     if (reader) _EOF = 1;
-    this->execute(params, last);
+    this->Execute(params, last);
 }
 
 Command::~Command() {
@@ -22,7 +22,7 @@ string& Command::Argument() {
 
 void Command::CollectString() {
     if (reader && this->Argument().empty()) {
-        if (test_input()) return;
+        if (TestInput()) return;
         string s;
         while (!reader->endOfRead()) {
             s = reader->getNextLine();
@@ -41,9 +41,9 @@ void Command::Append(const string s) {
 }
 
 
-void Command::set(const string arg) {
+void Command::Set(const string arg) {
     if (this->Argument().size() != 0) {
-        find_output_file(arg);
+        FindOutputFile(arg);
         return;
     }
     if (arg.size() == 0) {
@@ -57,11 +57,11 @@ void Command::set(const string arg) {
         this->Argument() = s;
     }
     else
-        find_input_file(arg);
-    find_output_file(arg);
+        FindInputFile(arg);
+    FindOutputFile(arg);
 }
 
-void Command::find_input_file(const string arg) {
+void Command::FindInputFile(const string arg) {
     if (arg[0] == '>') {
         reader = new ConsoleReader();
         return;
@@ -85,7 +85,7 @@ void Command::find_input_file(const string arg) {
     }
 }
 
-void Command::find_output_file(const string arg) {
+void Command::FindOutputFile(const string arg) {
     size_t end = arg.find_last_of('>');
     if (end == string::npos) {
         writer = new ConsoleWriter();
@@ -99,7 +99,7 @@ void Command::find_output_file(const string arg) {
     writer = new FileWriter(s, append);
 }
 
-bool Command::test_input() {
+bool Command::TestInput() {
     if (!reader) return 0;
     if (reader->endOfRead()) cerr << "Input file does not exist" << endl;
     return reader->endOfRead();
@@ -116,6 +116,8 @@ void Command::end(bool last) {
 }
 
 void Command::reset() {
+    if (reader) delete reader;
+    if (writer) delete writer;
     reader = nullptr;
     writer = nullptr;
     this->Argument().clear();

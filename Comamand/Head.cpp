@@ -1,17 +1,18 @@
 #include "Head.h"
 
 #include <regex>
+#include <sstream>
 
 
-void Head::execute(const string& params, bool last) {
+void Head::Execute(const string& params, bool last) {
     regex rgx("-n(\\d{1,5})\\s?(.*)");
 
     smatch matches;
     if (regex_search(params, matches, rgx)) {
         unsigned int n = stoi(matches[1]);  // Captured number (1 to 5 digits)
-        this->set(matches[2]);
+        this->Set(matches[2]);
         if (reader && this->Argument().empty()) {
-            if (test_input()) return; // check if file exists
+            if (TestInput()) return; // check if file exists
 
             string s;
             while (!reader->endOfRead()) {

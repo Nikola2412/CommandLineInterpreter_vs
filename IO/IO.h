@@ -1,13 +1,7 @@
 #ifndef IO_H
 #define IO_H
 
-#include <fstream>
-#include <sstream>
-#include <string>
-#include <iostream>
+#include "../IO/Reader/Reader.h"
+#include "../IO/Writer/Writer.h"
 
-
-using namespace std;
-
-#endif // !IO_H
-
+#endif

@@ -3,35 +3,27 @@
 
 #include <unordered_map>
 
-#include "../Comamand/Commands.h"
+#include "../Comamand/Commands.h" //includes all commands
 
 class Interpreter {
 public:
+    Interpreter();
+    ~Interpreter() = default;
 
     static Interpreter& Instance();
-
     void interpret(const string& input, Reader* r = nullptr);
-
-    string& getSymbol();
-
+    char& getSymbol();
 
 private:
-    Interpreter();
-
-    string symbol;
-
+    char symbol;
     unordered_map<string, unique_ptr<Command>> commands;
-
     vector<string> parseInput(const string& input);
-
     const string valid_chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789<>\"""-.:|";
 
+private:
     bool hasInvalidCharacters(const string& input, vector<size_t>& errorPositions);
-
     void printError(const string& input, const vector<size_t>& errorPositions);
-
-    void splitPipeline(const string& input, vector<string>& pipeCommand);
-
+    void splitPipeLine(const string& input, vector<string>& pipeCommand);
 };
 
 

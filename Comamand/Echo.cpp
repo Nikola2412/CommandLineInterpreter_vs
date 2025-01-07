@@ -1,7 +1,7 @@
 #include "Echo.h"
 
-void Echo::execute(const string& params, bool last) {
-    this->set(params);
+void Echo::Execute(const string& params, bool last) {
+    this->Set(params);
 
     CollectString();
 

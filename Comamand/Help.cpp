@@ -1,6 +1,6 @@
 #include "Help.h"
 
-void Help::execute(const string& params, bool last) {
+void Help::Execute(const string& params, bool last) {
 	this->writer = new ConsoleWriter();
 
 	this->Append("[arg] means optional");

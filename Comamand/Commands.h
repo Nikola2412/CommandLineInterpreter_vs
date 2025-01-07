@@ -1,7 +1,6 @@
 #ifndef COMMANDS_H
 #define COMMANDS_H
 
-#include "Command.h"
 #include "WCCommand.h"
 #include "Echo.h"
 #include "Prompt.h"

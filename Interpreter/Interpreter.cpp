@@ -5,7 +5,7 @@ Interpreter& Interpreter::Instance() {
     return interpreter;
 }
 
-Interpreter::Interpreter() : symbol("$") {
+Interpreter::Interpreter() : symbol('$') {
     commands["wc"] = make_unique<WCCommand>();
     commands["echo"] = make_unique<Echo>();
     commands["prompt"] = make_unique<Prompt>();
@@ -29,9 +29,9 @@ void Interpreter::interpret(const string& input, Reader* r) {
         return;
     }
     vector<string> pipeCommand;
-    splitPipeline(input, pipeCommand);
+    splitPipeLine(input, pipeCommand);
     size_t n = pipeCommand.size();
-    for (int i = 0; i < n; i++) {
+    for (size_t i = 0; i < n; i++) {
         vector<string> args = parseInput(pipeCommand[i]);
         string commandName = args[0];
 
@@ -93,18 +93,18 @@ void Interpreter::printError(const string& input, const vector<size_t>& errorPos
     cerr << endl;
 }
 
-void Interpreter::splitPipeline(const string& input,vector<string>& pipeCommand) {
+void Interpreter::splitPipeLine(const string& input,vector<string>& pipeCommand) {
     stringstream ss(input);
     string segment;
     while (getline(ss, segment, '|')) {
-        int k = 0;
+        bool k = 0;//0 or 1
         if (isspace(segment[0]))
             k++;
         pipeCommand.push_back(segment.substr(k));
     }
 }
 
-string& Interpreter::getSymbol() {
+char& Interpreter::getSymbol() {
     return this->symbol;
 }
 

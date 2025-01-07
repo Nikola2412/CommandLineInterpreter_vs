@@ -1,6 +1,8 @@
 #include "Writer.h"
 
-Writer::Writer(){}
+
+Writer::Writer() {}
+
 Writer::~Writer() {}
 
 ConsoleWriter::ConsoleWriter() {}
@@ -40,7 +42,7 @@ void FileWriter::writeLine(const string s) {
 	(*m_output).close();
 }
 
-bool FileWriter::exist(){
+bool FileWriter::exist() const {
 	ifstream file(path);
 	return file.good();
 }

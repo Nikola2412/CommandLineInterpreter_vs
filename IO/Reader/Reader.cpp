@@ -1,6 +1,5 @@
 #include "Reader.h"
 
-using namespace std;
 
 Reader::Reader() {}
 Reader::~Reader() {}

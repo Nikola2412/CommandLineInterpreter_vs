@@ -7,17 +7,17 @@ WCCommand::WCCommand() {
 }
 
 
-void WCCommand::execute(const string& params, bool last) {
+void WCCommand::Execute(const string& params, bool last) {
 	string opt;
 	if (!check(params, opt)) return;
 	string s = "";
 	if (params.size() > 2)
 		s = params.substr(3);
-	this->set(s);
+	this->Set(s);
 
 	CollectString();
 
-	int x = counters[opt]->count(this->Argument());
+	size_t x = counters[opt]->count(this->Argument());
 
 	this->Argument() = to_string(x);
 

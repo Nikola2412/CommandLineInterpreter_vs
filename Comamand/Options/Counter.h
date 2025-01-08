@@ -8,6 +8,8 @@ using namespace std;
 
 class Counter {
 public:
+    Counter() = default;
+    virtual ~Counter() = default;
     virtual size_t count(const string& input) = 0;
 };
 

@@ -10,7 +10,7 @@ using namespace std;
 class Command {
 public:
     Command();
-    ~Command();
+    virtual ~Command();
     virtual void Execute(const string& params, bool last) = 0;
     void MainExecute(const string& params, bool last, Reader* r = nullptr);
 

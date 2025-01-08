@@ -7,6 +7,7 @@ WCCommand::WCCommand() {
 }
 
 
+
 void WCCommand::Execute(const string& params, bool last) {
 	string opt;
 	if (!check(params, opt)) return;
@@ -32,7 +33,6 @@ bool WCCommand::check(const string& params, string& opt) {
 
 	opt = params.substr(0, 2);
 	if (counters.find(opt) != counters.end()) {
-		options = counters[opt];
 		return 1;
 	}
 	else {

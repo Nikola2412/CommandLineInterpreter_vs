@@ -1,5 +1,6 @@
 #include "Counter.h"
 
+//Counter::Counter() {}
 
 size_t WordCounter::count(const string& input) {
 	size_t x = 0;

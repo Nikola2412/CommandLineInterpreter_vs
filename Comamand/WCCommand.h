@@ -11,14 +11,14 @@
 class WCCommand : public Command {
 public:
     WCCommand();
+    ~WCCommand() = default;
+    
     void Execute(const string& params, bool last);
 
 private:
     bool check(const string& params, string& opt);
 
-    unordered_map<string, shared_ptr<Counter>> counters;
-
-    shared_ptr<Counter> options;
+    unordered_map<string, unique_ptr<Counter>> counters;
 };
 
 #endif

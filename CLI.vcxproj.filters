@@ -18,105 +18,105 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Comamand\Command.cpp">
+    <ClCompile Include="Command\Command.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Interpreter\Interpreter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Comamand\WCCommand.cpp">
+    <ClCompile Include="Command\WCCommand.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Comamand\Echo.cpp">
+    <ClCompile Include="Command\Echo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Comamand\Prompt.cpp">
+    <ClCompile Include="Command\Prompt.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Comamand\Time_Date.cpp">
+    <ClCompile Include="Command\Time_Date.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Comamand\Touch.cpp">
+    <ClCompile Include="Command\Touch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Comamand\Truncate.cpp">
+    <ClCompile Include="Command\Truncate.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Comamand\Remove.cpp">
+    <ClCompile Include="Command\Remove.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Comamand\Batch.cpp">
+    <ClCompile Include="Command\Batch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="IO\Reader\Reader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Comamand\Head.cpp">
+    <ClCompile Include="Command\Head.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Comamand\Translate.cpp">
+    <ClCompile Include="Command\Translate.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Comamand\Options\Counter.cpp">
+    <ClCompile Include="Command\Options\Counter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="IO\Writer\Writer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Comamand\Help.cpp">
+    <ClCompile Include="Command\Help.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Comamand\Command.h">
+    <ClInclude Include="Command\Command.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Comamand\Commands.h">
+    <ClInclude Include="Command\Commands.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Interpreter\Interpreter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Comamand\WCCommand.h">
+    <ClInclude Include="Command\WCCommand.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Comamand\Echo.h">
+    <ClInclude Include="Command\Echo.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Comamand\Prompt.h">
+    <ClInclude Include="Command\Prompt.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Comamand\Time_Date.h">
+    <ClInclude Include="Command\Time_Date.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Comamand\Touch.h">
+    <ClInclude Include="Command\Touch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Comamand\Truncate.h">
+    <ClInclude Include="Command\Truncate.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Comamand\Remove.h">
+    <ClInclude Include="Command\Remove.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Comamand\Batch.h">
+    <ClInclude Include="Command\Batch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="IO\Reader\Reader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Comamand\Head.h">
+    <ClInclude Include="Command\Head.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Comamand\Translate.h">
+    <ClInclude Include="Command\Translate.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Comamand\Options\Counter.h">
+    <ClInclude Include="Command\Options\Counter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="IO\Writer\Writer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Comamand\Help.h">
+    <ClInclude Include="Command\Help.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="IO\IO.h">

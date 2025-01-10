@@ -129,42 +129,42 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Comamand\Batch.cpp" />
-    <ClCompile Include="Comamand\Command.cpp" />
-    <ClCompile Include="Comamand\Echo.cpp" />
-    <ClCompile Include="Comamand\Head.cpp" />
-    <ClCompile Include="Comamand\Options\Counter.cpp" />
-    <ClCompile Include="Comamand\Help.cpp" />
+    <ClCompile Include="Command\Batch.cpp" />
+    <ClCompile Include="Command\Command.cpp" />
+    <ClCompile Include="Command\Echo.cpp" />
+    <ClCompile Include="Command\Head.cpp" />
+    <ClCompile Include="Command\Options\Counter.cpp" />
+    <ClCompile Include="Command\Help.cpp" />
     <ClCompile Include="Interpreter\Interpreter.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Comamand\WCCommand.cpp" />
-    <ClCompile Include="Comamand\Prompt.cpp" />
-    <ClCompile Include="Comamand\Time_Date.cpp" />
-    <ClCompile Include="Comamand\Touch.cpp" />
-    <ClCompile Include="Comamand\Truncate.cpp" />
-    <ClCompile Include="Comamand\Remove.cpp" />
+    <ClCompile Include="Command\WCCommand.cpp" />
+    <ClCompile Include="Command\Prompt.cpp" />
+    <ClCompile Include="Command\Time_Date.cpp" />
+    <ClCompile Include="Command\Touch.cpp" />
+    <ClCompile Include="Command\Truncate.cpp" />
+    <ClCompile Include="Command\Remove.cpp" />
     <ClCompile Include="IO\Reader\Reader.cpp" />
-    <ClCompile Include="Comamand\Translate.cpp" />
+    <ClCompile Include="Command\Translate.cpp" />
     <ClCompile Include="IO\Writer\Writer.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Comamand\Batch.h" />
-    <ClInclude Include="Comamand\Command.h" />
-    <ClInclude Include="Comamand\Commands.h" />
-    <ClInclude Include="Comamand\Echo.h" />
-    <ClInclude Include="Comamand\Head.h" />
-    <ClInclude Include="Comamand\Options\Counter.h" />
-    <ClInclude Include="Comamand\Help.h" />
+    <ClInclude Include="Command\Batch.h" />
+    <ClInclude Include="Command\Command.h" />
+    <ClInclude Include="Command\Commands.h" />
+    <ClInclude Include="Command\Echo.h" />
+    <ClInclude Include="Command\Head.h" />
+    <ClInclude Include="Command\Options\Counter.h" />
+    <ClInclude Include="Command\Help.h" />
     <ClInclude Include="Interpreter\Interpreter.h" />
-    <ClInclude Include="Comamand\WCCommand.h" />
-    <ClInclude Include="Comamand\Prompt.h" />
-    <ClInclude Include="Comamand\Time_Date.h" />
-    <ClInclude Include="Comamand\Touch.h" />
-    <ClInclude Include="Comamand\Truncate.h" />
-    <ClInclude Include="Comamand\Remove.h" />
+    <ClInclude Include="Command\WCCommand.h" />
+    <ClInclude Include="Command\Prompt.h" />
+    <ClInclude Include="Command\Time_Date.h" />
+    <ClInclude Include="Command\Touch.h" />
+    <ClInclude Include="Command\Truncate.h" />
+    <ClInclude Include="Command\Remove.h" />
     <ClInclude Include="IO\IO.h" />
     <ClInclude Include="IO\Reader\Reader.h" />
-    <ClInclude Include="Comamand\Translate.h" />
+    <ClInclude Include="Command\Translate.h" />
     <ClInclude Include="IO\Writer\Writer.h" />
   </ItemGroup>
   <ItemGroup>

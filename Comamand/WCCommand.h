@@ -16,7 +16,7 @@ public:
     void Execute(const string& params, bool last);
 
 private:
-    bool check(const string& params, string& opt);
+    bool check(const string& params, string& opt) const;
 
     unordered_map<string, unique_ptr<Counter>> counters;
 };

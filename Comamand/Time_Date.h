@@ -3,6 +3,9 @@
 
 #include "Command.h"
 
+#include <ctime>
+
+
 class  Time_Date : public Command {
 public:
 	virtual void Execute(const string& params, bool last) = 0;

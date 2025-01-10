@@ -25,7 +25,7 @@ void WCCommand::Execute(const string& params, bool last) {
 	end(last);
 }
 
-bool WCCommand::check(const string& params, string& opt) {
+bool WCCommand::check(const string& params, string& opt) const {
 	if (params.size() < 2) {
 		cerr << "Missing options" << endl;
 		return 0;

@@ -1,7 +1,4 @@
-#include <ctime>
-
 #include "Time_Date.h"
-
 
 tm Time_Date::getTime(const string& arg) {
     this->FindOutputFile(arg);

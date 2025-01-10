@@ -3,7 +3,7 @@
 
 
 #include "Command.h"
-#include "../Comamand/Options/Counter.h"
+#include "../Command/Options/Counter.h"
 
 #include <unordered_map>
 

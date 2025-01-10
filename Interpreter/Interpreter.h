@@ -3,7 +3,7 @@
 
 #include <unordered_map>
 
-#include "../Comamand/Commands.h" //includes all commands
+#include "../Command/Commands.h" //includes all commands
 
 class Interpreter {
 public:

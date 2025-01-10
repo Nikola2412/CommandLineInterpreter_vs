@@ -1,7 +1,7 @@
 #ifndef PROMPT_H
 #define PROMPT_H
 
-#include "../Comamand/Command.h"
+#include "../Command/Command.h"
 
 class Prompt : public Command {
 public:

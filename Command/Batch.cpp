@@ -20,15 +20,14 @@ void Batch::Execute(const string& params, bool last) {
 
 void Batch::Do(const string arg) {
     Reader* reader2 = new FileReader(arg);
-    Interpreter interpreter;
     if (reader2->endOfRead()) {
-        interpreter.interpret(arg);
+        Interpreter::Instance().interpret(arg);
     }
     else {
         string s;
-        while (!reader2->endOfRead()) {
+        while (reader2 && !reader2->endOfRead()) {
             s = reader2->getNextLine();
-            interpreter.interpret(s, reader2);
+            Interpreter::Instance().interpret(s, reader2);
         }
     }
     if (reader2) delete reader2;

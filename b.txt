@@ -1,1 +1,5 @@
-echo input.txt | head -n2
+wc -w > output.txt
+abcd
+12
+3
+EOF

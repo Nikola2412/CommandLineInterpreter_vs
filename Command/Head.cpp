@@ -18,9 +18,10 @@ void Head::Execute(const string& params, bool last) {
             while (!reader->endOfRead()) {
                 s = reader->getNextLine();
                 if (_EOF && "EOF" == s) break;
-                if (n > 0)
+                if (n > 0) {
                     this->Append(s);
-                n--;
+                    n--;
+                }
             }
         }
         else {

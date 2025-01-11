@@ -8,6 +8,7 @@ void Command::MainExecute(const string& params, bool last, Reader* r) {
     this->reader = r;
     if (reader) _EOF = 1;
     this->Execute(params, last);
+    _EOF = 0;
 }
 
 Command::~Command() {
@@ -63,7 +64,7 @@ void Command::Set(const string arg) {
 
 void Command::FindInputFile(const string arg) {
     if (arg[0] == '>') {
-        reader = new ConsoleReader();
+        if(!reader) reader = new ConsoleReader();
         return;
     }
     size_t end = arg.find(".txt");
@@ -106,7 +107,6 @@ bool Command::TestInput() {
 }
 
 void Command::end(bool last) {
-    _EOF = 0;
     if (last) {
         if (writer) writer->writeLine(this->Argument());
         this->reset();
@@ -116,7 +116,7 @@ void Command::end(bool last) {
 }
 
 void Command::reset() {
-    if (reader) delete reader;
+    if (reader && !_EOF) delete reader;
     if (writer) delete writer;
     reader = nullptr;
     writer = nullptr;

@@ -1,6 +1,6 @@
-#include "Time_Date.h"
+#include "TimeDate.h"
 
-tm Time_Date::getTime(const string& arg) {
+tm TimeDate::getTime(const string& arg) {
     this->FindOutputFile(arg);
 
     time_t now = time(0);
@@ -16,7 +16,7 @@ void Time::Execute(const string& params, bool last) {
 
     strftime(buffer, sizeof(buffer), "%H:%M:%S", &local_time);
 
-    this->Append(buffer);
+    this->Argument() = buffer;
 
     end(last);
 }
@@ -26,8 +26,7 @@ void Date::Execute(const string& params, bool last) {
 
     strftime(buffer, sizeof(buffer), "%d.%m.%Y", &local_time);
 
-    this->Append(buffer);
+    this->Argument() = buffer;
 
     end(last);
 }
-

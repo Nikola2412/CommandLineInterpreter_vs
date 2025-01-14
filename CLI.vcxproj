@@ -139,7 +139,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Command\WCCommand.cpp" />
     <ClCompile Include="Command\Prompt.cpp" />
-    <ClCompile Include="Command\Time_Date.cpp" />
+    <ClCompile Include="Command\TimeDate.cpp" />
     <ClCompile Include="Command\Touch.cpp" />
     <ClCompile Include="Command\Truncate.cpp" />
     <ClCompile Include="Command\Remove.cpp" />
@@ -158,7 +158,7 @@
     <ClInclude Include="Interpreter\Interpreter.h" />
     <ClInclude Include="Command\WCCommand.h" />
     <ClInclude Include="Command\Prompt.h" />
-    <ClInclude Include="Command\Time_Date.h" />
+    <ClInclude Include="Command\TimeDate.h" />
     <ClInclude Include="Command\Touch.h" />
     <ClInclude Include="Command\Truncate.h" />
     <ClInclude Include="Command\Remove.h" />

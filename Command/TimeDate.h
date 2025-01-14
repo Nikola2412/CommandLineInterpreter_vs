@@ -6,7 +6,7 @@
 #include <ctime>
 
 
-class  Time_Date : public Command {
+class  TimeDate : public Command {
 public:
 	virtual void Execute(const string& params, bool last) = 0;
 protected:
@@ -15,11 +15,11 @@ protected:
 };
 
 
-class Time : public Time_Date {
+class Time : public TimeDate {
 	void Execute(const string& params, bool last);
 };
 
-class Date : public Time_Date {
+class Date : public TimeDate {
 	void Execute(const string& params, bool last);
 };
 

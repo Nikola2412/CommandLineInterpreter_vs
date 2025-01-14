@@ -33,7 +33,7 @@
     <ClCompile Include="Command\Prompt.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Command\Time_Date.cpp">
+    <ClCompile Include="Command\TimeDate.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Command\Touch.cpp">
@@ -86,7 +86,7 @@
     <ClInclude Include="Command\Prompt.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Command\Time_Date.h">
+    <ClInclude Include="Command\TimeDate.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Command\Touch.h">

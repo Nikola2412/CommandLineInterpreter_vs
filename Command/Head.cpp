@@ -30,7 +30,7 @@ void Head::Execute(const string& params, bool last) {
             string line;
             this->Argument().clear();
 
-            while (std::getline(stream, line) && n > 0) {
+            while (getline(stream, line) && n > 0) {
                 this->Append(line);
                 n--;
             }

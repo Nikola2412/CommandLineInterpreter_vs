@@ -10,7 +10,9 @@ public:
     Interpreter();
     ~Interpreter() = default;
 
+public:
     static Interpreter& Instance();
+    void Run();
     void interpret(const string& input, Reader* r = nullptr);
     char& getSymbol();
 

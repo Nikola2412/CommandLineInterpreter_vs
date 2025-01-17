@@ -7,7 +7,9 @@ class Translate : public Command {
 public:
 	Translate() = default;
 	~Translate() = default;
+
 	void Execute(const string& params, bool last);
+
 private:
 	char c1 = NULL, c2 = NULL;
 };

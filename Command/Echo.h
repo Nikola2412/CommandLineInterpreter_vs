@@ -7,6 +7,7 @@ class Echo : public Command {
 public:
     Echo() = default;
     ~Echo() = default;
+
     void Execute(const string& params, bool last);
 };
 

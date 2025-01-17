@@ -3,12 +3,10 @@
 void Truncate::Execute(const string& params, bool last) {
     ofstream outfile(params, ios::trunc);
 
-    if (outfile.is_open()) {
+    if (outfile.is_open())
         outfile.close();
-    }
-    else {
+    else
         cerr << "Error clearing file." << endl;
-    }
 
     end(last);
 }

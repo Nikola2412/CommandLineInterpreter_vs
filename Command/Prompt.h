@@ -7,6 +7,7 @@ class Prompt : public Command {
 public:
     Prompt() = default;
     ~Prompt() = default;
+
     void Execute(const string& params, bool last);
 };
 

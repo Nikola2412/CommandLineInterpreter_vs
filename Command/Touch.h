@@ -7,6 +7,8 @@ class Touch : public Command {
 public:
 	Touch() = default;
 	~Touch() = default;
+
+public:
 	void Execute(const string& params, bool last);
 };
 

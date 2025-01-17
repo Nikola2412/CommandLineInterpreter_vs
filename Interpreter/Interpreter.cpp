@@ -5,6 +5,17 @@ Interpreter& Interpreter::Instance() {
     return interpreter;
 }
 
+void Interpreter::Run() {
+    string str;
+
+    while (1) {
+        cout << Interpreter::Instance().getSymbol() << " ";
+        if (!getline(cin, str)) break;
+        Interpreter::Instance().interpret(str);
+        cin.clear();
+    }
+}
+
 Interpreter::Interpreter() : symbol('$') {
     commands["wc"] = make_unique<WCCommand>();
     commands["echo"] = make_unique<Echo>();
@@ -107,4 +118,3 @@ void Interpreter::splitPipeLine(const string& input,vector<string>& pipeCommand)
 char& Interpreter::getSymbol() {
     return this->symbol;
 }
-

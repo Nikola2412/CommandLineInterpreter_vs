@@ -5,6 +5,7 @@
 
 void Batch::Execute(const string& params) {
     //prepraviti da koristi this->Set(params) i bes reader2
+    writer = new ConsoleWriter();
     if (params == "") {
         Reader* reader2 = new ConsoleReader();
         if (reader2->endOfRead()) return;//if file does not exist

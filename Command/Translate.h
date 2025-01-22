@@ -8,7 +8,7 @@ public:
 	Translate() = default;
 	~Translate() = default;
 
-	void Execute(const string& params, bool last);
+	void Execute(const string& params);
 
 private:
 	char c1 = NULL, c2 = NULL;

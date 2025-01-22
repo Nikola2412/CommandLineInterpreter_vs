@@ -8,7 +8,7 @@ public:
 	Head() = default;
 	~Head() = default;
 
-	void Execute(const string& params, bool last);
+	void Execute(const string& params);
 };
 
 #endif

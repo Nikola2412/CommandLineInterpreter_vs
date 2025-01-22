@@ -9,7 +9,7 @@ public:
 	~Touch() = default;
 
 public:
-	void Execute(const string& params, bool last);
+	void Execute(const string& params);
 };
 
 #endif

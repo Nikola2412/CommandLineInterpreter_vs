@@ -11,22 +11,18 @@ tm TimeDate::getTime(const string& arg) {
 }
 
 
-void Time::Execute(const string& params, bool last) {
+void Time::Execute(const string& params) {
     tm local_time = getTime(params);
 
     strftime(buffer, sizeof(buffer), "%H:%M:%S", &local_time);
 
     this->Argument() = buffer;
-
-    end(last);
 }
 
-void Date::Execute(const string& params, bool last) {
+void Date::Execute(const string& params) {
     tm local_time = getTime(params);
 
     strftime(buffer, sizeof(buffer), "%d.%m.%Y", &local_time);
 
     this->Argument() = buffer;
-
-    end(last);
 }

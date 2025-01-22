@@ -8,7 +8,7 @@ public:
     Prompt() = default;
     ~Prompt() = default;
 
-    void Execute(const string& params, bool last);
+    void Execute(const string& params);
 };
 
 #endif

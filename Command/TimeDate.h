@@ -8,7 +8,7 @@
 
 class  TimeDate : public Command {
 public:
-	virtual void Execute(const string& params, bool last) = 0;
+	virtual void Execute(const string& params) = 0;
 
 protected:
 	tm getTime(const string& arg);
@@ -19,12 +19,12 @@ protected:
 
 class Time : public TimeDate {
 public:
-	void Execute(const string& params, bool last);
+	void Execute(const string& params);
 };
 
 class Date : public TimeDate {
 public:
-	void Execute(const string& params, bool last);
+	void Execute(const string& params);
 };
 
 #endif

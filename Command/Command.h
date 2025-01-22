@@ -11,8 +11,8 @@ class Command {
 public:
     Command();
     virtual ~Command();
-    virtual void Execute(const string& params, bool last) = 0;
     void MainExecute(const string& params, bool last, Reader* r = nullptr);
+    virtual void Execute(const string& params) = 0;
 
 protected:
     Reader* reader;
@@ -29,10 +29,11 @@ protected:
     void FindOutputFile(const string arg);
     bool TestInput();
 
-    void end(bool last);
+    void end();
 
 protected:
     bool _EOF = 0;
+    bool last = 1;
 
 private:
     void reset();

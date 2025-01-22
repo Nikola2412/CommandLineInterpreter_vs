@@ -8,7 +8,7 @@ public:
 	Remove() = default;
 	~Remove() = default;
 
-	void Execute(const string& params, bool last);
+	void Execute(const string& params);
 };
 
 #endif

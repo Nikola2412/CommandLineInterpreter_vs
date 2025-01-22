@@ -3,7 +3,7 @@
 #include <algorithm>
 #include <regex>
 
-void Translate::Execute(const string& params, bool last) {
+void Translate::Execute(const string& params) {
 	regex rgx;
 	int k = 1;
 	if (!this->Argument().empty()) {
@@ -37,6 +37,5 @@ void Translate::Execute(const string& params, bool last) {
 		arg = str;
 	}
 
-	end(last);
 }
 

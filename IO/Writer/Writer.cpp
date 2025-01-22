@@ -30,7 +30,6 @@ FileWriter::FileWriter(const string filepath,bool append) : m_output(nullptr), p
 }
 
 FileWriter::~FileWriter() {
-	m_output->close();
 	delete m_output;
 }
 

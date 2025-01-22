@@ -1,9 +1,6 @@
 #include "Echo.h"
 
-void Echo::Execute(const string& params, bool last) {
+void Echo::Execute(const string& params) {
     this->Set(params);
-
     CollectString();
-
-    end(last);
 }

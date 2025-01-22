@@ -1,17 +1,12 @@
 #include "Command.h"
 
 
-Command::Command() : reader(nullptr), writer (nullptr){}
+Command::Command() : reader(nullptr), writer (nullptr){
 
-
-void Command::MainExecute(const string& params, bool last, Reader* r) {
-    this->reader = r;
-    if (reader) _EOF = 1;
-    this->Execute(params, last);
-    _EOF = 0;
 }
 
 Command::~Command() {
+    this->Argument().clear();
     if (reader) delete reader;
     if (writer) delete writer;
 }
@@ -19,6 +14,15 @@ Command::~Command() {
 string& Command::Argument() {
     static string arg;
     return arg;
+}
+
+void Command::MainExecute(const string& params, bool last, Reader* r) {
+    this->last = last;
+    this->reader = r;
+    if (reader) _EOF = 1;
+    this->Execute(params);
+    end();
+    _EOF = 0;
 }
 
 void Command::CollectString() {
@@ -106,8 +110,8 @@ bool Command::TestInput() {
     return reader->endOfRead();
 }
 
-void Command::end(bool last) {
-    if (last) {
+void Command::end() {
+    if (this->last && !_EOF) {
         if (writer) writer->writeLine(this->Argument());
         this->reset();
     }
@@ -120,5 +124,5 @@ void Command::reset() {
     if (writer) delete writer;
     reader = nullptr;
     writer = nullptr;
-    this->Argument().clear();
+    if (!_EOF && this->last) this->Argument().clear();
 }

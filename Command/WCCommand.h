@@ -13,7 +13,7 @@ public:
     WCCommand();
     ~WCCommand() = default;
 
-    void Execute(const string& params, bool last);
+    void Execute(const string& params);
 
 private:
     bool check(const string& params, string& opt) const;

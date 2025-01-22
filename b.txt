@@ -1,5 +1,12 @@
-wc -w > output.txt
-abcd
+echo
+abcdeeeee
 12
 3
+d
+d
+d
+d
+d
+ds
+1
 EOF

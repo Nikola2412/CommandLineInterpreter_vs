@@ -8,7 +8,7 @@ WCCommand::WCCommand() {
 
 
 
-void WCCommand::Execute(const string& params, bool last) {
+void WCCommand::Execute(const string& params) {
 	string opt;
 	if (!check(params, opt)) return;
 	string s = "";
@@ -21,8 +21,6 @@ void WCCommand::Execute(const string& params, bool last) {
 	size_t x = counters[opt]->count(this->Argument());
 
 	this->Argument() = to_string(x);
-
-	end(last);
 }
 
 bool WCCommand::check(const string& params, string& opt) const {

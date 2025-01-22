@@ -7,7 +7,7 @@ class Batch : public Command {
 public:
 	Batch() = default;
 	~Batch() = default;
-	void Execute(const string& params, bool last);
+	void Execute(const string& params);
 private:
 	void Do(const string arg);
 };

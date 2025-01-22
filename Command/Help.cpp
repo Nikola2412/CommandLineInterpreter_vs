@@ -1,6 +1,6 @@
 #include "Help.h"
 
-void Help::Execute(const string& params, bool last) {
+void Help::Execute(const string& params) {
 	this->writer = new ConsoleWriter();
 
 	this->Append("[arg] means optional");
@@ -19,6 +19,4 @@ void Help::Execute(const string& params, bool last) {
 	this->Append("head -nC [argument] -> outputs C lines");
 	this->Append("batch [argument]");
 	this->Append("pipe example: time | wc -c");
-
-	end(last);
 }

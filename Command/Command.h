@@ -20,9 +20,11 @@ protected:
 
 protected:
     static string& Argument();
+    static bool& _Batch();
     void Set(const string arg);
     void CollectString();
     void Append(const string s);
+    void test(const string s);
 
 protected:
     void FindInputFile(const string arg);

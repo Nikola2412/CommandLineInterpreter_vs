@@ -10,6 +10,7 @@ public:
 	void Execute(const string& params);
 private:
 	void Do(const string arg);
+	string output = "";
 };
 
 #endif

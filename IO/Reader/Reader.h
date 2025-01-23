@@ -29,7 +29,7 @@ public:
 class FileReader : public Reader {
 public:
 
-	FileReader(string filepath);
+	FileReader(const string filepath);
 	~FileReader();
 
 	virtual string getNextLine();

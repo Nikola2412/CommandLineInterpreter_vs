@@ -20,7 +20,7 @@ bool ConsoleReader::endOfRead(){
 	return cin.eof();
 }
 
-FileReader::FileReader(string filepath) : m_input(nullptr) {
+FileReader::FileReader(const string filepath) : m_input(nullptr) {
 	ifstream file(filepath);
 	if (!file) {
 		file.close();

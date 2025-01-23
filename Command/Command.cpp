@@ -45,6 +45,11 @@ void Command::Append(const string s) {
     argument += s;
 }
 
+void Command::test(const string s)
+{
+    cout << s << endl;
+}
+
 
 void Command::Set(const string arg) {
     if (this->Argument().size() != 0) {
@@ -111,12 +116,17 @@ bool Command::TestInput() {
 }
 
 void Command::end() {
-    if (this->last && !_EOF) {
-        if (writer) writer->writeLine(this->Argument());
+    if (this->last) {
+        if (writer && !_Batch()) writer->writeLine(this->Argument());
         this->reset();
     }
     reader = nullptr;
     writer = nullptr;
+}
+
+bool& Command::_Batch(){
+    static bool _BATCH = 0;
+    return _BATCH;
 }
 
 void Command::reset() {
@@ -124,5 +134,5 @@ void Command::reset() {
     if (writer) delete writer;
     reader = nullptr;
     writer = nullptr;
-    if (!_EOF && this->last) this->Argument().clear();
+    if(!_Batch())this->Argument().clear();
 }

@@ -15,7 +15,7 @@ void ConsoleWriter::writeLine(const string s) {
 	else cout << s << endl;
 }
 
-FileWriter::FileWriter(const string filepath,bool append) : m_output(nullptr), path(filepath) {
+FileWriter::FileWriter(const string filepath, bool append) : m_output(nullptr), path(filepath) {
 	ifstream file(filepath);
 	if (!file.good()) {
 		file.close();

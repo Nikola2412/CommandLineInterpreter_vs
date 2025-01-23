@@ -7,8 +7,8 @@ void Batch::Execute(const string& params) {
     //prepraviti da koristi this->Set(params) i bes reader2
     this->_Batch() = 1;
 
-    writer = new ConsoleWriter();
-    if (params == "") {
+    this->FindOutputFile(params);
+    if (params == "" || params[0] == '>') {
         Reader* reader2 = new ConsoleReader();
         if (reader2->endOfRead()) return;//if file does not exist
         string s;

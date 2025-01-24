@@ -1,0 +1,16 @@
+batch >> fajl.txt
+echo "123"
+wc -c "1 2 3 4"
+wc -w "123 321"
+date
+time
+
+batch
+echo "123"
+wc -c "1 2 3 4"
+wc -w "123 321"
+date
+time
+
+
+batch b.txt | head -n3

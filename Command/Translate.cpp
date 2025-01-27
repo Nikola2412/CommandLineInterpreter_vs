@@ -39,3 +39,9 @@ void Translate::Execute(const string& params) {
 
 }
 
+void Translate::Helper()
+{
+	CommandHelper h;
+	h.TranslateHelper();
+}
+

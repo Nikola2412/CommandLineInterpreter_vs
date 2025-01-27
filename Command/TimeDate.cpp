@@ -19,10 +19,22 @@ void Time::Execute(const string& params) {
     this->Argument() = buffer;
 }
 
+void Time::Helper()
+{
+    CommandHelper h;
+    h.TimeHelper();
+}
+
 void Date::Execute(const string& params) {
     tm local_time = getTime(params);
 
     strftime(buffer, sizeof(buffer), "%d.%m.%Y", &local_time);
 
     this->Argument() = buffer;
+}
+
+void Date::Helper()
+{
+    CommandHelper h;
+    h.DateHelper();
 }

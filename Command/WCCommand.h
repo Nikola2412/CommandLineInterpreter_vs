@@ -14,9 +14,9 @@ public:
     ~WCCommand() = default;
 
     void Execute(const string& params);
-
+    void Helper();
 private:
-    bool check(const string& params, string& opt) const;
+    bool check(const string& params, string& opt);
 
 private:
     unordered_map<string, unique_ptr<Counter>> counters;

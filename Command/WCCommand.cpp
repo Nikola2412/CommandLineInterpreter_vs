@@ -16,16 +16,22 @@ void WCCommand::Execute(const string& params) {
 		s = params.substr(3);
 	this->Set(s);
 
-	CollectString();
+	if(!CollectString()) return;
 
 	size_t x = counters[opt]->count(this->Argument());
 
 	this->Argument() = to_string(x);
 }
 
-bool WCCommand::check(const string& params, string& opt) const {
+void WCCommand::Helper()
+{
+	CommandHelper h;
+	h.WCHelper();
+}
+
+bool WCCommand::check(const string& params, string& opt) {
 	if (params.size() < 2) {
-		cerr << "Missing options" << endl;
+		this->Error("Option error");
 		return 0;
 	}
 
@@ -34,7 +40,7 @@ bool WCCommand::check(const string& params, string& opt) const {
 		return 1;
 	}
 	else {
-		cerr << "Not supported option" << endl;
+		this->Error("Option error");
 		return 0;
 	}
 }

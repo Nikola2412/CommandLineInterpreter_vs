@@ -25,6 +25,12 @@ void Batch::Execute(const string& params) {
     output = "";
 }
 
+void Batch::Helper()
+{
+    CommandHelper h;
+    h.BatchHelper();
+}
+
 void Batch::Do(const string arg) {
     Reader* reader2 = new FileReader(arg);
     if (reader2->endOfRead()) {//commands

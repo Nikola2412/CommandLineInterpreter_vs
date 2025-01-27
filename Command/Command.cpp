@@ -1,9 +1,7 @@
 #include "Command.h"
 
 
-Command::Command() : reader(nullptr), writer (nullptr){
-
-}
+Command::Command() : reader(nullptr), writer(nullptr) {}
 
 Command::~Command() {
     this->Argument().clear();
@@ -17,6 +15,10 @@ string& Command::Argument() {
 }
 
 void Command::MainExecute(const string& params, bool last, Reader* r) {
+    if (params == "-help") {
+        this->Helper();
+        return;
+    }
     this->last = last;
     this->reader = r;
     if (reader) _EOF = 1;
@@ -25,9 +27,14 @@ void Command::MainExecute(const string& params, bool last, Reader* r) {
     _EOF = 0;
 }
 
-void Command::CollectString() {
+void Command::Helper()
+{
+    this->Print("Working on it");
+}
+
+bool Command::CollectString() {
     if (reader && this->Argument().empty()) {
-        if (TestInput()) return;
+        if (TestInput()) return 0;
         string s;
         while (!reader->endOfRead()) {
             s = reader->getNextLine();
@@ -35,9 +42,10 @@ void Command::CollectString() {
             this->Append(s);
         }
     }
+    return 1;
 }
 
-void Command::Append(const string s) {
+void Command::Append(const string& s) {
     auto& argument = this->Argument();
     if (!argument.empty()) {
         argument += '\n';
@@ -45,13 +53,23 @@ void Command::Append(const string s) {
     argument += s;
 }
 
-void Command::test(const string s)
+void Command::Info(const string& input)
 {
-    cout << s << endl;
+	cout << input << endl;
+}
+
+void Command::Error(const string& input)
+{
+	cerr << input << endl;
+}
+
+void Command::Print(const string& input)
+{
+    cout << input << endl;
 }
 
 
-void Command::Set(const string arg) {
+void Command::Set(const string& arg) {
     if (this->Argument().size() != 0) {
         FindOutputFile(arg);
         return;
@@ -71,7 +89,7 @@ void Command::Set(const string arg) {
     FindOutputFile(arg);
 }
 
-void Command::FindInputFile(const string arg) {
+void Command::FindInputFile(const string& arg) {
     if (arg[0] == '>') {
         if(!reader) reader = new ConsoleReader();
         return;
@@ -95,7 +113,7 @@ void Command::FindInputFile(const string arg) {
     }
 }
 
-void Command::FindOutputFile(const string arg) {
+void Command::FindOutputFile(const string& arg) {
     size_t end = arg.find_last_of('>');
     if (end == string::npos) {
         writer = new ConsoleWriter();
@@ -111,7 +129,7 @@ void Command::FindOutputFile(const string arg) {
 
 bool Command::TestInput() {
     if (!reader) return 0;
-    if (reader->endOfRead()) cerr << "Input file does not exist" << endl;
+    if (reader->endOfRead()) this->Error("Input file does not exist");
     return reader->endOfRead();
 }
 

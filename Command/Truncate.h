@@ -9,5 +9,6 @@ public:
 	~Truncate() = default;
 
 	void Execute(const string& params);
+	void Helper();
 };
 #endif

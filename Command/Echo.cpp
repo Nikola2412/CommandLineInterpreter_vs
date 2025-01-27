@@ -2,5 +2,11 @@
 
 void Echo::Execute(const string& params) {
     this->Set(params);
-    CollectString();
+	if (!CollectString()) return;
+}
+
+void Echo::Helper()
+{
+	CommandHelper h;
+	h.EchoHelper();
 }

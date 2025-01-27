@@ -40,3 +40,9 @@ void Head::Execute(const string& params) {
         cout << "Error" << endl;
     }
 }
+
+void Head::Helper()
+{
+    CommandHelper h;
+    h.HeadHelper();
+}

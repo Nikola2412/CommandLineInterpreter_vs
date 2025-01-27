@@ -10,6 +10,8 @@ public:
 
 public:
 	void Execute(const string& params);
+	void Helper();
+
 };
 
 #endif

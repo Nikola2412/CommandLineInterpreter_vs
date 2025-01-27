@@ -8,3 +8,9 @@ void Truncate::Execute(const string& params) {
     else
         cerr << "Error clearing file." << endl;
 }
+
+void Truncate::Helper()
+{
+    CommandHelper h;
+    h.TruncateHelper();
+}

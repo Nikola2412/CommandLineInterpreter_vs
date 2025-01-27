@@ -135,6 +135,7 @@
     <ClCompile Include="Command\Head.cpp" />
     <ClCompile Include="Command\Options\Counter.cpp" />
     <ClCompile Include="Command\Help.cpp" />
+    <ClCompile Include="Helper\Helper.cpp" />
     <ClCompile Include="Interpreter\Interpreter.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Command\WCCommand.cpp" />
@@ -155,6 +156,7 @@
     <ClInclude Include="Command\Head.h" />
     <ClInclude Include="Command\Options\Counter.h" />
     <ClInclude Include="Command\Help.h" />
+    <ClInclude Include="Helper\Helper.h" />
     <ClInclude Include="Interpreter\Interpreter.h" />
     <ClInclude Include="Command\WCCommand.h" />
     <ClInclude Include="Command\Prompt.h" />

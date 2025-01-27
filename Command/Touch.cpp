@@ -11,3 +11,9 @@ void Touch::Execute(const string& params) {
         ofstream outfile(params);
     }
 }
+
+void Touch::Helper()
+{
+    CommandHelper h;
+    h.TouchHelper();
+}

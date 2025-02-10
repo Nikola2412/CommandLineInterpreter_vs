@@ -135,7 +135,15 @@ bool Command::TestInput() {
 
 void Command::end() {
     if (this->last) {
-        if (writer && !_Batch()) writer->writeLine(this->Argument());
+
+        if (writer && !_Batch()) {
+            writer->writeLine(this->Argument());
+            if (dynamic_cast<FileWriter*>(writer)) {
+                writer->writeLine(this->Argument());
+            }
+            clear = 1;
+        }
+
         this->reset();
     }
     reader = nullptr;
@@ -148,9 +156,9 @@ bool& Command::_Batch(){
 }
 
 void Command::reset() {
+    if(clear) this->Argument().clear();
     if (reader && !_EOF) delete reader;
     if (writer) delete writer;
     reader = nullptr;
     writer = nullptr;
-    if(!_Batch())this->Argument().clear();
 }

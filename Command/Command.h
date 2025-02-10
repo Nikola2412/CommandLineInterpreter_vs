@@ -48,6 +48,8 @@ protected:
     bool last = 1;
 
 private:
+    bool clear = 0;
+private:
     void reset();
 };
 #endif

@@ -6,7 +6,8 @@ using namespace std;
 class CommandHelper
 {
 private:
-	void print(const string& s);
+	void newLine();
+	void print(const string& s = "");
 	void printOPT(const string& s, const string& k);
 	void BasicHelper();
 public:

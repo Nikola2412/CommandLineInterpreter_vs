@@ -95,52 +95,57 @@ void Command::FindInputFile(const string& arg) {
         return;
     }
     size_t end = arg.find(".txt");
-    if (arg[0] == '<') {
-        size_t k = 1;
-        if (isspace(arg[k])) k++;
+    if (arg[0] != '\"') {
         string s = "";
-        if (end != string::npos) {
-            s = arg.substr(k, end + 4 - k);
+        for (auto& c : arg) {
+            if (c == '<') continue;
+			if (isspace(c)) break;
+            s += c;
         }
-        else {
-            s = arg.substr(k);
-        }
-        reader = new FileReader(s);
-    }
-    else if (arg[0] != '\"') {
-        string s = arg.substr(0, end + 4);
+        //cout << s << endl;
         reader = new FileReader(s);
     }
 }
 
 void Command::FindOutputFile(const string& arg) {
-    size_t end = arg.find_last_of('>');
+    size_t end = arg.find_first_of('>');
     if (end == string::npos) {
         writer = new ConsoleWriter();
         return;
     }
-    bool append = false;
-    if (end > 0 && arg[end - 1] == '>') append = true;
-    size_t k = 1;
-    if (isspace(arg[end + k])) k++;
-    string s = arg.substr(end + k);
+    string s = "";
+    bool append = 1;
+    for (auto& c : arg.substr(end)) {
+        if (c == '>') {
+            append = !append;
+            continue;
+        }
+        if (isspace(c)) continue;
+        s += c;
+    }
     writer = new FileWriter(s, append);
 }
 
 bool Command::TestInput() {
     if (!reader) return 0;
-    if (reader->endOfRead()) this->Error("Input file does not exist");
+    if (reader->endOfRead()) 
+    {
+        //if input file does not exist
+        this->Error("Input file does not exist");
+        //skip output
+        writer = nullptr;
+    }
     return reader->endOfRead();
 }
 
 void Command::end() {
     if (this->last) {
 
-        if (writer && !_Batch()) {
+        //if command is batch output of commands should be one output
+		//if command is batch but command have file as output then output should be in that file
+        if (writer && (!_Batch() || (_Batch() && dynamic_cast<FileWriter*>(writer))) ) {
             writer->writeLine(this->Argument());
-            if (dynamic_cast<FileWriter*>(writer)) {
-                writer->writeLine(this->Argument());
-            }
+            //if output then argument should be cleared
             clear = 1;
         }
 

@@ -29,4 +29,4 @@ private:
 };
 
 
-#endif // !INTERPRETER_H
+#endif

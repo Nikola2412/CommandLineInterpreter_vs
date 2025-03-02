@@ -19,5 +19,9 @@ size_t CharCounter::count(const string& input) {
 }
 
 size_t LineCounter::count(const string& input) {
-	return 0;
+	size_t x = 1;
+	for (char c : input)
+		if (c == '\n')
+			x++;
+	return x;
 }

@@ -24,7 +24,7 @@ public:
 
 class FileWriter : public Writer {
 public:
-	FileWriter(const string filepath,bool append = false);
+	FileWriter(const string filepath, bool append = false);
 	~FileWriter();
 	void writeLine(const string s);
 

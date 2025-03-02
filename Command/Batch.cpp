@@ -4,7 +4,6 @@
 
 
 void Batch::Execute(const string& params) {
-    //prepraviti da koristi this->Set(params) i bes reader2
     this->_Batch() = 1;
 
     this->FindOutputFile(params);
@@ -22,7 +21,7 @@ void Batch::Execute(const string& params) {
 
     this->_Batch() = 0;
     this->Argument() = output;
-    output = "";
+    output.clear();
 }
 
 void Batch::Helper()
@@ -35,7 +34,8 @@ void Batch::Do(const string arg) {
     Reader* reader2 = new FileReader(arg);
     if (reader2->endOfRead()) {//commands
         Interpreter::Instance().interpret(arg);
-        output += this->Argument() + "\n";
+        if(this->Argument().size()!=0)
+            output += this->Argument() + "\n";
         this->Argument().clear();
     }
     else {

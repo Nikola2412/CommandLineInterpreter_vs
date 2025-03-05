@@ -76,8 +76,7 @@ void CommandHelper::DateHelper()
 void CommandHelper::TouchHelper()
 {
 	print("touch filename");
-	print("Creates a file with the given name and empty content in the current directory. \
-If the file already exists, it prints an error message and has no other effect.");
+	print("Creates a file with the given name and empty content in the current directory.If the file already exists, it prints an error message and has no other effect.");
 }
 
 void CommandHelper::TruncateHelper()
@@ -103,17 +102,13 @@ void CommandHelper::WCHelper()
 void CommandHelper::TranslateHelper()
 {
 	print("tr [argument] what [with]");
-	print("In the text read from the input stream, it finds all occurrences of the string what \
-enclosed in quotes by the string with enclosed in quotes and prints the resulting \
-text to its output stream.If the string with is not specified, occurrences of the string what \
-are simply removed from the input text.");
+	print("In the text read from the input stream, it finds all occurrences of the string whatenclosed in quotes by the string with enclosed in quotes and prints the resulting text to its output stream.If the string with is not specified, occurrences of the string what are simply removed from the input text.");
 }
 
 void CommandHelper::HeadHelper()
 {
 	print("head -ncount [argument]");
-	print("It transfers the first few lines of text read from the input \
-stream to its output stream, and ignores the remaining content of the input stream.");
+	print("It transfers the first few lines of text read from the input stream to its output stream, and ignores the remaining content of the input stream.");
 }
 
 void CommandHelper::BatchHelper()

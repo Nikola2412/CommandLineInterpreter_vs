@@ -6,7 +6,7 @@
 void Batch::Execute(const string& params) {
     this->_Batch() = 1;
 
-    this->FindOutputFile(params);
+    this->SetOutput(params);
     if (params == "" || params[0] == '>') {
         Reader* reader2 = new ConsoleReader();
         if (reader2->endOfRead()) return;//if file does not exist

@@ -32,9 +32,10 @@ void Command::Helper()
     this->Print("Working on it");
 }
 
+//collect input string from console or file
 bool Command::CollectString() {
     if (reader && this->Argument().empty()) {
-        if (TestInput()) return 0;
+        if (TestInput()) return 0; //if input file does not exist
         string s;
         while (!reader->endOfRead()) {
             s = reader->getNextLine();
@@ -42,7 +43,7 @@ bool Command::CollectString() {
             this->Append(s);
         }
     }
-    return 1;
+    return 1;//returns that it is all ok
 }
 
 void Command::Append(const string& s) {
@@ -70,8 +71,8 @@ void Command::Print(const string& input)
 
 
 void Command::Set(const string& arg) {
-    if (this->Argument().size() != 0) {
-        FindOutputFile(arg);
+    if (this->Argument().size() != 0) {// pipline
+        SetOutput(arg);
         return;
     }
     if (arg.size() == 0) {
@@ -85,16 +86,17 @@ void Command::Set(const string& arg) {
         this->Argument() = s;
     }
     else
-        FindInputFile(arg);
-    FindOutputFile(arg);
+        SetInput(arg);
+    SetOutput(arg);
 }
 
-void Command::FindInputFile(const string& arg) {
-    if (arg[0] == '>') {
+//set input for command
+void Command::SetInput(const string& arg) {
+    if (arg[0] == '>') { // if command is like "echo >output.txt" there is no argument or input file
         if(!reader) reader = new ConsoleReader();
         return;
     }
-    size_t end = arg.find(".txt");
+
     if (arg[0] != '\"') {
         string s = "";
         for (auto& c : arg) {
@@ -107,16 +109,22 @@ void Command::FindInputFile(const string& arg) {
     }
 }
 
-void Command::FindOutputFile(const string& arg) {
+//set output for command
+void Command::SetOutput(const string& arg) {
+    if (!this->last) return;
+
     size_t end = arg.find_first_of('>');
-    if (end == string::npos) {
+    if (end == string::npos) {//if ">" does not exist that means that output is console
         writer = new ConsoleWriter();
         return;
     }
     string s = "";
-    bool append = 1;
-    for (auto& c : arg.substr(end)) {
+    bool append = 1;//bool is one bit and take less memory that int 
+    for (auto& c : arg.substr(end)) {//collect all character after >
         if (c == '>') {
+            //since there is two possibilities ">" and ">>".
+            // if it is first that means append will be 0
+            // if it is second that means append will be 1
             append = !append;
             continue;
         }
@@ -133,7 +141,7 @@ bool Command::TestInput() {
         //if input file does not exist
         this->Error("Input file does not exist");
         //skip output
-        writer = nullptr;
+        writer = nullptr;//does not input new line
     }
     return reader->endOfRead();
 }

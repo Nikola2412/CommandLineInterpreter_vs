@@ -1,7 +1,7 @@
 #include "TimeDate.h"
 
 tm TimeDate::getTime(const string& arg) {
-    this->FindOutputFile(arg);
+    this->SetOutput(arg);
 
     time_t now = time(0);
     tm local_time;

@@ -36,8 +36,8 @@ protected:
     void Print(const string& input);
 
 protected:
-    void FindInputFile(const string& arg);
-    void FindOutputFile(const string& arg);
+    void SetInput(const string& arg);
+    void SetOutput(const string& arg);
     bool TestInput();
 
     void end();

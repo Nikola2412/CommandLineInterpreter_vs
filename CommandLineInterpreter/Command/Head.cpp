@@ -13,7 +13,7 @@ void Head::Execute(const string& params)
         unsigned int n = stoi(matches[1]);  // Captured number (1 to 5 digits)
         this->Set(matches[2]);
         if (reader && this->Argument().empty()) {
-            if (TestInput()) return; // check if file exists
+            if (testInput()) return; // check if file exists
 
             string s;
             while (!reader->endOfRead()) {

@@ -14,7 +14,7 @@ void ConsoleWriter::writeLine(const string s)
 	else cout << s << '\n';
 }
 
-FileWriter::FileWriter(const string filepath, bool append) : m_output(nullptr), path(filepath) 
+FileWriter::FileWriter(const string filepath, bool append) : output(nullptr), path(filepath) 
 {
 	ifstream file(filepath);
 	if (!file.good()) {
@@ -24,23 +24,23 @@ FileWriter::FileWriter(const string filepath, bool append) : m_output(nullptr), 
 	}
 	if (append) return;
 	//to reset file content
-	m_output = new ofstream(filepath);
-	m_output->close();
-	delete m_output;
+	output = new ofstream(filepath);
+	output->close();
+	delete output;
 }
 
 FileWriter::~FileWriter() 
 {
-	delete m_output;
+	delete output;
 }
 
 void FileWriter::writeLine(const string s) 
 {
 	if (!exist()) return;
-	m_output = new ofstream();
-	m_output->open(path, ios::app);//append
-	(*m_output) << s << '\n';
-	(*m_output).close();
+	output = new ofstream();
+	output->open(path, ios::app);//append
+	(*output) << s << '\n';
+	(*output).close();
 }
 
 bool FileWriter::exist() const 

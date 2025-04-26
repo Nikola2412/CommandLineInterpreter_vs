@@ -36,7 +36,7 @@ public:
 	virtual bool endOfRead();
 
 private:
-	ifstream* m_input;
+	ifstream* input;
 	bool exist();
 };
 

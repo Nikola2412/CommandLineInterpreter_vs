@@ -10,9 +10,8 @@ ConsoleReader::~ConsoleReader() {};
 string ConsoleReader::getNextLine() 
 {
 	string str;
-	if (getline(cin, str)) {
+	if (getline(cin, str))
 		return str;
-	}
 	return "";
 }
 
@@ -22,7 +21,7 @@ bool ConsoleReader::endOfRead()
 	return cin.eof();
 }
 
-FileReader::FileReader(const string filepath) : m_input(nullptr) 
+FileReader::FileReader(const string filepath) : input(nullptr) 
 {
 	ifstream file(filepath);
 	if (!file) {
@@ -30,29 +29,29 @@ FileReader::FileReader(const string filepath) : m_input(nullptr)
 		//cerr << "Input file does not exist" << '\n';
 		return;
 	}
-	m_input = new ifstream(filepath);
+	input = new ifstream(filepath);
 }
 
 FileReader::~FileReader() 
 {
-	delete m_input;
+	delete input;
 }
 
 string FileReader::getNextLine() 
 {
 	string line;
-	getline(*m_input, line);
+	getline(*input, line);
 	return line;
 }
 
 bool FileReader::endOfRead() 
 {
 	if (!exist()) return true;
-	return m_input->eof();
+	return input->eof();
 }
 
 bool FileReader::exist() 
 {
-	return m_input != nullptr;
+	return input != nullptr;
 }
 

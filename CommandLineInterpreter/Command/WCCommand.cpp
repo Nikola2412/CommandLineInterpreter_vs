@@ -7,8 +7,6 @@ WCCommand::WCCommand()
 	counters["-c"] = make_unique<CharCounter>();
 }
 
-
-
 void WCCommand::Execute(const string& params) 
 {
 	string opt;
@@ -18,7 +16,7 @@ void WCCommand::Execute(const string& params)
 		s = params.substr(3);
 	this->Set(s);
 
-	if(!CollectString()) return;
+	if(!collectString()) return;
 
 	size_t x = counters[opt]->count(this->Argument());
 
@@ -35,15 +33,15 @@ bool WCCommand::check(const string& params, string& opt)
 {
 	if (params.size() < 2) {
 		this->Error("Option error");
-		return 0;
+		return false;
 	}
 
 	opt = params.substr(0, 2);
-	if (counters.find(opt) != counters.end()) {
-		return 1;
+	if (counters.find(opt) != counters.End()) {
+		return true;
 	}
 	else {
 		this->Error("Option error");
-		return 0;
+		return false;
 	}
 }

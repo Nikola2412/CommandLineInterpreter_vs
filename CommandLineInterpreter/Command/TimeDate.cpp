@@ -2,7 +2,7 @@
 
 tm TimeDate::getTime(const string& arg) 
 {
-    this->SetOutput(arg);
+    this->setOutput(arg);
 
     time_t now = time(0);
     tm local_time;

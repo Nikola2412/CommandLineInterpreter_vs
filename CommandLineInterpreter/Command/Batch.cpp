@@ -7,7 +7,7 @@ void Batch::Execute(const string& params)
 {
     this->_Batch() = 1;
 
-    this->SetOutput(params);
+    this->setOutput(params);
     if (params == "" || params[0] == '>') {
         Reader* reader2 = new ConsoleReader();
         if (reader2->endOfRead()) return;//if file does not exist
@@ -35,7 +35,7 @@ void Batch::Do(const string arg)
 {
     Reader* reader2 = new FileReader(arg);
     if (reader2->endOfRead()) {//commands
-        Interpreter::Instance().interpret(arg);
+        Interpreter::Instance().Interpret(arg);
         if(this->Argument().size()!=0)
             output += this->Argument() + "\n";
         this->Argument().clear();
@@ -44,7 +44,7 @@ void Batch::Do(const string arg)
         string s;
         while (reader2 && !reader2->endOfRead()) {
             s = reader2->getNextLine();
-            Interpreter::Instance().interpret(s, reader2);
+            Interpreter::Instance().Interpret(s, reader2);
             output += this->Argument() + "\n";
             this->Argument().clear();
         }

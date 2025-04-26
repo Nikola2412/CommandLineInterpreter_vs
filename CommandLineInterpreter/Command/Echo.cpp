@@ -3,7 +3,7 @@
 void Echo::Execute(const string& params) 
 {
     this->Set(params);
-	if (!CollectString()) return;
+	if (!collectString()) return;
 }
 
 void Echo::Helper()

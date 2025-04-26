@@ -13,14 +13,14 @@ public:
 public:
     static Interpreter& Instance();
     void Run();
-    void interpret(const string& input, Reader* r = nullptr);
+    void Interpret(const string& input, Reader* r = nullptr);
     char& getSymbol();
 
 private:
     char symbol;
     unordered_map<string, unique_ptr<Command>> commands;
     vector<string> parseInput(const string& input);
-    const string valid_chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789<>\"""-.:|";
+    const string validChars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789<>\"""-.:|";
 
 private:
     bool hasInvalidCharacters(const string& input, vector<size_t>& errorPositions);

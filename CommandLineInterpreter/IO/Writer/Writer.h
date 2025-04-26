@@ -29,7 +29,7 @@ public:
 	void writeLine(const string s);
 
 private:
-	ofstream* m_output;
+	ofstream* output;
 	string path;
 	bool exist() const;
 };

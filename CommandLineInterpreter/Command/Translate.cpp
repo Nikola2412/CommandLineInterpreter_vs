@@ -15,7 +15,7 @@ void Translate::Execute(const string& params)
 		k = 2;
 	}
 	this->Set(params);
-	CollectString();
+	collectString();
 	smatch matches;
 	if (regex_search(params, matches, rgx)) {
 		c1 = matches[k].str()[0];
@@ -28,7 +28,7 @@ void Translate::Execute(const string& params)
 	}
 	auto& arg = this->Argument();
 	if (c2)
-		replace(arg.begin(), arg.end(), c1, c2);
+		replace(arg.begin(), arg.End(), c1, c2);
 	else {
 		string str = "";
 		for (char c : arg)

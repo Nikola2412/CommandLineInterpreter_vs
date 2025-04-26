@@ -16,7 +16,7 @@ string& Command::Argument()
     return arg;
 }
 
-void Command::MainExecute(const string& params, bool last, Reader* r) 
+void Command::mainExecute(const string& params, bool last, Reader* r) 
 {
     if (params == "-help") {
         this->Helper();
@@ -26,7 +26,7 @@ void Command::MainExecute(const string& params, bool last, Reader* r)
     this->reader = r;
     if (reader) _EOF = 1;
     this->Execute(params);
-    end();
+    End();
     _EOF = 0;
 }
 
@@ -36,9 +36,10 @@ void Command::Helper()
 }
 
 //collect input string from console or file
-bool Command::CollectString() {
+bool Command::collectString() 
+{
     if (reader && this->Argument().empty()) {
-        if (TestInput()) return 0; //if input file does not exist
+        if (testInput()) return false; //if input file does not exist
         string s;
         while (!reader->endOfRead()) {
             s = reader->getNextLine();
@@ -46,7 +47,7 @@ bool Command::CollectString() {
             this->Append(s);
         }
     }
-    return 1;//returns that it is all ok
+    return true;//returns that it is all ok
 }
 
 void Command::Append(const string& s) 
@@ -77,7 +78,7 @@ void Command::Set(const string& arg)
 {
     if (this->Argument().size() != 0) {  
         // pipline  
-        SetOutput(arg);
+        setOutput(arg);
         return;
     }
     if (arg.size() == 0) {
@@ -86,17 +87,17 @@ void Command::Set(const string& arg)
         return;
     }
     if (arg[0] == '\"') {
-        size_t end = arg.find('\"', 1);
-        string s = arg.substr(1, end - 1);
+        size_t End = arg.find('\"', 1);
+        string s = arg.substr(1, End - 1);
         this->Argument() = s;
     }
     else
-        SetInput(arg);
-    SetOutput(arg);
+        setInput(arg);
+    setOutput(arg);
 }
 
 //set input for command
-void Command::SetInput(const string& arg) 
+void Command::setInput(const string& arg) 
 {
     if (arg[0] == '>') { // if command is like "echo >output.txt" there is no argument or input file
         if(!reader) reader = new ConsoleReader();
@@ -116,18 +117,18 @@ void Command::SetInput(const string& arg)
 }
 
 //set output for command
-void Command::SetOutput(const string& arg) 
+void Command::setOutput(const string& arg) 
 {
     if (!this->last) return;
 
-    size_t end = arg.find_first_of('>');
-    if (end == string::npos) {  //if ">" does not exist that means that output is console
+    size_t End = arg.find_first_of('>');
+    if (End == string::npos) {  //if ">" does not exist that means that output is console
         writer = new ConsoleWriter();
         return;
     }
     string s = "";
     bool append = 1;//bool is one bit and take less memory that int 
-    for (auto& c : arg.substr(end)) {//collect all character after >
+    for (auto& c : arg.substr(End)) {//collect all character after >
         if (c == '>') {
             //since there is two possibilities ">" and ">>".
             // if it is first that means append will be 0
@@ -141,9 +142,9 @@ void Command::SetOutput(const string& arg)
     writer = new FileWriter(s, append);
 }
 
-bool Command::TestInput() 
+bool Command::testInput() 
 {
-    if (!reader) return 0;
+    if (!reader) return false;
     if (reader->endOfRead()) {
         //if input file does not exist
         this->Error("Input file does not exist");
@@ -153,7 +154,7 @@ bool Command::TestInput()
     return reader->endOfRead();
 }
 
-void Command::end() 
+void Command::End() 
 {
     if (this->last) {
 
@@ -165,7 +166,7 @@ void Command::end()
             clear = 1;
         }
 
-        this->reset();
+        this->Reset();
     }
     reader = nullptr;
     writer = nullptr;
@@ -177,7 +178,7 @@ bool& Command::_Batch()
     return _BATCH;
 }
 
-void Command::reset() 
+void Command::Reset() 
 {
     if(clear) this->Argument().clear();
     if (reader && !_EOF) delete reader;

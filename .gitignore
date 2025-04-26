@@ -364,3 +364,9 @@ FodyWeavers.xsd
 
 
 /CommandLineInterpreter/*.txt
+/CommandLineInterpreter/b.txt
+/CommandLineInterpreter/input.txt
+/CommandLineInterpreter/fajl.txt
+/CommandLineInterpreter/output.txt
+/CommandLineInterpreter/time.txt
+/CommandLineInterpreter/inputi.txt

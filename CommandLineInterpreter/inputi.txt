@@ -1,3 +1,0 @@
-batch >> fajl.txt
-echo "123"
-wc -c "1 2 3 4"

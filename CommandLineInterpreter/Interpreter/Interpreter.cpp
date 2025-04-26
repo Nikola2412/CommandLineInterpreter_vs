@@ -50,7 +50,7 @@ void Interpreter::Interpret(const string& input, Reader* r)
         vector<string> args = parseInput(pipeCommand[i]);
         string commandName = args[0];
 
-        if (commands.find(commandName) != commands.End()) {
+        if (commands.find(commandName) != commands.end()) {
             commands[commandName]->mainExecute(args[1], i == n - 1, r);
         }
         else {
@@ -72,7 +72,7 @@ vector<string> Interpreter::parseInput(const string& input)
     }
     else {
         tokens.push_back(input);
-        tokens.push_back("");
+        tokens.push_back(string());
     }
 
     return tokens;
@@ -101,7 +101,7 @@ void Interpreter::printError(const string& input, const vector<size_t>& errorPos
     cerr << input << '\n';
 
     for (size_t i = 0; i < input.size(); i++) {
-        if (find(errorPositions.begin(), errorPositions.End(), i) != errorPositions.End()) {
+        if (find(errorPositions.begin(), errorPositions.end(), i) != errorPositions.end()) {
             cerr << "^";
         }
         else {

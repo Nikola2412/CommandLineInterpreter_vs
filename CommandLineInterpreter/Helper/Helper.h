@@ -7,7 +7,7 @@ class CommandHelper
 {
 private:
 	void newLine();
-	void print(const string& s = "");
+	void print(const string& s = string());
 	void printOPT(const string& s, const string& k);
 	void BasicHelper();
 public:

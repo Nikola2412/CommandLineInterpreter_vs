@@ -11,7 +11,7 @@ public:
 	void Helper();
 private:
 	void Do(const string arg);
-	string output = "";
+	string output = string();
 };
 
 #endif

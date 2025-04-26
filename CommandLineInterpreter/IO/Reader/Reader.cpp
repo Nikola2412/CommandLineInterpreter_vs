@@ -12,7 +12,7 @@ string ConsoleReader::getNextLine()
 	string str;
 	if (getline(cin, str))
 		return str;
-	return "";
+	return string();
 }
 
 

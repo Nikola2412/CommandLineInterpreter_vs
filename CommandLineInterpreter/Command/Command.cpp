@@ -26,7 +26,7 @@ void Command::mainExecute(const string& params, bool last, Reader* r)
     this->reader = r;
     if (reader) _EOF = 1;
     this->Execute(params);
-    End();
+    end();
     _EOF = 0;
 }
 
@@ -87,8 +87,8 @@ void Command::Set(const string& arg)
         return;
     }
     if (arg[0] == '\"') {
-        size_t End = arg.find('\"', 1);
-        string s = arg.substr(1, End - 1);
+        size_t end = arg.find('\"', 1);
+        string s = arg.substr(1, end - 1);
         this->Argument() = s;
     }
     else
@@ -105,7 +105,7 @@ void Command::setInput(const string& arg)
     }
 
     if (arg[0] != '\"') {
-        string s = "";
+        string s = string();
         for (auto& c : arg) {
             if (c == '<') continue;
 			if (isspace(c)) break;
@@ -121,14 +121,14 @@ void Command::setOutput(const string& arg)
 {
     if (!this->last) return;
 
-    size_t End = arg.find_first_of('>');
-    if (End == string::npos) {  //if ">" does not exist that means that output is console
+    size_t end = arg.find_first_of('>');
+    if (end == string::npos) {  //if ">" does not exist that means that output is console
         writer = new ConsoleWriter();
         return;
     }
-    string s = "";
+    string s = string();
     bool append = 1;//bool is one bit and take less memory that int 
-    for (auto& c : arg.substr(End)) {//collect all character after >
+    for (auto& c : arg.substr(end)) {//collect all character after >
         if (c == '>') {
             //since there is two possibilities ">" and ">>".
             // if it is first that means append will be 0
@@ -154,7 +154,7 @@ bool Command::testInput()
     return reader->endOfRead();
 }
 
-void Command::End() 
+void Command::end() 
 {
     if (this->last) {
 

@@ -11,7 +11,7 @@ void WCCommand::Execute(const string& params)
 {
 	string opt;
 	if (!check(params, opt)) return;
-	string s = "";
+	string s = string();
 	if (params.size() > 2)
 		s = params.substr(3);
 	this->Set(s);
@@ -37,7 +37,7 @@ bool WCCommand::check(const string& params, string& opt)
 	}
 
 	opt = params.substr(0, 2);
-	if (counters.find(opt) != counters.End()) {
+	if (counters.find(opt) != counters.end()) {
 		return true;
 	}
 	else {

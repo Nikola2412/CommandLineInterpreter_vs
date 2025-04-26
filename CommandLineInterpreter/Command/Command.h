@@ -42,9 +42,9 @@ protected:
 protected:
     void setInput(const string& arg);
     void setOutput(const string& arg);
-
     bool testInput();
-    void End();
+
+    void end();
 
 
 protected:

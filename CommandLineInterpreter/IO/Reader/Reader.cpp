@@ -5,7 +5,6 @@ Reader::Reader() {}
 Reader::~Reader() {}
 
 ConsoleReader::ConsoleReader() {};
-ConsoleReader::~ConsoleReader() {};
 
 string ConsoleReader::getNextLine() 
 {

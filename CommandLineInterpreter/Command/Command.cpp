@@ -160,14 +160,15 @@ void Command::end()
 
         //if command is batch output of commands should be one output
 		//if command is batch but command have file as output then output should be in that file
-        if (writer && (!_Batch() || (_Batch() && dynamic_cast<FileWriter*>(writer))) ) {
+        if (writer && (!_Batch() || (_Batch() && writer->GetType() == WriterType::File))) {
             writer->writeLine(this->Argument());
             //if output then argument should be cleared
-            clear = 1;
+            Clear();
         }
 
-        this->Reset();
     }
+    if (reader && !_EOF) delete reader;
+    if (writer) delete writer;
     reader = nullptr;
     writer = nullptr;
 }
@@ -178,11 +179,7 @@ bool& Command::_Batch()
     return _BATCH;
 }
 
-void Command::Reset() 
+void Command::Clear() 
 {
-    if(clear) this->Argument().clear();
-    if (reader && !_EOF) delete reader;
-    if (writer) delete writer;
-    reader = nullptr;
-    writer = nullptr;
+     this->Argument().clear();
 }

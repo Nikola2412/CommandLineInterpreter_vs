@@ -46,15 +46,10 @@ protected:
 
     void end();
 
+    void Clear();
 
 protected:
     bool _EOF = 0;
     bool last = 1;
-
-private:
-    bool clear = 0;
-
-private:
-    void Reset();
 };
 #endif

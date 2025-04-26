@@ -9,7 +9,7 @@ sfd
 sfd
 
 EOF
-wc -c >> output.txt
+wc -c > output.txt
 time
 date
 EOF

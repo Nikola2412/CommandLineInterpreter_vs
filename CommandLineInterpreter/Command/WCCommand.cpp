@@ -29,7 +29,7 @@ void WCCommand::Helper()
 	h.WCHelper();
 }
 
-bool WCCommand::check(const string& params, string& opt) 
+bool WCCommand::check(const string& params, string& opt)
 {
 	if (params.size() < 2) {
 		this->Error("Option error");
@@ -40,8 +40,7 @@ bool WCCommand::check(const string& params, string& opt)
 	if (counters.find(opt) != counters.end()) {
 		return true;
 	}
-	else {
-		this->Error("Option error");
-		return false;
-	}
+
+	this->Error("Option error");
+	return false;
 }

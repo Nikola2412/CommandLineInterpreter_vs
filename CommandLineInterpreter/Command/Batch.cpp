@@ -37,16 +37,16 @@ void Batch::Do(const string arg)
     if (reader2->endOfRead()) {//commands
         Interpreter::Instance().Interpret(arg);
         if(this->Argument().size()!=0)
-            output += this->Argument() + "\n";
-        this->Argument().clear();
+            output += this->Argument() + '\n';
+        this->Clear();
     }
     else {
         string s;
         while (reader2 && !reader2->endOfRead()) {
             s = reader2->getNextLine();
             Interpreter::Instance().Interpret(s, reader2);
-            output += this->Argument() + "\n";
-            this->Argument().clear();
+            output += this->Argument() + '\n';
+            this->Clear();
         }
     }
     if (reader2) delete reader2;

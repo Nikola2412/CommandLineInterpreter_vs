@@ -3,7 +3,8 @@
 #include <algorithm>
 #include <regex>
 
-void Translate::Execute(const string& params) {
+void Translate::Execute(const string& params) 
+{
 	regex rgx;
 	int k = 1;
 	if (!this->Argument().empty()) {

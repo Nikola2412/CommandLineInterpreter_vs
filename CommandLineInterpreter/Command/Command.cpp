@@ -3,18 +3,21 @@
 
 Command::Command() : reader(nullptr), writer(nullptr) {}
 
-Command::~Command() {
+Command::~Command() 
+{
     this->Argument().clear();
     if (reader) delete reader;
     if (writer) delete writer;
 }
 
-string& Command::Argument() {
+string& Command::Argument() 
+{
     static string arg;
     return arg;
 }
 
-void Command::MainExecute(const string& params, bool last, Reader* r) {
+void Command::MainExecute(const string& params, bool last, Reader* r) 
+{
     if (params == "-help") {
         this->Helper();
         return;
@@ -46,32 +49,34 @@ bool Command::CollectString() {
     return 1;//returns that it is all ok
 }
 
-void Command::Append(const string& s) {
+void Command::Append(const string& s) 
+{
     auto& argument = this->Argument();
-    if (!argument.empty()) {
+    if (!argument.empty())
         argument += '\n';
-    }
     argument += s;
 }
 
 void Command::Info(const string& input)
 {
-	cout << input << endl;
+	cout << input << '\n';
 }
 
 void Command::Error(const string& input)
 {
-	cerr << input << endl;
+	cerr << input << '\n';
 }
 
 void Command::Print(const string& input)
 {
-    cout << input << endl;
+    cout << input << '\n';
 }
 
 
-void Command::Set(const string& arg) {
-    if (this->Argument().size() != 0) {// pipline
+void Command::Set(const string& arg) 
+{
+    if (this->Argument().size() != 0) {  
+        // pipline  
         SetOutput(arg);
         return;
     }
@@ -91,7 +96,8 @@ void Command::Set(const string& arg) {
 }
 
 //set input for command
-void Command::SetInput(const string& arg) {
+void Command::SetInput(const string& arg) 
+{
     if (arg[0] == '>') { // if command is like "echo >output.txt" there is no argument or input file
         if(!reader) reader = new ConsoleReader();
         return;
@@ -104,17 +110,18 @@ void Command::SetInput(const string& arg) {
 			if (isspace(c)) break;
             s += c;
         }
-        //cout << s << endl;
+        //cout << s << '\n';
         reader = new FileReader(s);
     }
 }
 
 //set output for command
-void Command::SetOutput(const string& arg) {
+void Command::SetOutput(const string& arg) 
+{
     if (!this->last) return;
 
     size_t end = arg.find_first_of('>');
-    if (end == string::npos) {//if ">" does not exist that means that output is console
+    if (end == string::npos) {  //if ">" does not exist that means that output is console
         writer = new ConsoleWriter();
         return;
     }
@@ -134,10 +141,10 @@ void Command::SetOutput(const string& arg) {
     writer = new FileWriter(s, append);
 }
 
-bool Command::TestInput() {
+bool Command::TestInput() 
+{
     if (!reader) return 0;
-    if (reader->endOfRead()) 
-    {
+    if (reader->endOfRead()) {
         //if input file does not exist
         this->Error("Input file does not exist");
         //skip output
@@ -146,7 +153,8 @@ bool Command::TestInput() {
     return reader->endOfRead();
 }
 
-void Command::end() {
+void Command::end() 
+{
     if (this->last) {
 
         //if command is batch output of commands should be one output
@@ -163,12 +171,14 @@ void Command::end() {
     writer = nullptr;
 }
 
-bool& Command::_Batch(){
+bool& Command::_Batch()
+{
     static bool _BATCH = 0;
     return _BATCH;
 }
 
-void Command::reset() {
+void Command::reset() 
+{
     if(clear) this->Argument().clear();
     if (reader && !_EOF) delete reader;
     if (writer) delete writer;

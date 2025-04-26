@@ -3,7 +3,8 @@
 #include "../Interpreter/Interpreter.h"
 
 
-void Batch::Execute(const string& params) {
+void Batch::Execute(const string& params) 
+{
     this->_Batch() = 1;
 
     this->SetOutput(params);
@@ -30,7 +31,8 @@ void Batch::Helper()
     h.BatchHelper();
 }
 
-void Batch::Do(const string arg) {
+void Batch::Do(const string arg) 
+{
     Reader* reader2 = new FileReader(arg);
     if (reader2->endOfRead()) {//commands
         Interpreter::Instance().interpret(arg);

@@ -2,7 +2,8 @@
 #include "../Interpreter/Interpreter.h"
 
 
-void Prompt::Execute(const string& params) {
+void Prompt::Execute(const string& params) 
+{
 	if (params.size() != 3) {
 		this->Error("Invalid number of characters");
 	}

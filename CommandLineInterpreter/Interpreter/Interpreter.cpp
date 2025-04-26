@@ -1,11 +1,13 @@
 #include "Interpreter.h"
 
-Interpreter& Interpreter::Instance() {
+Interpreter& Interpreter::Instance() 
+{
     static Interpreter interpreter;
     return interpreter;
 }
 
-void Interpreter::Run() {
+void Interpreter::Run() 
+{
     string str;
 
     while (1) {
@@ -16,7 +18,8 @@ void Interpreter::Run() {
     }
 }
 
-Interpreter::Interpreter() : symbol('$') {
+Interpreter::Interpreter() : symbol('$') 
+{
     commands["wc"] = make_unique<WCCommand>();
     commands["echo"] = make_unique<Echo>();
     commands["prompt"] = make_unique<Prompt>();
@@ -32,7 +35,8 @@ Interpreter::Interpreter() : symbol('$') {
 }
 
 
-void Interpreter::interpret(const string& input, Reader* r) {
+void Interpreter::interpret(const string& input, Reader* r) 
+{
     if (input.empty()) return;
     vector<size_t> errorPositions;
     if (hasInvalidCharacters(input, errorPositions)) {
@@ -50,13 +54,14 @@ void Interpreter::interpret(const string& input, Reader* r) {
             commands[commandName]->MainExecute(args[1], i == n - 1, r);
         }
         else {
-            cerr << "Unknown command: " << commandName << endl;
+            cerr << "Unknown command: " << commandName << '\n';
         }
     }
     cin.clear();
 }
 
-vector<string> Interpreter::parseInput(const string& input) {
+vector<string> Interpreter::parseInput(const string& input) 
+{
     size_t spacePos = input.find(' ');
 
     vector<string> tokens;
@@ -73,7 +78,8 @@ vector<string> Interpreter::parseInput(const string& input) {
     return tokens;
 }
 
-bool Interpreter::hasInvalidCharacters(const string& input, vector<size_t>& errorPositions) {
+bool Interpreter::hasInvalidCharacters(const string& input, vector<size_t>& errorPositions) 
+{
     bool err = false;
 
     bool count = true;
@@ -89,9 +95,10 @@ bool Interpreter::hasInvalidCharacters(const string& input, vector<size_t>& erro
     return err;
 }
 
-void Interpreter::printError(const string& input, const vector<size_t>& errorPositions) {
-    cerr << "Error - unexpected characters:" << endl;
-    cerr << input << endl;
+void Interpreter::printError(const string& input, const vector<size_t>& errorPositions) 
+{
+    cerr << "Error - unexpected characters:" << '\n';
+    cerr << input << '\n';
 
     for (size_t i = 0; i < input.size(); i++) {
         if (find(errorPositions.begin(), errorPositions.end(), i) != errorPositions.end()) {
@@ -101,10 +108,11 @@ void Interpreter::printError(const string& input, const vector<size_t>& errorPos
             cerr << " ";
         }
     }
-    cerr << endl;
+    cerr << '\n';
 }
 
-void Interpreter::splitPipeLine(const string& input,vector<string>& pipeCommand) {
+void Interpreter::splitPipeLine(const string& input,vector<string>& pipeCommand) 
+{
     stringstream ss(input);
     string segment;
     while (getline(ss, segment, '|')) {
@@ -115,6 +123,7 @@ void Interpreter::splitPipeLine(const string& input,vector<string>& pipeCommand)
     }
 }
 
-char& Interpreter::getSymbol() {
+char& Interpreter::getSymbol() 
+{
     return this->symbol;
 }

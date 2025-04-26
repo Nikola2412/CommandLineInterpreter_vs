@@ -1,6 +1,7 @@
 #include "TimeDate.h"
 
-tm TimeDate::getTime(const string& arg) {
+tm TimeDate::getTime(const string& arg) 
+{
     this->SetOutput(arg);
 
     time_t now = time(0);
@@ -11,7 +12,8 @@ tm TimeDate::getTime(const string& arg) {
 }
 
 
-void Time::Execute(const string& params) {
+void Time::Execute(const string& params) 
+{
     tm local_time = getTime(params);
 
     strftime(buffer, sizeof(buffer), "%H:%M:%S", &local_time);
@@ -25,7 +27,8 @@ void Time::Helper()
     h.TimeHelper();
 }
 
-void Date::Execute(const string& params) {
+void Date::Execute(const string& params) 
+{
     tm local_time = getTime(params);
 
     strftime(buffer, sizeof(buffer), "%d.%m.%Y", &local_time);

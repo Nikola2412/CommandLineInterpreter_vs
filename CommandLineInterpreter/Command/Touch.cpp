@@ -1,10 +1,11 @@
 #include "Touch.h"
 
-void Touch::Execute(const string& params) {
+void Touch::Execute(const string& params) 
+{
     ifstream file(params);
 
     if (file.is_open()) {
-        cerr << "Error - file \"" << params << "\" exist" << endl;
+        cerr << "Error - file \"" << params << "\" exist" << '\n';
         file.close(); // Close the file
     }
     else {

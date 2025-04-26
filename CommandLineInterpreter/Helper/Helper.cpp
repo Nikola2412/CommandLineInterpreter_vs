@@ -2,17 +2,17 @@
 
 void CommandHelper::newLine()
 {
-	cout << endl;
+	cout << '\n';
 }
 
 void CommandHelper::print(const string& s)
 {
-	cout << s << endl;
+	cout << s << '\n';
 }
 
 void CommandHelper::printOPT(const string& s, const string& k)
 {
-	cout << "	" << s << "	" << k << endl;
+	cout << "	" << s << "	" << k << '\n';
 }
 
 void CommandHelper::BasicHelper()

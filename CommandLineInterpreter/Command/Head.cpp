@@ -4,7 +4,8 @@
 #include <sstream>
 
 
-void Head::Execute(const string& params) {
+void Head::Execute(const string& params) 
+{
     regex rgx("-n(\\d{1,5})\\s?(.*)");
 
     smatch matches;
@@ -37,7 +38,7 @@ void Head::Execute(const string& params) {
         }
     }
     else {
-        cout << "Error" << endl;
+        cout << "Error" << '\n';
     }
 }
 

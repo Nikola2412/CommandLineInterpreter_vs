@@ -1,14 +1,16 @@
 #include "WCCommand.h"
 
 
-WCCommand::WCCommand() {
+WCCommand::WCCommand() 
+{
 	counters["-w"] = make_unique<WordCounter>();
 	counters["-c"] = make_unique<CharCounter>();
 }
 
 
 
-void WCCommand::Execute(const string& params) {
+void WCCommand::Execute(const string& params) 
+{
 	string opt;
 	if (!check(params, opt)) return;
 	string s = "";
@@ -29,7 +31,8 @@ void WCCommand::Helper()
 	h.WCHelper();
 }
 
-bool WCCommand::check(const string& params, string& opt) {
+bool WCCommand::check(const string& params, string& opt) 
+{
 	if (params.size() < 2) {
 		this->Error("Option error");
 		return 0;
